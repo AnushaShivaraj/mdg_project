@@ -1,0 +1,45 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="mdg.Org_Chart.controller.master"
+	xmlns:html="http://www.w3.org/1999/xhtml" 	xmlns:semantic="sap.f.semantic">
+	<semantic:SemanticPage id="masterPage"  preserveHeaderStateOnScroll="true" toggleHeaderOnTitleClick="false" showFooter="false"
+		class="hideSemanticPage">
+		<semantic:titleHeading>
+			<Title id="masterPageTitle" text="Programs"/>
+		</semantic:titleHeading>
+		<semantic:content>
+			<List id="list" width="auto" class="sapFDynamicPageAlignContent" items="{path:'/data/'}" busyIndicatorDelay="{masterView>/delay}"
+				noDataText="{masterView>/noDataText}" growingThreshold="20" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+				growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
+				<headerToolbar>
+					<OverflowToolbar>
+						<SearchField id="searchField" showRefreshButton="true" tooltip="{i18n>masterSearchTooltip}" liveChange="onSearch" search="onSearch"
+							width="auto">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="150px" maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+						<ToolbarSpacer/>
+						<Button id="sortButton" tooltip="{i18n>Sort}" press="onOpenViewSettings" icon="sap-icon://sort" type="Transparent"/>
+						<Button id="filterButton" press="onOpenViewSettings" icon="sap-icon://filter" type="Transparent"/>
+						<!--<Button id="settingsButton" press="handleViewSettings" icon="sap-icon://action-settings" type="Transparent"/>-->
+					</OverflowToolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem number="{='PRG100000' + ${id}}" type="Navigation" press="onSelectionChange" title="{attributes/name}">
+						<firstStatus>
+							<ObjectStatus text="{attributes/status}" />
+						</firstStatus>
+						<!--<secondStatus>-->
+						<!--		<ObjectStatus text="{Status}" state="{path:'Status',formatter:'.formatter.getStatus'}"/>-->
+						<!--</secondStatus>-->
+						<attributes>
+							<ObjectAttribute text="{attributes/startDate}"/>
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</semantic:content>
+		<!--<semantic:footerCustomActions>-->
+		<!--	<Button id="addProgramId" text="{i18n>AddProgram}" icon="sap-icon://add" type="Emphasized" visible="true" iconFirst="true" press="_onAddProject"/>-->
+		<!--</semantic:footerCustomActions>-->
+	</semantic:SemanticPage>
+</mvc:View>

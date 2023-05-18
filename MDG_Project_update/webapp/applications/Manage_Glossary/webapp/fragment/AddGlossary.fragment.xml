@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>AddGlossary}" contentWidth="30%" class="sapUiSizeCompact" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleAddGlossaryCancel"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Add}" id="addButtonId" press="handleAddGlossary"/>
+		</beginButton>
+		<SegmentedButton width="100%" accessibleName="Select a map type" selectionChange="handleSelectionChange">
+			<items>
+				<SegmentedButtonItem icon="sap-icon://create" text="Create Record"></SegmentedButtonItem>
+				<SegmentedButtonItem icon="sap-icon://upload" text="Bulk Upload"></SegmentedButtonItem>
+			</items>
+		</SegmentedButton>
+		<f:SimpleForm id="createRecord" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3"
+			labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label required="true" text="{i18n>Terminology}"/>
+				<Input value="{/terminology}"/>
+				<Label text="{i18n>Classification}"/>
+				<Input value="{/classification}"/>
+				<Label required="false" text="{i18n>Abbreviation}"/>
+				<Input value="{/abbrevation}"/>
+				<Label required="false" text="{i18n>Universal Definition}"/>
+				<TextArea value="{/definition}"/>
+				<Label required="false" text="{i18n>Business Definition}"/>
+				<TextArea value="{/businessDef}"/>
+				<Label required="false" text="{i18n>Technical Definition}"/>
+				<TextArea value="{/techDef}"/>
+				<Label required="false" text="{i18n>Financial Definition}"/>
+				<TextArea value="{/financeDef}"/>
+				<Label required="false" text="{i18n>Char}"/>
+				<Input value="{/char}"/>
+				<Label required="false" text="{i18n>Source}"/>
+				<Input value="{/source}"/>
+				<!--<Label required="true" visible="false" text="{i18n>status}"/>-->
+				<!--<Input value="{/Status}" visible="false"/>-->
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm id="fileUploaderSimpleform" visible="false" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+			labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm" title="Upload Glossary Details">
+			<f:content>
+				<MessageStrip
+					text="Please ensure that the column names in your Excel file match the column names of the Glossary Table. This is necessary for the data to be mapped correctly during the upload process."
+					showIcon="true" showCloseButton="true"></MessageStrip>
+				<Label text="File Name" id="fileLabel" visible="false"/>
+				<VBox>
+					<u:FileUploader visible="false" id="fileUploader" width="100%" change="onUpload" placeholder="Choose a Excel file" fileType="XLSX"
+						style="Emphasized"/>
+					<Button visible="false" id="fileUploadButton" text="Upload File" press="uploadUsers"/>
+				</VBox>
+			</f:content>
+		</f:SimpleForm>
+		<!--<l:VerticalLayout class="file-u">-->
+		<!--	<u:FileUploader visible="false" id="fileUploader" sameFilenameAllowed="true" iconOnly="false" buttonOnly="false" fileType="XLSX,xlsx"-->
+		<!--		icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="handleFileUpload"/>-->
+		<!--	<Button visible="false" id="fileUploadButton" text="Upload File" press="handleUploadPress"/>-->
+		<!--</l:VerticalLayout>-->
+	</Dialog>
+</core:FragmentDefinition>

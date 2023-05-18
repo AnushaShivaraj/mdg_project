@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>CreatenewAssessmentTemplate}" contentWidth="100%" class="templateSelectionHeaderClass">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleCreateTemplateCancelPress" tooltip="{i18n>Cancel}"/>
+		</endButton>
+		<l:BlockLayout background="Default">
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell backgroundColorSet="ColorSet11" backgroundColorShade="ShadeB" width="4">
+					<VBox>
+						<HBox justifyContent="SpaceBetween">
+							<VBox>
+								<Title text="{i18n>CreateaNewAssessmentTemplate}" titleStyle="H2" class="sapUiTinyMarginBottom"/>
+							</VBox>
+						</HBox>
+						<HBox>
+							<!--	<GenericTile backgroundImage="images/formNew.png" press="press">-->
+							<!--	<TileContent footer="August 21, 2016">-->
+							<!--	</TileContent>-->
+							<!--</GenericTile>-->
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>StartaNewForm}"
+								tooltip="{i18n>StartaNewForm}" press="handleCreateTemplateTilePress">
+								<TileContent>
+									<ImageContent src="sap-icon://form"/>
+								</TileContent>
+							</GenericTile>
+						</HBox>
+					</VBox>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell backgroundColorSet="ColorSet6" backgroundColorShade="ShadeD" width="4">
+					<VBox>
+						<HBox justifyContent="SpaceBetween">
+							<VBox>
+								<Title text="{i18n>SelectfromtheTemplates}" titleStyle="H2" class="sapUiTinyMarginBottom darkTheme"/>
+							</VBox>
+						</HBox>
+						<HBox items="{templates>/}" justifyContent="Start" wrap="Wrap">
+							<GenericTile size="S" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{templates>attributes/name}"
+								press="onAssessmentTemplatePress">
+								<TileContent>
+									<ImageContent src="sap-icon://form"/>
+								</TileContent>
+								<!--<TileContent unit="" footer="{path:'templates>To', formatter:'.Formatter.getDate'}"/>-->
+							</GenericTile>
+						</HBox>
+						<!--<HBox items="{templates>/}" justifyContent="Start" visible="true" wrap="Wrap">-->
+						<!--	<GenericTile size="S" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{path:'templates>Factor_Name', formatter:'.Formatter.test'}"-->
+						<!--		press="onTemplateFormPress">-->
+						<!--		<TileContent unit="" footer="{path:'templates>To', formatter:'.Formatter.getDate'}"/>-->
+						<!--		<TileContent unit="" footer="">-->
+						<!--			<ImageContent src="sap-icon://form"/>-->
+						<!--		</TileContent>-->
+						<!--	</GenericTile>-->
+						<!--</HBox>-->
+					</VBox>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+		</l:BlockLayout>
+	</Dialog>
+</core:FragmentDefinition>

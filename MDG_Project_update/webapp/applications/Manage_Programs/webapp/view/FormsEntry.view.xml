@@ -1,0 +1,285 @@
+<mvc:View controllerName="MDG.Program.controller.FormsEntry" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:micro="sap.suite.ui.microchart" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:grid="sap.ui.layout.cssgrid">
+	<Page id="oPage" title="{i18nModel>DocumentCreationWizard}" showNavButton="true" navButtonPress="onNavBack" enableScrolling="true">
+		<l:BlockLayout id="BlockLayout" background="Default">
+			<l:BlockLayoutRow id="headerId">
+				<l:BlockLayoutCell class="" backgroundColorSet="ColorSet6" backgroundColorShade="ShadeC" width="3rem">
+					<FlexBox fitContainer="true" alignItems="Start" justifyContent="Start" height="4rem">
+						<VBox width="10rem" justifyContent="Start" class="sapUiSmallMarginEnd">
+							<Label text="{i18nModel>Title}:" class="darkTheme"/>
+							<Text class=" darkTheme" text="{ProgramModel>/formTemDetails/attributes/name}" id="titleId"/>
+						</VBox>
+						<VBox width="10rem" justifyContent="Start" class="sapUiSmallMarginEnd">
+							<Label text="{i18nModel>Description}:" class="darkTheme"/>
+							<Text text="{ProgramModel>/formTemDetails/attributes/description}" class="darkTheme" id="descId"/>
+						</VBox>
+						<VBox width="21rem" justifyContent="Start" class="sapUiSmallMarginEnd">
+							<Label id="labelEquipType" text="{i18nModel>Category}:" class="darkTheme" visible="true"/>
+							<Text text="{ProgramModel>/formTemDetails/attributes/m_form_type/data/attributes/type}" id="indusId" class="darkTheme" visible="true"/>
+						</VBox>
+						<VBox width="10rem" justifyContent="Start" class="sapUiTinyMarginEnd">
+							<Label text="{i18nModel>meetingLink}:" class="darkTheme" visible="true"/>
+							<Input value="" id="linkd" class="darkTheme" visible="true"/>
+						</VBox>
+					</FlexBox>
+					<FlexBox wrap="NoWrap" fitContainer="true" alignItems="Start" justifyContent="Start">
+						<VBox width="10rem" justifyContent="Start" class="sapUiSmallMarginEnd">
+							<Label id="labelProgram" text="{i18nModel>programName}:" class="darkTheme" visible="true"/>
+							<Text text="{ProgramModel>/ProgramDetails/attributes/m_program/data/attributes/name}" id="progId" class="darkTheme" visible="true"/>
+						</VBox>
+						<VBox width="10rem" justifyContent="Start" class="sapUiSmallMarginEnd">
+							<Label id="labelProject" text="{i18nModel>projectName}:" class="darkTheme" visible="true"/>
+							<Text text="{ProgramModel>/ProgramDetails/attributes/name}" id="projId" class="darkTheme" visible="true"/>
+						</VBox>
+						<VBox width="10rem" justifyContent="Start" class="sapUiSmallMarginEnd">
+							<Label id="labelArea" text="{i18nModel>Area}:" class="darkTheme" visible="true"/>
+							<Input value="" id="areaID" class="darkTheme" visible="true"/>
+						</VBox>
+						<VBox width="10rem" justifyContent="Start" class="sapUiSmallMarginEnd">
+							<Label text="{i18nModel>meetingLocation}:" class="darkTheme" visible="true"/>
+							<Input value="" id="locID" class="darkTheme" visible="true"/>
+						</VBox>
+						<VBox width="10rem" justifyContent="Start" class="sapUiTinyMarginEnd">
+							<Label id="labelResponsible" text="{i18nModel>meetingResponsible}:" class="darkTheme" visible="true"/>
+							<Input value="" id="responsibleID" class="darkTheme" visible="true"/>
+						</VBox>
+					</FlexBox>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell class="" visible="{= !${device>/system/phone}}" backgroundColorSet="ColorSet6" backgroundColorShade="ShadeC">
+					<l:VerticalLayout >
+						<Image src="image/MDG_Background.jpg" alt="logo" width="20rem" height="9rem" class="NegativeMargin"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell class="sapUiResponsiveContentPadding categoryLayoutCellClass" backgroundColorSet="ColorSet6"
+					backgroundColorShade="ShadeB" id="categoryRow">
+					<Toolbar id="listheader" visible="true" class="noBorderToolbar">
+						<ToolbarSpacer width="1rem"/>
+						<!--<Title text="{i18nModel>AllSections}" class="whiteText" level="H1"/>-->
+						<Button class="allsectionsClass" text="{i18nModel>AllSections}" type="Transparent" press="handleAllSectionsPress"/>
+						<ToolbarSpacer width="0.5rem"/>
+					</Toolbar>
+					<l:VerticalLayout width="100%" id="addCategoryLayoutId" class="sapUiSizeCompact categoryVerticalLayoutClass">
+						<List id="sectionListId" itemPress="onSubFactorpress" items="{/}" selectionChange="onSubFactorpress" mode="SingleSelectMaster"
+							delete="handleSubSectionDelete">
+							<StandardListItem title="{subFactName}"/>
+						</List>
+					</l:VerticalLayout>
+					<Toolbar id="listfooter" class="noBorderToolbar" visible="false">
+						<ToolbarSpacer width="10rem"/>
+						<Button iconFirst="false" text="{i18nModel>Save}" class="categoryButtonPress" press="onSaveSubSectionpress" visible="true"
+							type="Transparent"/>
+						<Button iconFirst="false" text="{i18nModel>Cancel}" class="categoryButtonPress" press="onCancelSubSectionpress" visible="true"
+							type="Transparent"/>
+					</Toolbar>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell width="2" visible="{= !${device>/system/phone}}" class="sapUiResponsiveContentPadding customCellClass"
+					backgroundColorSet="ColorSet11" backgroundColorShade="ShadeA" id="questionBlock">
+					<Bar class="questionAreaBarClass">
+						<contentLeft >
+							<Button icon="sap-icon://navigation-left-arrow" type="Transparent" press="openCloseHeaderForCategory" class="sapUiSizeCompact"
+								visible="{device>/system/phone}"/>
+						</contentLeft>
+					</Bar>
+					<l:VerticalLayout class="breadLayoutClass" width="100%">
+						<l:content>
+							<Title text="{i18nModel>Sections}" id="breadCrumbsId" level="H3"/>
+						</l:content>
+					</l:VerticalLayout>
+					<ScrollContainer id="questionArea" horizontal="false" vertical="true" class="scrollclass">
+						<List id="questionPanel" items="{path:'/', sorter:{path:'subFactName', group:true}}">
+							<CustomListItem>
+								<Panel id="panelid" expandable="false" expanded="false" width="auto" class="sapUiResponsiveMargin">
+									<headerToolbar>
+										<Toolbar height="3rem" style="Clear">
+											<Text text="{Question_No}"/>
+											<Text text="{Question}" width="100%" class="textAreaBorder"/>
+										</Toolbar>
+									</headerToolbar>
+									<VBox alignContent="Center" alignItems="Center" items="{path: 'Options/', templateShareable: false }"
+										visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForSingChoi'}">
+										<items>
+											<HBox>
+												<RadioButton select="onSelectRadio" selected="{=${weight} === '' ? false : ${weight}}"/>
+												<Text text="{option}" width="20rem" class="inputOptionClass sapUiTinyMarginTop"></Text>
+											</HBox>
+										</items>
+									</VBox>
+									<VBox alignContent="Center" alignItems="Center" items="{path: 'Options/', templateShareable: false }"
+										visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForMultiChoi'}">
+										<items>
+											<HBox>
+												<CheckBox select="onSelectCheckBox" selected="{=${weight} === '' ? false : ${weight}}"/>
+												<Text text="{option}" width="20rem" class="inputOptionClass"></Text>
+											</HBox>
+										</items>
+									</VBox>
+									<TextArea id="id15" placeholder="{i18nModel>answer}" value="{Options/0/option/}" liveChange="onTextAreaChange" rows="2" width="80%"
+										class="sapUiLargeMarginBegin" visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForPara'}"/>
+									<VBox alignContent="Start" alignItems="Start" items="{path: 'Options/', templateShareable: false }"
+										visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForDateSelect'}">
+										<items>
+											<HBox>
+												<DatePicker width="150%" class="sapUiLargeMarginBegin sapUiTinyMarginBottom" change="onDateSelect" placeholder="{i18nModel>EnterDate}"
+													displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" id="startDateId1" value="{option}"/>
+											</HBox>
+										</items>
+									</VBox>
+								</Panel>
+							</CustomListItem>
+						</List>
+					</ScrollContainer>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+		</l:BlockLayout>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button class="Export" id="downloadButtonIDCustomers" icon="sap-icon://download" text="Download" tooltip="{i18n>Download}"
+						press="onExportDoc" type="Emphasized" iconFirst="true" visible="true"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+	<!--<content>-->
+	<VBox id="vBxReport" class="sapUiSmallMarginBeginEnd">
+		<VBox width="100%" class="blackBorder">
+			<HBox justifyContent="SpaceBetween" class="sapUiSmallMarginBegin">
+				<VBox>
+					<f:SimpleForm maxContainerCols="2" editable="false" layout="ColumnLayout" columnsL="2" columnsM="2" columnsXL="2">
+						<f:content>
+							<Label text="{i18nModel>Title}"/>
+							<Text class="" text="{ProgramModel>/formTemDetails/attributes/name}"/>
+							<Label text="{i18nModel>Description}"/>
+							<Text class="" text="{ProgramModel>/formTemDetails/attributes/description}"/>
+							<!--<Label text="{i18nModel>Category}" />-->
+							<!--<Text text="{/formType}"/>-->
+							<Label text="{i18nModel>programName}"/>
+							<Text text="{ProgramModel>/ProgramDetails/attributes/m_program/data/attributes/name}"/>
+							<Label text="{i18nModel>projectName}"/>
+							<Text text="{ProgramModel>/ProgramDetails/attributes/name}"/>
+							<Label text="{i18nModel>Category}"/>
+							<Text text="{ProgramModel>/formTemDetails/attributes/m_form_type/data/attributes/type}"/>
+							<Label text="{i18nModel>meetingLink}" class="darkTheme" visible="true"/>
+							<!--<Input value="" id="linkd" class="darkTheme" visible="true"/>-->
+							<Text id="meetingLink" text=""/>
+							<Label id="labelArea1" text="{i18nModel>Area}" class="darkTheme" visible="true"/>
+							<!--<Input value="" id="areaID1" class="darkTheme" visible="true"/>-->
+							<Text id="Area" text=""/>
+							<Label text="{i18nModel>meetingLocation}" class="darkTheme" visible="true"/>
+							<!--<Input value="" id="locID1" class="darkTheme" visible="true"/>-->
+							<Text id="meetingLocation" text=""/>
+							<Label id="labelResponsible1" text="{i18nModel>meetingResponsible}" class="darkTheme" visible="true"/>
+							<!--<Input value="" id="responsibleID1" class="darkTheme" visible="true"/>-->
+							<Text id="meetingResponsile" text=""/>
+						</f:content>
+					</f:SimpleForm>
+				</VBox>
+				<Image src="image/MDG_Background.jpg" alt="logo" width="11rem" height="6rem" class="sapUiSmallMarginTop"/>
+			</HBox>
+		</VBox>
+		<VBox id="subsectionsID" items="{path: '/'}" class="blackBorder sapUiTinyMarginBottom">
+			<VBox width="100%" class="sapUiSmallMarginBegin">
+				<Text text="SubSection: {subFactName}" class="sapUiTinyMarginTopBottom boldAndUnderlineText"/>
+			</VBox>
+			<VBox class="blackThickBorder">
+				<grid:CSSGrid gridTemplateColumns="1fr 1fr" gridRowGap="0.5rem" class="sapUiSmallMarginBegin sapUiTinyMarginTopBottom">
+					<grid:items>
+						<HBox>
+							<Label text="Test Test" class="sapUiTinyMarginEnd"/>
+						</HBox>
+					</grid:items>
+				</grid:CSSGrid>
+			</VBox>
+			<VBox width="100%" class="topBorderBlack">
+				<Text text="Bold unsderLine Test" class="sapUiTinyMarginTopBottom boldAndUnderlineText"/>
+			</VBox>
+			<VBox>
+				<VBox width="100%" class="sapUiSmallMarginBegin">
+					<Text text="Section Name: {subFactName}" class="sapUiTinyMarginTopBottom boldAndUnderlineText"/>
+				</VBox>
+				<List id="questionPanel1" items="{path:'/', sorter:{path:'subFactName', group:true}}">
+					<CustomListItem>
+						<Panel id="panelid1" expandable="false" expanded="false" width="auto" class="sapUiResponsiveMargin">
+							<headerToolbar>
+								<Toolbar height="3rem" style="Clear">
+									<Text text="{Question_No}"/>
+									<Text text="{Question}" width="100%" class="textAreaBorder"/>
+								</Toolbar>
+							</headerToolbar>
+							<FlexBox justifyContent="Start">
+								<Text text="Answer: " class="sapUISmallMarginEnd"/>
+								<VBox alignContent="Start" alignItems="Start" items="{path: 'Options/', templateShareable: false }"
+									visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForSingChoi'}">
+									<items>
+										<HBox>
+											<!--<RadioButton select="onSelectRadio" selected="{=${weight} === '' ? false : ${weight}}"/>-->
+											<Text xmlns="sap.m" text="{= ${weight} === true ? ${option} : '' }" width="20rem"/>
+										</HBox>
+									</items>
+								</VBox>
+								<VBox alignContent="Start" alignItems="Start" items="{path: 'Options/', templateShareable: false }"
+									visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForMultiChoi'}">
+									<items>
+										<HBox>
+											<!--<CheckBox select="onSelectCheckBox" selected="{=${weight} === '' ? false : ${weight}}"/>-->
+											<Text text="{= ${weight} === true ? ${option} : '' }" width="20rem"></Text>
+										</HBox>
+									</items>
+								</VBox>
+								<VBox alignContent="Start" alignItems="Start" visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForPara'}">
+									<Text text="{Options/0/option/}"></Text>
+								</VBox>
+								<!--<TextArea id="id16" placeholder="{i18nModel>answer}" value="{Options/0/option/}" liveChange="onTextAreaChange" rows="2" width="80%"-->
+								<!--	class="sapUiLargeMarginBegin" visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForPara'}"/>-->
+								<VBox alignContent="Start" alignItems="Start" items="{path: 'Options/', templateShareable: false }"
+									visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForDateSelect'}">
+									<items>
+										<HBox>
+											<Text text="{option}"></Text>
+											<!--<DatePicker width="150%" class="sapUiLargeMarginBegin sapUiTinyMarginBottom" change="onDateSelect" placeholder="{i18nModel>EnterDate}"-->
+											<!--	displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" id="startDateId2" value="{option}"/>-->
+										</HBox>
+									</items>
+								</VBox>
+							</FlexBox>
+						</Panel>
+					</CustomListItem>
+				</List>
+				<!--<List id="questionPanel1" items="{path:'/'}" inset="false">-->
+				<!--	<CustomListItem>-->
+				<!--		<Panel id="panelid1" expandable="false" expanded="false" width="auto" class="sapUiResponsiveMargin">-->
+				<!--			<headerToolbar>-->
+				<!--				<Toolbar height="3rem" style="Clear">-->
+				<!--					<Text text="{Question_No}"/>-->
+				<!--					<Text text="{Question}" class="marginLeftForText"/>-->
+				<!--class="boldOnlyText"-->
+				<!--				</Toolbar>-->
+				<!--			</headerToolbar>-->
+				<!--			<VBox class="marginForAns">-->
+				<!--				<items>-->
+				<!--					<HBox>-->
+				<!--						<Text text="Answer: "/>-->
+				<!--						<Text text="{Options/0/option}" class="marginLeftForText"/>-->
+				<!--<Text text="{pdfModel>answer}" class="marginForAnsText"-->
+				<!--	visible="{path:'pdfModel>QuestionType',formatter:'.formatter.getTypeofQuestionForTextSinglePara'}" />-->
+				<!--						<VBox items="{path: 'Options/', templateShareable: false }"-->
+				<!--							visible="{path:'QuestionType',formatter:'.formatter.getTypeofQuestionForMultiChoi'}">-->
+				<!--							<HBox>-->
+				<!--								<core:Icon src="sap-icon://circle-task-2" color="#031E48" class="marginForIconTexts"></core:Icon>-->
+				<!--								<Text text="{option}" class="marginForMultipleAnsText"/>-->
+				<!--							</HBox>-->
+				<!--						</VBox>-->
+				<!--					</HBox>-->
+				<!--				</items>-->
+				<!--			</VBox>-->
+				<!--		</Panel>-->
+				<!--	</CustomListItem>-->
+				<!--</List>-->
+			</VBox>
+		</VBox>
+	</VBox>
+	<!--</content>-->
+</mvc:View>

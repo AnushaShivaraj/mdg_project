@@ -1,0 +1,328 @@
+ {
+
+	"ReqByStatus": [{
+		"statusText1": "Program 1",
+		"statusText": "New",
+		"NoOfReq": 10
+		
+	}, {
+			"statusText1": "Program 2",
+		"statusText": "In Progress",
+		"NoOfReq": 5
+	}],
+	"StatusFlow": [{
+		"statusText": "New",
+		"NoOfReq": 4
+	}, {
+		"statusText": "In Progess",
+		"NoOfReq": 5
+	}, {
+		"statusText": "Closed",
+		"NoOfReq": 8
+	}, {
+		"statusText": "Approved",
+		"NoOfReq": 6
+	}, {
+		"statusText": "Rejected",
+		"NoOfReq": 5
+	}, {
+		"statusText": "Delayed",
+		"NoOfReq": 3
+	}],
+	"EquipmentStatus":[{
+		"statusText": "Customer 1",
+		"NoOfReq": 30
+	}],
+	"ReqCompCode": [{
+		"CompanyCode_Name": "1000",
+		"NoOfReq": 10
+	}, {
+		"CompanyCode_Name": "1010",
+		"NoOfReq": 21
+	}, {
+		"CompanyCode_Name": "1015",
+		"NoOfReq": 5
+	}, {
+		"CompanyCode_Name": "1020",
+		"NoOfReq": 2
+	}, {
+		"CompanyCode_Name": "1021",
+		"NoOfReq": 18
+	}, {
+		"CompanyCode_Name": "1030",
+		"NoOfReq": 20
+	}, {
+		"CompanyCode_Name": "1035",
+		"NoOfReq": 10
+	}],
+	"ReqByQuarter": [{
+		"QUARTER": "2019-Q1",
+		"Requests": 56
+	}, {
+		"QUARTER": "2019-Q2",
+		"Requests": 34
+	}, {
+		"QUARTER": "2019-Q3",
+		"Requests": 78
+	}],
+	"requestType": [{
+		"reqType": "Material Vendor",
+		"count": 21
+	}, {
+		"reqType": "Service Vendor",
+		"count": 10
+	}, {
+		"reqType": "FI Vendor",
+		"count": 8
+	}, {
+		"reqType": "Employee Vendor",
+		"count": 5
+	}],
+	"Status": [{
+		"statusText": "New",
+		"statusCode": "Program1",
+		"AuthKeys": "Z_REQ_01"
+	}, {
+		"statusText": "In Progress",
+	
+		"AuthKeys": "Z_REQ_03"
+	}, {
+		"statusText": "Delayed",
+		"statusCode": "Program 2",
+		"AuthKeys": "Z_REQ_04",
+		"statusActionReqd": true
+	}, {
+		"statusText": "Rejected",
+	
+		"AuthKeys": "Z_REQ_02"
+	}, {
+		"statusText": "Approved",
+	
+		"AuthKeys": "Z_REQ_09"
+	}, {
+		"statusText": "Completed",
+	
+		"AuthKeys": "Z_REQ_11"
+	}],
+		"customers": [{
+			"id": "Program 1",
+
+			"info": {
+			"statusText": "New",
+		"NoOfReq": 10
+					}
+	}],
+		
+	"QUARTER_RANGE": [{
+		"QUARTER": "2019-Q1",
+		"Count": "15"
+	}, {
+		"QUARTER": "2019-Q2",
+		"Count": "7"
+	}, {
+		"QUARTER": "2019-Q3",
+		"Count": "3"
+	}],
+	"CompanyCode": [{
+		"CompanyCode_Name": "1000",
+		"PartnerFct": "ZCOM010",
+		"CompanyName": "Customer 2",
+		"Count": "20"
+	}, {
+		"CompanyCode_Name": "1010",
+		"PartnerFct": "ZCOM010",
+		"CompanyName": "Globex",
+		"Count": "12"
+	}, {
+		"CompanyCode_Name": "1015",
+		"PartnerFct": "ZCOM010",
+		"CompanyName": "Test Org1",
+		"Count": "2"
+	}, {
+		"CompanyCode_Name": "1020",
+		"PartnerFct": "ZCOM010",
+		"CompanyName": "Test Org2",
+		"Count": "1"
+	}],
+	"Cost": [{
+		"costType": "Low",
+		"totalCost": 10
+	}, {
+		"costType": "Medium",
+		"totalCost": 15
+	}, {
+		"costType": "High",
+		"totalCost": 25
+	}],
+	"Months": [{
+		"month": "Jan",
+		"noOfProjects": "3"
+	}, {
+		"month": "Feb",
+		"noOfProjects": "6"
+	}, {
+		"month": "Mar",
+		"noOfProjects": "2"
+	}, {
+		"month": "Apr",
+		"noOfProjects": "1"
+	}, {
+		"month": "May",
+		"noOfProjects": "6"
+	}, {
+		"month": "Jun",
+		"noOfProjects": "2"
+	}, {
+		"month": "Jul",
+		"noOfProjects": "5"
+	}, {
+		"month": "Aug",
+		"noOfProjects": "3"
+	}, {
+		"month": "Sep",
+		"noOfProjects": "4"
+	}, {
+		"month": "Oct",
+		"noOfProjects": "3"
+	}, {
+		"month": "Nov",
+		"noOfProjects": "2"
+	}, {
+		"month": "Dec",
+		"noOfProjects": "1"
+	}],
+	"Notifs": [{
+		"Notif": "Closed",
+		"NotifsCount": 10
+	}, {
+		"Notif": "In Process",
+		"NotifsCount": 5
+	}],
+	"Type": [{
+		"Type": "Mechanical Breakdown",
+		"Count": 20
+	}, {
+		"Type": "Electrical Breakdown",
+		"Count": 12
+	}, {
+		"Type": "Tooling Breakdown",
+		"Count": 2
+	}, {
+		"Type": "Utility Breakdown",
+		"Count": 1
+	}],
+	"drillDown": [{
+	
+		"name": "test project1",
+		"description": "test Project",
+		"organisation_id": "ORG30",
+		"status": "In Progress",
+		"days": "41",
+		"Customer_info": [{
+			"info": {
+				"name": "Customer 1"
+			}
+		}]
+	}, {
+		"name": "test project 2",
+		"description": "Demo",
+		"organisation_id": "ORG30",
+		"status": "In Progress",
+		"days": "20",
+		"Customer_info": [{
+			"info": {
+				"name": "Customer 2"
+			}
+		}]
+	}, {
+		"name": "test project 3",
+		"description": "BDC Test 408",
+		"organisation_id": "ORG30",
+		"status": "New",
+		"days": "35",
+		"Customer_info": [{
+			"info": {
+				"name": "Customer 3"
+			}
+		}]
+	}],
+	"ProcessFlowSet": {
+		"lanes": [{
+			"id": "000000",
+			"icon": "sap-icon://request",
+			"label": "Request Created",
+			"position": 0
+		}, {
+			"id": "00000",
+			"icon": "sap-icon://approvals",
+			"label": "Purchase Team",
+			"position": 1
+		}, {
+			"id": "0000",
+			"icon": "sap-icon://edit",
+			"label": "Suply Chain -Head",
+			"position": 2
+		}, {
+			"id": "000",
+			"icon": "sap-icon://approvals",
+			"label": "Finance - Head",
+			"position": 3
+		}],
+		"nodes": [{
+			"id": "1001",
+			"lane": "000000",
+			"NoOfDays": "0 day",
+			"title": "REQUESTOR",
+			"titleAbbreviation": "Created",
+			"children": [1002],
+			"state": "Positive",
+			"focused": true,
+			"stateText": "Created by Pramodh",
+			"highlighted": true,
+			"Requested Date": "12-01-21",
+			"Requestor Userid": "57565",
+			"texts": ["Requested Date : 12-01-21", "Requestor Userid: 57565"]
+		}, {
+			"id": "1002",
+			"lane": "00000",
+			"NoOfDays": "2 days",
+			"title": "2 days",
+			"titleAbbreviation": "Approved",
+			"children": [101],
+			"stateText": "Approved by Mark",
+			"focused": true,
+			"state": "Positive",
+			"highlighted": true,
+			"Requested Date": "14-01-21",
+			"Requestor Userid": "78565",
+			"texts": ["Approved Date : 14-01-21", "Approver Userid: 78565"]
+		}, {
+			"id": "101",
+			"lane": "0000",
+			"NoOfDays": "1 day",
+			"title": "1 day",
+			"titleAbbreviation": "Approved",
+			"children": [1021],
+			"state": "Positive",
+			"focused": true,
+			"stateText": "Approved by Melson",
+			"highlighted": true,
+			"Requested Date": "15-01-21",
+			"Requestor Userid": "754665",
+			"texts": ["Approved Date : 15-01-21", "Approver Userid: 754665"]
+		}, {
+			"id": "1021",
+			"lane": "000",
+			"NoOfDays": "1 day",
+			"title": "1 day",
+			"titleAbbreviation": "Id - SA5634P",
+			"state": "Positive",
+			"focused": true,
+			"stateText": "Approved by Praveen",
+			"highlighted": true,
+			"Requested Date": "16-01-21",
+			"Requestor Userid": "978565",
+			"texts": ["Approved Date : 16-01-21", "Approver Userid: 978565"]
+		}]
+	}
+}

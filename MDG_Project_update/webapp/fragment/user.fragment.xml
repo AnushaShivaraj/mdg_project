@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>usersettings}"  contentWidth="30rem" draggable="true">
+		<content>
+			<VBox alignItems="Center" class="sapUiSmallMargin">
+				<VBox width="90%">
+					<Label text="{i18n>email}:" required="true"/>
+					<Input type="Email" editable="false" placeholder="{i18n>email}" tooltip="{i18n>emailTooltip}" liveChange="hideErrMsgs"
+						class="sapUiSmallMarginBottom"/>
+					<Label text="{i18n>password}:" required="true"/>
+					<Input type="Password" placeholder="{i18n>password}" tooltip="{i18n>passwordTooltip}" liveChange="hideErrMsgs"/>
+				</VBox>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="{i18n>Submit}" tooltip="{i18n>Submit}" press="ChangePassword"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" tooltip="{i18n>Cancel}" press="CancelPasswordChange"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

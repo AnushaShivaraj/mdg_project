@@ -1,0 +1,427 @@
+[{
+	"Count": 0,
+	"template_ID": "Temp372198",
+	"Status": "Published",
+	"factor_name": "Test Template",
+	"From": "01-07-2022",
+	"To": "01-12-2022",
+	"formType": "QGI – Questionnaire General Information",
+	"description": "Test",
+	"ProgramsName": "ERP Transformation",
+	"projectname": " Internal (Customers)",
+	"subfactors": [{
+		"id": 3237,
+		"catName": "Personal Info"
+	}, {
+		"id": 5333,
+		"catName": "Contact Info"
+	}, {
+		"id": 5336,
+		"catName": "General Governance Information"
+	}, {
+		"id": 5337,
+		"catName": "General Data Information"
+	}, {
+		"id": 5338,
+		"catName": "General Knowledge Transfer Information"
+	}, {
+		"id": 5398,
+		"catName": "General Support Information"
+	}],
+	"questions": [{
+		"Question_No": 1,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 3237,
+		"subFactName": "Personal Info",
+		"Question": "whats is your title?",
+		"Options": [{
+			"option": "Mr",
+			"weight": ""
+		}, {
+			"option": "Mrs",
+			"weight": ""
+		}, {
+			"option": "Miss",
+			"weight": ""
+		}, {
+			"option": "Dr",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 2,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 3237,
+		"subFactName": "Personal Info",
+		"Question": "whats is your name?",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 3,
+		"QuestionType": "DateSelection",
+		"Sub_Factor_ID": 3237,
+		"subFactName": "Personal Info",
+		"Question": "what is the date you are completing this questionaire ??",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 4,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 3237,
+		"subFactName": "Personal Info",
+		"Question": "what is your company function?",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 5,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 3237,
+		"subFactName": "Personal Info",
+		"Question": "what is your project function?",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 1,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5333,
+		"subFactName": "Contact Info",
+		"Question": "what is your E-mail ID?",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 2,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5333,
+		"subFactName": "Contact Info",
+		"Question": "What is your contact number?",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 1,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5336,
+		"subFactName": "General Governance Information",
+		"Question": "How would you define or describe your current state of data ?​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 2,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5336,
+		"subFactName": "General Governance Information",
+		"Question": "What are the key pain points ?​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 3,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5336,
+		"subFactName": "General Governance Information",
+		"Question": "What actions or activities do you recommend to enhance the current state of data ?​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 4,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5336,
+		"subFactName": "General Governance Information",
+		"Question": "Can you identify the key data stakeholders in your organization; Data Domain Owner and Lead and Data Object Owner and Lead ?",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 5,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5336,
+		"subFactName": "General Governance Information",
+		"Question": "IIs there a document identifying these persons ?​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 6,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5336,
+		"subFactName": "General Governance Information",
+		"Question": "What is your contact number?Can you identify the key process stakeholder; Data Domain Process Owner and Lead and Data Object Process Owner and Lead ?",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 7,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5336,
+		"subFactName": "General Governance Information",
+		"Question": "Is there a document identifying these persons ?​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 1,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "Can you identify the existing data management / maintenance / life cycle management documents ?​​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 2,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "Are you aware of who are the document owner(s) / team ?​​",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 3,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "Can you identify where are these document stored in a central location and or is there a library of links ? ​",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 4,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Governance Information",
+		"Question": "Is there a document identifying these persons ?​​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 5,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "Are the existing document(s) in the format that is comprehensive by all data users ?",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 6,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "What is the common format of these document;  ppt, doc, xls etc.​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 7,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "Do these documents provide sufficient instruction(s) whether it be for the data manager down to the data end users ?​​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 8,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "Is the content cross-functional ? Common usability across business levels (with the required general technical input)​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 9,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "Are these documents known and accessible by all end users?​",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 10,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5337,
+		"subFactName": "General Data Information",
+		"Question": "Are these documents managed updated and or reviewed on a regular basis ?​",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 1,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5338,
+		"subFactName": "General Knowledge Transfer Information",
+		"Question": "Are regular sessions or communication provided to cascade the information, updates and knowledge transfer ?​​",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 1,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5338,
+		"subFactName": "General Support Information",
+		"Question": "If there is an issue either with a technical concern (access to data or a solution) and or erroneous data whether it be with the format, missing information or data value are you aware of the actions to take, such as who to contact, the format to provide the inquiry or what solution to use to provide the inquiry ?​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 2,
+		"QuestionType": "Single Choice",
+		"Sub_Factor_ID": 5338,
+		"subFactName": "General Support Information",
+		"Question": "In addition, are you aware of the approval process if a corrective action is required ?​​",
+		"Options": [{
+			"option": "Y",
+			"weight": ""
+		}, {
+			"option": "N",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 3,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 5338,
+		"subFactName": "General Support Information",
+		"Question": "In your opinion do you believe the right support mechanism are in place to date for these data objects, business ready, IT to Business support ready ..?​​",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}],
+	"create": "true"
+}, {
+	"factor_name": "Test",
+	"From": "01-14-2022",
+	"To": "01-31-2022",
+	"template_ID": "Temp375810",
+	"description": "Test Desc",
+	"Status": "Draft",
+	"formType": "QGI – Questionnaire General Information",
+	"ProgramsName": "Program Kick Off",
+	"Program_id": "PRG1001",
+	"Project_id": "PRG1001_00101",
+	"projectname": "Program Kick Off",
+	"subfactors": [{
+		"id": 8234,
+		"catName": "cat 1"
+	}, {
+		"id": 1111,
+		"catName": "cat 2"
+	}, {
+		"id": 1779,
+		"catName": "cat 3"
+	}],
+	"questions": [{
+		"Question_No": 1,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 8234,
+		"subFactName": "cat 1",
+		"Question": "cat 1 q1?",
+		"AnswerPara": "cat 1 a1.",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 2,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 8234,
+		"subFactName": "cat 1",
+		"Question": "cat 1 q2?",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}],
+		"AnswerPara": "cat a2."
+	}, {
+		"Question_No": 1,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 1111,
+		"subFactName": "cat 2",
+		"Question": "cat 2 q1?",
+		"AnswerPara": "cat 2 a1.",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}, {
+		"Question_No": 2,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 1111,
+		"subFactName": "cat 2",
+		"Question": "cat 2 q2?",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}],
+		"AnswerPara": "cat 2 a2."
+	}, {
+		"Question_No": 1,
+		"QuestionType": "Paragraph",
+		"Sub_Factor_ID": 1779,
+		"subFactName": "cat 3",
+		"Question": "cat 3 q1?",
+		"AnswerPara": "cat 3 a1.",
+		"Options": [{
+			"option": "",
+			"weight": ""
+		}]
+	}]
+}]

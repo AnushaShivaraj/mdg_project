@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Confirmation" showHeader="true" contentWidth="25%" class="sapUiPopupWithPadding sapUiSizeCompact" titleAlignment="Center">
+		<endButton>
+			<Button text="Cancel" press="handleApproveCancel"/>
+		</endButton>
+		<beginButton>
+			<Button text="Submit" type="Emphasized" press="handleApproveConfirm"/>
+		</beginButton>
+		<content>
+			<f:SimpleForm editable="false" layout="ResponsiveGridLayout" title="">
+				<f:content>
+					<!--<core:Title text=""/>-->
+					<Label text="Do you want to submit this RACI?"/>
+					<Text></Text>
+					<Label text="If Yes, Please Select the Approver" required="true"/>
+					<Select change="handleSelectChange" class="sapUiSmallMarginTop" items="{usersDetails>/}" forceSelection="false" width="60%">
+						<core:Item key="{usersDetails>id} " text="{usersDetails>firstName} "/>
+					</Select>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

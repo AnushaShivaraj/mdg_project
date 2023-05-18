@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>EditGlossary}" contentWidth="30%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleEditGlossaryCancel"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Update}" press="handleEditGlossary"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label required="true" text="{i18n>Terminology}"/>
+				<Input value="{/terminology}"/>
+				<Label text="{i18n>Classification}"/>
+				<Input value="{/classification}"/>
+				<Label required="false" text="{i18n>Abbreviation}"/>
+				<Input value="{/abbrevation}"/>
+				<Label required="false" text="{i18n>Universal Definition}"/>
+				<TextArea value="{/definition}"/>
+				<Label required="false" text="{i18n>Business Definition}"/>
+				<TextArea value="{/businessDef}"/>
+				<Label required="false" text="{i18n>Technical Definition}"/>
+				<TextArea value="{/techDef}"/>
+				<Label required="false" text="{i18n>Financial Definition}"/>
+				<TextArea value="{/financeDef}"/>
+				<Label required="false" text="{i18n>Char}"/>
+				<Input value="{/char}"/>
+				<Label required="false" text="{i18n>Status}"/>
+				<Select selectedKey="{/status}">
+					<core:Item key="New" text="New" />
+					<core:Item key="In Progress" text="In Progress" />
+					<core:Item key="Pending Approval" text="Pending Approval" />
+					<core:Item key="Business Approval" text="Business Approval" />
+					<core:Item key="Compliancy Approval" text="Compliancy Approval" />
+					<core:Item key="IT Approval" text="IT Approval" />
+				</Select>
+				<Label required="false" text="{i18n>Source}"/>
+				<Input value="{/source}"/>
+				
+				<!--<Label required="true" visible="false" text="{i18n>Status}"/>-->
+				<!--<Input value="{/Status}" visible="false"/>-->
+			</f:content>
+			
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

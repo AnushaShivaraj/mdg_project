@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog  title="{i18nModel>AddSection}">
+		<f:SimpleForm >
+			<Label text="{i18nModel>SectionName}"/>
+			<Input  width="100%" value=""></Input>
+		</f:SimpleForm>
+		<beginButton>
+			<Button text="{i18nModel>Save}" press="onAddSubSectionSavePress" type="Accept" tooltip="{i18nModel>Save}"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18nModel>Cancel}" press="onAddSubSectionCancelPress" tooltip="{i18nModel>Cancel}"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

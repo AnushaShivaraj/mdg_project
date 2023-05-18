@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified">
+	<Popover
+		title="{i18n>pageClock}"
+		placement="Bottom"
+		contentWidth="20rem"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button
+					text="{i18n>close}"
+					press="onClosePageClock" />
+			</OverflowToolbar>
+		</footer>
+		
+		<VBox alignItems="Center" class="sapUiSmallMargin">
+			<l:VerticalLayout>
+				<u:Calendar legend="legend2"/>
+				<u:CalendarLegend standardItems="Today" />
+			</l:VerticalLayout>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

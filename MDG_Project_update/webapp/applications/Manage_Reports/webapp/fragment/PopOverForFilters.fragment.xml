@@ -1,0 +1,113 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover showArrow="false" showHeader="false" placement="Bottom" contentWidth="18rem" afterClose="onFilterDropdownClose">
+		<Table selectionChange="onSelectFilterValue" visible="false" mode="MultiSelect" growing="true" growingScrollToLoad="true"
+			items="{path:'/PlantEquipmentDetailsSet',filters: [{path: 'Flag', operator: 'EQ', value1:'Y'}]}" updateFinished="onUpdateFinished">
+			<columns>
+				<Column>
+					<SearchField liveChange="onFilterDropDownSearch"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem selected="true">
+					<cells>
+						<ObjectIdentifier title="{CompanyCode}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<Table selectionChange="onSelectFilterValue" visible="false" mode="MultiSelect" growing="true" growingScrollToLoad="true"
+			items="{path:'/PlantEquipmentDetailsSet',filters: [{path: 'Flag', operator: 'EQ', value1:'X'}]}" updateFinished="onUpdateFinished">
+			<columns>
+				<Column>
+					<SearchField liveChange="onFilterDropDownSearch"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem selected="true">
+					<cells>
+						<ObjectIdentifier title="{Plant}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<Table selectionChange="onSelectFilterValue1" visible="false" mode="MultiSelect" growing="true" growingScrollToLoad="true"
+			items="{path:'/Status'}" updateFinished="onUpdateFinished">
+			<columns>
+				<Column>
+					<SearchField liveChange="onFilterDropDownSearch"/>
+				</Column>
+			</columns>
+			<items>
+			<ColumnListItem selected="true">
+					<cells>
+						<ObjectIdentifier title="{path:'status',formatter:'.formatter.translateStatus'}">
+							
+							<customData>
+								<core:CustomData value="{status}" />
+                             	<!--<core:CustomData value="{dataModel>status}" />-->
+							</customData>
+						</ObjectIdentifier>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<Table selectionChange="onSelectFilterValue" visible="false" mode="SingleSelect" 
+			items="{path:'/Programs'}" updateFinished="onUpdateFinished">
+			<columns>
+				<Column>
+					<SearchField liveChange="onFilterDropDownSearch1"/>
+				</Column>
+			</columns>
+			<items>
+			<ColumnListItem >
+					<cells>
+						<ObjectIdentifier title="{path:'ProgramsName'}">
+							<!--<customData>-->
+							<!--	<core:CustomData value="{MockDataModel>statusText}" />-->
+                             	<!--<core:CustomData value="{dataModel>status}" />-->
+							<!--</customData>-->
+						</ObjectIdentifier>
+							<ObjectIdentifier title="{path:'ProgramsName'}">
+							<customData>
+								<core:CustomData value="{ProgramsName}" />
+                             	<!--<core:CustomData value="{dataModel>status}" />-->
+							</customData>
+						</ObjectIdentifier>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<!--<Table selectionChange="onSelectFilterValue" visible="false" mode="MultiSelect" growing="true" growingScrollToLoad="true"
+			items="{path:'/ENTERPRISE', parameters:{select:'PROTECTED_CLASS'},filters: [{path: 'PROTECTED_CLASS', operator: 'NE', value1:''}]}" 
+			updateFinished="onUpdateFinished">
+			<columns>
+				<Column>
+					<SearchField liveChange="onFilterDropDownSearch"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem selected="true">
+					<cells>
+						<ObjectIdentifier title="{PROTECTED_CLASS}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<Table selectionChange="onSelectFilterValue" visible="false" mode="MultiSelect" growing="true" growingScrollToLoad="true"
+			items="{path:'/ENTERPRISE', parameters:{select:'ACT_OF_HARM'},filters: [{path: 'ACT_OF_HARM', operator: 'NE', value1:''}]}" 
+			updateFinished="onUpdateFinished">
+			<columns>
+				<Column>
+					<SearchField liveChange="onFilterDropDownSearch"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem selected="true">
+					<cells>
+						<ObjectIdentifier title="{ACT_OF_HARM}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>-->
+	</Popover>
+</core:FragmentDefinition>

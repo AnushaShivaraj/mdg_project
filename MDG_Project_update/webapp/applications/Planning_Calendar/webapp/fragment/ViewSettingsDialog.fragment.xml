@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:semantic="sap.f.semantic"
+	xmlns:l="sap.ui.layout" xmlns:m="sap.uxap">
+	<Dialog title="Filter" showHeader="false" contentWidth="50%" contentHeight="60%">
+		<content>
+			<NavContainer>
+				<Page title="Programs" class="sapUiContentPadding" showNavButton="false">
+					<content>
+						<List items="{programsfilter>/}">
+							<InputListItem label="{programsfilter>attributes/name}" press="handleProgramListPress" type="Active"></InputListItem>
+						</List>
+					</content>
+				</Page>
+			</NavContainer>
+		</content>
+		<beginButton>
+			<Button text="Confirm" press="onFilterConfirm"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="onCancelFilterDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

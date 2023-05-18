@@ -1,0 +1,102 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="Add RACI" contentWidth="38%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="Cancel" press="handleCancelPPRPress"/>
+		</endButton>
+		<beginButton>
+			<Button visible="true" text="Add" press="handleAddRaciPPRPress"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label text="Project"/>
+				<ComboBox items="{path: 'projModel>/'}" visible="true" selectionChange="onProjectChangePPR">
+					<items>
+						<core:Item text="{projModel>attributes/name}" key="{projModel>id}"/>
+					</items>
+				</ComboBox>
+				<Label text="Assignment" visible="true" required="false"></Label>
+				<ComboBox items="{path: 'assignmentModel>/'}" visible="true" enabled="true" selectionChange="onTaskChange">
+					<items>
+						<core:Item key="{assignmentModel>id}" text="{assignmentModel>attributes/name}"/>
+					</items>
+				</ComboBox>
+				<Label text="Responsible" visible="true" required="false"></Label>
+				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelect">
+					<items>
+						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName} "/>
+					</items>
+				</ComboBox>
+				<Label text="Accountable" visible="true" required="false"></Label>
+				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectAccount">
+					<items>
+						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>
+					</items>
+				</ComboBox>
+				<Label text="Consulted" visible="true" required="false"></Label>
+				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectConsult">
+					<items>
+						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>
+					</items>
+				</ComboBox>
+				<Label text="Informed" visible="true" required="false"></Label>
+				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectInform">
+					<items>
+						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>
+					</items>
+				</ComboBox>
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>
+<!--<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">-->
+<!--	<Dialog title="Add RACI" contentWidth="38%" class="sapUiSizeCompact">-->
+<!--		<endButton>-->
+<!--			<Button text="Cancel" press="handleCancelPPRPress"/>-->
+<!--		</endButton>-->
+<!--		<beginButton>-->
+<!--			<Button visible="true" text="Add" press="handleAddRaciPPRPress"/>-->
+<!--		</beginButton>-->
+<!--		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"-->
+<!--			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">-->
+<!--			<f:content>-->
+<!--				<Label text="Project"/>-->
+<!--				<ComboBox items="{path: 'projModel>/'}" visible="true" selectionChange="onProjectChangePPR">-->
+<!--					<items>-->
+<!--						<core:Item text="{projModel>attributes/name}" key="{projModel>id}"/>-->
+<!--					</items>-->
+<!--				</ComboBox>-->
+<!--				<Label text="Assignment" visible="true" required="false"></Label>-->
+<!--				<ComboBox items="{path: 'assignmentModel>/'}" visible="true" enabled="true" selectionChange="onTaskChange">-->
+<!--					<items>-->
+<!--						<core:Item key="{assignmentModel>id}" text="{assignmentModel>attributes/name}"/>-->
+<!--					</items>-->
+<!--				</ComboBox>-->
+<!--				<Label text="Responsible" visible="true" required="false"></Label>-->
+<!--				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelect">-->
+<!--					<items>-->
+<!--						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName} "/>-->
+<!--					</items>-->
+<!--				</ComboBox>-->
+<!--				<Label text="Accountable" visible="true" required="false"></Label>-->
+<!--				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectAccount">-->
+<!--					<items>-->
+<!--						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>-->
+<!--					</items>-->
+<!--				</ComboBox>-->
+<!--				<Label text="Consulted" visible="true" required="false"></Label>-->
+<!--				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectConsult">-->
+<!--					<items>-->
+<!--						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>-->
+<!--					</items>-->
+<!--				</ComboBox>-->
+<!--				<Label text="Informed" visible="true" required="false"></Label>-->
+<!--				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectInform">-->
+<!--					<items>-->
+<!--						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>-->
+<!--					</items>-->
+<!--				</ComboBox>-->
+<!--			</f:content>-->
+<!--		</f:SimpleForm>-->
+<!--	</Dialog>-->
+<!--</core:FragmentDefinition>-->

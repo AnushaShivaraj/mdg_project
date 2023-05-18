@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>TeamMember Details}" contentWidth="30%">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleTeamDetailCancel" class="sapUiSizeCompact"/>
+		</endButton>
+		<!--<beginButton>-->
+		<!--	<Button text="{i18n>Update}" press="handleEditProgram"/>-->
+		<!--</beginButton>-->
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label text="{i18n>FirstName}"/>
+				<Input value="{/firstName} {/lastname}" editable="false"/>
+				<Label text="{i18n>Email}"/>
+				<Input value="{/email}" editable="false"/>
+				<Label text="{i18n>Contact}"/>
+				<Input value="{/contact}" editable="false"/>
+				<Label text="{i18n>Role}"/>
+				<Input value="{/role}" editable="false"/>
+				<Label text="{i18n>Organization Name}"/>
+				<Input value="{/orgName}" editable="false"/>
+				<Label text="{i18n>Location}"/>
+				<Input value="{/location}" editable="false"/>
+				<Label text="{i18n>Customer Name}"/>
+				<Input value="{/customer}" editable="false"/>
+				<Label text="{i18n>Vendor Name}"/>
+				<Input value="{/vendor}" editable="false"/>
+				<Label text="{i18n>Start Date}"/>
+				<Input value="{/startdate}" editable="false"/>
+				<Label text="{i18n>End Date}"/>
+				<Input value="{/enddate}" editable="false"/>
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

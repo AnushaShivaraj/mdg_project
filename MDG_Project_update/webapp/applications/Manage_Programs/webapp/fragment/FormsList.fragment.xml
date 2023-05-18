@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>Forms}" contentWidth="30%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleCancelPress"/>
+		</endButton>
+		<!--<beginButton>-->
+		<!--	<Button text="{i18n>Open}" press="handleOpenFormList"/>-->
+		<!--</beginButton>-->
+		<List width="auto" class="sapFDynamicPageAlignContent" items="{path:'/'}" busyIndicatorDelay="{masterView>/delay}"
+			noDataText="{masterView>/noDataText}" growingThreshold="20" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+			growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onFormItemChange">
+			<headerToolbar>
+				<OverflowToolbar>
+					<SearchField showRefreshButton="true" tooltip="{i18n>masterSearchTooltip}" liveChange="onSearchForms" search="onSearch" width="auto">
+						<layoutData>
+							<OverflowToolbarLayoutData minWidth="150px" maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>
+						</layoutData>
+					</SearchField>
+					<ToolbarSpacer/>
+					<!--<Button tooltip="{i18n>Sort}" press="onOpenViewSettings" icon="sap-icon://sort" type="Transparent"/>-->
+					<!--<Button press="onOpenViewSettings" icon="sap-icon://filter" type="Transparent"/>-->
+					<!--<Button id="settingsButton" press="handleViewSettings" icon="sap-icon://action-settings" type="Transparent"/>-->
+				</OverflowToolbar>
+			</headerToolbar>
+			<items>
+				<ObjectListItem number="" type="Navigation" press="onSelectionChange" title="{attributes/name}">
+					<firstStatus>
+						<ObjectStatus text="{attributes/name}"/>
+					</firstStatus>
+					<!--<secondStatus>-->
+					<!--		<ObjectStatus text="{Status}" state="{path:'Status',formatter:'.formatter.getStatus'}"/>-->
+					<!--</secondStatus>-->
+					<attributes>
+						<ObjectAttribute text="{attributes/validFrom}"/>
+					</attributes>
+				</ObjectListItem>
+			</items>
+		</List>
+	</Dialog>
+</core:FragmentDefinition>

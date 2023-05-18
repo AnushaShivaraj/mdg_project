@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>MeetingDetails}" contentWidth="50%" class="sapUiSizeCompact">
+		<!-- <Button text="Delete" press="handleAppointmentDelete" type="Emphasized"/> -->
+		<beginButton>
+			<Button id="fragAddParticipantsFilter" text="Add Participants" press="handleAddExternalParticipants" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleAppointmentFilterCancel"/>
+		</endButton>
+					<customHeader>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>Delete}" type="Reject" press="handleAppointmentDeleteFilter"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<VBox>
+			<f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+				emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+				<f:content>
+					<core:Title text="{i18n>AppointmentInformation}"/>
+					<Label text="{i18n>Program Name}"/>
+					<Text text="{/0/Program}"></Text>
+					<!--<core:Title text="" />-->
+					<Label text="{i18n>Project Name}"/>
+					<Text text="{/0/m_projects}"/>
+					<Label text="Meeting Invite"/>
+					<Link text="Click here to join the meeting" href="{/0/meetingLink}" target="_blank"/>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		<Table inset="false" items="{ path: '/' }">
+			<headerToolbar>
+				<OverflowToolbar>
+					<content>
+						<Title text="Participants" level="H2"/>
+					</content>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column width="12em">
+					<Text text="Name"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem vAlign="Middle">
+					<cells>
+						<Text text="{firstName} {lastName}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Dialog>
+</core:FragmentDefinition>

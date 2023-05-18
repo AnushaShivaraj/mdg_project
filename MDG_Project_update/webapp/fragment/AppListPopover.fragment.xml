@@ -1,0 +1,26 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	class="sapUiBodyBackground sapContrastPlus">
+	<Popover title="{i18n>Applications}"
+		placement="Bottom"
+		contentWidth="12rem"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+	<VBox class="sapUiSmallMargin">
+		<List
+		headerText=""
+		items="{
+			path: '/'
+		}">
+		<items>
+			<StandardListItem
+				type="Active"
+				title="{title}"
+				press="onPressApplication" visible="{path: '', formatter: '.formatter.isAppVisible'}"/>
+		</items>
+	</List>
+	</VBox>
+</Popover>
+</core:FragmentDefinition>

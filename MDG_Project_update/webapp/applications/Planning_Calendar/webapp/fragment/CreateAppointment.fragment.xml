@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Dialog id="createDialog" title="Create Appointment">
+		<beginButton>
+			<Button text="{i18n>Save}" type="Emphasized" press="handleDialogSaveButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleDialogCancelButton"/>
+		</endButton>
+		<l:VerticalLayout class="sapUiContentPadding" width="100%">
+			<Label text="{i18n>Title}: " required="true"/>
+			<Input id="inputTitle"/>
+			<Label text="Program: " required="true"/>
+			<Select id="selectProgram" forceSelection="false" change="handleChangeSelect" width="100%" items="{ path: '/programs' }">
+				<core:Item key="{id}" text="{attributes/name}"/>
+			</Select>
+			<Label text="Project : " required="true"/>
+			<Select id="projectInfo" editable="false" forceSelection="false" width="100%" items="{/}">
+				<core:Item key="{id}" text="{attributes/name}"/>
+			</Select>
+			<Label text="{i18n>AddParticipant}: " required="true"/>
+			<MultiInput id="selectPerson" class="selectPerson" enableMultiLineMode="false" editable="true" showValueHelp="true" valueHelpOnly="true"
+				valueHelpRequest="openParticipantsDialog"></MultiInput>
+			<Label text="{i18n>Startdate}: " required="true"/>
+			<DateTimePicker id="startDate" displayFormat="short" required="true" change="handleCreateChange"/>
+			<Label text="{i18n>Enddate}: " required="true"/>
+			<DateTimePicker id="endDate" displayFormat="short" required="true" change="handleCreateChange"/>
+			<Label text="{i18n>MeetingLink}:" required="true"/>
+			<Input id="meetingLink"/>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<SelectDialog title="{i18n>SelectApplications}" confirmButtonText="{i18n>update}" liveChange="handleAppListSearch"
+		confirm="handleConfirmAppList" growingThreshold="20" cancel="handleCloseAppList" items="{appsModel>/}" id="itemlistId" draggable="true"
+		multiSelect="true" rememberSelections="false">
+		<StandardListItem selected="{path: 'appsModel>appId', formatter: '.isAppAssigned'}" title="{appsModel>appName}"
+			description="{appsModel>description}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,176 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.uxap"
+	xmlns:base="sap.ui.base" xmlns:tool="project.control" xmlns:mc="sap.suite.ui.microchart"
+	controllerName="EHS.ManageAssessmentTemplates.controller.AssessmentTemplateDetails" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="assessmenttemplate" title="{i18n>Forms}" showNavButton="false" navButtonPress="onNavBack">
+		<customHeader>
+			<Bar>
+				<!--<contentLeft>-->
+				<!--	<Button type="Transparent" icon="sap-icon://nav-back" press="onNavBack"/>-->
+				<!--</contentLeft>-->
+				<contentMiddle>
+					<Title level="H3" text="{i18n>TemplateForms}" class="headerTitleColor"/>
+				</contentMiddle>
+				<contentRight>
+					<Button type="Transparent" icon="sap-icon://refresh" press="onRefershPress" tooltip="{i18n>refresh}"/>
+					<SearchField liveChange="handleSearchField" width="70%"/>
+					<Button type="Transparent" icon="sap-icon://grid" tooltip="{i18n>gridView}" press="handleChangeUserMenuPress"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<u:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" headerContentPinnable="true" class="objectPageLayoutClass">
+				<u:headerTitle >
+					<u:ObjectPageDynamicHeaderTitle>
+						<u:expandedHeading>
+							<FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+								<Title text="{i18n>Forms}" wrapping="true" class="sapUiTinyMarginEnd sapUiTinyMarginTop headerTitleClass"/>
+							</FlexBox>
+						</u:expandedHeading>
+						<u:snappedHeading>
+							<FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+								<Title text="{i18n>Forms}" wrapping="true" class="sapUiTinyMarginEnd kpiTitleClass sapUiTinyMarginTop headerTitleClass"/>
+							</FlexBox>
+						</u:snappedHeading>
+					</u:ObjectPageDynamicHeaderTitle>
+				</u:headerTitle>
+				<u:sections id="templateforms">
+					<u:ObjectPageSection title="{i18n>TemplateForms}" visible="false">
+						<u:subSections>
+							<u:ObjectPageSubSection>
+								<List items="{templateData>/}" updateFinished="handleListItems" id="templateListId" visible="true" class="objListItemClass" growing="false"
+									growingThreshold="10" delete="onTemplateDelete">
+									<items>
+										<ObjectListItem title="{templateData>attributes/name}" type="Navigation" press="onTemplateFormPress"
+											number="{i18n>From}: {path:'templateData>attributes/validFrom'}"
+											numberUnit="{i18n>To}: {path:'templateData>attributes/validTo'}">
+											<attributes>
+												<ObjectAttribute text="{templateData>attributes/description}"/>
+												<!--<ObjectAttribute text="{i18n>Industry}: {industry}"/>-->
+												<!--<ObjectAttribute text="by D301234"/>-->
+											</attributes>
+										</ObjectListItem>
+									</items>
+								</List>
+								<HBox id="templatesId" items="{templateData>/}" justifyContent="Start" visible="false" wrap="Wrap">
+									<GenericTile size="S" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{path:'templateData>attributes/name'}"
+										visible="{path:'templateData>attributes/status',formatter:'.Formatter.getTypeofTemplateForDraft'}" press="onTemplateFormPress">
+										<TileContent unit="" footer="{path:'templateData>attributes/validFrom', formatter:'.Formatter.getDate'}">
+											<ImageContent src="sap-icon://form"/>
+										</TileContent>
+									</GenericTile>
+								</HBox>
+							</u:ObjectPageSubSection>
+						</u:subSections>
+					</u:ObjectPageSection>
+					<u:ObjectPageSection titleUppercase="false" id="draftlists" title="{i18n>InDraft}">
+						<u:subSections>
+							<u:ObjectPageSubSection >
+								<List items="{templateData>/}" id="draftListId" visible="true" class="objListItemClass" growing="false" growingThreshold="10" delete="onTemplateDelete"
+									mode="SingleSelectMaster" selectionChange="onDraftFormpress">
+									<items>
+										<!---->
+										<!--formatter:'.Formatter.getDate'-->
+										<ObjectListItem title="{templateData>attributes/name}" type="Navigation" press="onDraftFormpress"
+											visible="{path:'templateData>attributes/status',formatter:'.Formatter.getTypeofTemplateForDraft'}"
+											number="{i18n>From}: {path:'templateData>attributes/validFrom',formatter:'.Formatter.getDate'}"
+											numberUnit="{i18n>To}: {path:'templateData>attributes/validTo',formatter:'.Formatter.getDate'}">
+											<attributes>
+												<ObjectAttribute text="{templateData>attributes/description}"/>
+												<!--<ObjectAttribute text="{industry}"/>-->
+												<!--<ObjectAttribute text="by D301234"/>-->
+											</attributes>
+										</ObjectListItem>
+									</items>
+								</List>
+								<HBox id="DraftId" items="{templateData>/}" visible="false" justifyContent="Start" wrap="Wrap">
+									<GenericTile size="S" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+										visible="{path:'templateData>attributes/status',formatter:'.Formatter.getTypeofTemplateForDraft'}" header="{templateData>attributes/name}" subheader="{templateData>attributes/description}"
+										press="onDraftFormpress">
+										<TileContent unit="" footer="{path:'templateData>attributes/validTo', formatter:'.Formatter.getDate'}">
+											<!--<NumericContent icon="sap-icon://create-form" value=""/>-->
+											<ImageContent src="sap-icon://create-form"/>
+										</TileContent>
+									</GenericTile>
+								</HBox>
+							</u:ObjectPageSubSection>
+						</u:subSections>
+					</u:ObjectPageSection>
+					<u:ObjectPageSection id="publish" titleUppercase="false" title="{i18n>Published}">
+						<u:subSections>
+							<u:ObjectPageSubSection >
+								<List items="{templateData>/}" id="publishListId" visible="true" class="objListItemClass" growing="false" growingThreshold="10" delete="onTemplateDelete"
+									mode="SingleSelectMaster" selectionChange="onSubmittedFormPress">
+									<items>
+										<ObjectListItem title="{templateData>attributes/name}" type="Navigation" press="onSubmittedFormPress"
+											visible="{path:'templateData>attributes/status',formatter:'.Formatter.getTypeofTemplateForPublished'}"
+											number="{i18n>From}: {path:'templateData>attributes/validFrom', formatter:'.Formatter.getDate'}"
+											numberUnit="{i18n>To}: {path:'templateData>attributes/validTo', formatter:'.Formatter.getDate'}">
+											<!--<firstStatus>-->
+											<!--	<ObjectStatus text="{i18n>TimesUsed} : {Count}"/>-->
+											<!--</firstStatus>-->
+											<attributes>
+												<ObjectAttribute text="{templateData>attributes/description}"/>
+												<!--<ObjectAttribute text="{industry}"/>-->
+											</attributes>
+										</ObjectListItem>
+									</items>
+								</List>
+								<HBox id="SubmitedId" visible="false" items="{templateData>/}" justifyContent="Start" wrap="Wrap">
+									<GenericTile size="S" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{templateData>attributes/name}"
+										visible="{path:'templateData>attributes/status',formatter:'.Formatter.getTypeofTemplateForPublished'}" subheader="{templateData>attributes/description}" press="onSubmittedFormPress">
+										<TileContent unit="" footer="{path:'templateData>attributes/validTo', formatter:'.Formatter.getDate'}">
+											<!--<NumericContent icon="sap-icon://approvals" value="{Count}"/>-->
+											<ImageContent src="sap-icon://approvals"/>
+										</TileContent>
+									</GenericTile>
+								</HBox>
+							</u:ObjectPageSubSection>
+						</u:subSections>
+					</u:ObjectPageSection>
+					<u:ObjectPageSection id="archive" titleUppercase="false" title="{i18n>Archived}">
+						<u:subSections>
+							<u:ObjectPageSubSection >
+								<List items="{templateData>/}" id="outDatedListId" visible="true" class="objListItemClass" growing="false" growingThreshold="10"
+									delete="onTemplateDelete" mode="SingleSelectMaster" selectionChange="handleOutDatedFormPress">
+									<items>
+										<ObjectListItem title="{templateData>attributes/name}" visible="{path:'templateData>attributes/status',formatter:'.Formatter.getTypeofTemplateForArchived'}" type="Navigation"
+											press="handleOutDatedFormPress" number="{i18n>From}: {path:'templateData>attributes/validFrom', formatter:'.Formatter.getDate'}"
+											numberUnit="{i18n>To}: {path:'templateData>attributes/validTo', formatter:'.Formatter.getDate'}">
+											<!--<firstStatus>-->
+											<!--	<ObjectStatus text="{i18n>TimesUsed} : {Count}"/>-->
+											<!--</firstStatus>-->
+											<attributes>
+												<ObjectAttribute text="{templateData>attributes/description}"/>
+												<!--<ObjectAttribute text="{industry}"/>-->
+											</attributes>
+										</ObjectListItem>
+									</items>
+								</List>
+								<HBox id="OutDateID" visible="false" items="{templateData>/}" justifyContent="Start" wrap="Wrap">
+									<GenericTile size="S" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{templateData>attributes/name}"
+										visible="{path:'templateData>attributes/status',formatter:'.Formatter.getTypeofTemplateForArchived'}" subheader="{templateData>attributes/description}" press="handleOutDatedFormPress">
+										<TileContent unit="" footer="{path:'templateData>attributes/validTo', formatter:'.Formatter.getDate'}">
+											<ImageContent src="sap-icon://approvals"/>
+											<!--<NumericContent icon="sap-icon://approvals" value="{Count}"/>-->
+										</TileContent>
+									</GenericTile>
+								</HBox>
+							</u:ObjectPageSubSection>
+						</u:subSections>
+					</u:ObjectPageSection>
+				</u:sections>
+			</u:ObjectPageLayout>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="button9" type="Emphasized" text="{i18n>Create}" press="onCreateNewTemplate" tooltip="{i18n>Create}"
+						enabled="{permissions>/create}"/>
+					<Button id="deleteBtn" type="Emphasized" text="{i18n>delete}" press="onDelete" tooltip="{i18n>Delete}"
+						enabled="{permissions>/delete}"/>
+					<Button id="doneBtn" type="Emphasized" text="{i18n>Done}" press="onDone" tooltip="{i18n>Done}" visible="false"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

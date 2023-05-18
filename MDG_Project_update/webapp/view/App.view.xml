@@ -1,0 +1,53 @@
+<mvc:View controllerName="VASPP.MDGSystem.controller.App" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:tnt="sap.tnt" class="sapUiSizeCompact coverImage">
+	<tnt:ToolPage id="app" sideExpanded="{= !${device>/system/phone}}" class="sapUiDemoToolPage sapUiSizeCompact" visible="false">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press="toggleSideMenuExpandCollapse"
+					tooltip="{i18n>collapseMenu}">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<!--<Image id="logo" src="images/OPTfirstLogo.png" height="85%" press="goToHomePage" class="glowOnHover"/>-->
+				<Image id="logo" src="images/OPTsecondLogo.png" height="85%" press="goToHomePage" class="glowOnHover"/>
+				<!--<Image id="logo1" src="image/RhCard.png" height="85%" press="goToHomePage" class="glowOnHover"/>-->
+				<ToolbarSpacer/>
+				<Title text="{i18n>appTitle_MDG}" textAlign="Center" class="appTitleText"/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://sys-help" type="Transparent" visible="false"/>
+				<Text text="{loggedOnUserModel>/firstName} {loggedOnUserModel>/lastName}"/>
+				<f:Avatar src="{loggedOnUserModel>/profilePhoto}" press="showUserDetails" displaySize="XS"
+					tooltip="{path: 'loggedOnUserModel>/m_organisation/name', formatter: '.formatter.getFirstWord'} {i18n>account}: {loggedOnUserModel>/firstName} {loggedOnUserModel>/lastName}&#10;({loggedOnUserModel>/email})"
+					backgroundColor="Random" class="sapUiTinyMarginEnd"/>
+				<Button id="historyButtonId" icon="sap-icon://history" type="Transparent" visible="true" press="handleShowPageClock"
+					tooltip="{i18n>pageClock}"/>
+				<Button id="bellButtonId" icon="sap-icon://bell" type="Transparent" visible="true" press="handleShowNotifications"
+					tooltip="{i18n>Notifications}"/>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent >
+			<tnt:SideNavigation id="sideBarMenu" visible="true" expanded="false" itemSelect="onItemSelect">
+				<tnt:item>
+					<tnt:NavigationList items="{path: '/navigation', templateShareable: false }">
+						<tnt:items>
+							<tnt:NavigationListItem class="mousechange" text="{path:'title', formatter:'.formatter.get_i18n_value'}" icon="{icon}"
+								items="{path: 'items', templateShareable: false }" expanded="{expanded}" key="{title}" hasExpander="true" select="launchApp"
+								visible="{path: '', formatter: '.formatter.isAppVisible'}">
+								<tnt:items>
+									<tnt:NavigationListItem text="{path:'title', formatter:'.formatter.get_i18n_value'}" key="{title}" select="launchApp"
+										visible="{path: '', formatter: '.formatter.isAppVisible'}"/>
+								</tnt:items>
+							</tnt:NavigationListItem>
+						</tnt:items>
+					</tnt:NavigationList>
+				</tnt:item>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<App backgroundColor="Transparent" id="mainContents">
+				<f:FlexibleColumnLayout id="layout" layout="{appView>/layout}" backgroundDesign="Translucent"></f:FlexibleColumnLayout>
+			</App>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

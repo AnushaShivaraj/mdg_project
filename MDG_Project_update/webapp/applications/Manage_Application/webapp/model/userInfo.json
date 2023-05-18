@@ -1,0 +1,127 @@
+[{
+		"id": "101",
+		"firstName": "Martin",
+		"lastname": "louis",
+		"email": "user1@vaspp.com",
+		"contact": 1234567890,
+		"userRole": "SuperAdmin",
+		"city": "Bangalore",
+		"address": "Bangalore",
+		"country": "India",
+		"application": "Project Management",
+		"description": "User can manage  and give the access the user for project management",
+		"assignedApps": [{
+			"appId": "APP0001",
+			"appName": "Project Management",
+			"create": false,
+			"read": true,
+			"update": false,
+			"delete": false
+		}, {
+			"appId": "APP0002",
+			"appName": "Customer Management",
+			"create": false,
+			"read": true,
+			"update": false,
+			"delete": false
+		}],
+		"createDate": "24-08-2021",
+		"editDate": "23-010-2021",
+		"deleteDate": "07-11-2021"
+
+	}, {
+		"id": "102",
+		"firstName": "Rocky",
+		"lastname": "Joan",
+		"email": "user2@vaspp.com",
+		"contact": 1234567891,
+		"userRole": "Admin",
+		"city": "Chennai",
+		"address": "Chennai",
+		"zipCode": 560055,
+		"application": "Customer Management",
+		"description": "User can manage  and give the access the user for customer management",
+		"assignedApps": [{
+			"appId": "APP0003",
+			"appName": "Vendor Management",
+			"create": false,
+			"read": true,
+			"update": false,
+			"delete": false
+		}, {
+			"appId": "APP0004",
+			"appName": "Document Management",
+			"create": false,
+			"read": true,
+			"update": false,
+			"delete": false
+		}],
+		"createDate": "24-08-2021",
+		"editDate": "2-08-2021",
+		"deleteDate": "28-7-2021"
+
+	}, {
+		"id": "103",
+		"firstName": "Maria",
+		"lastname": "Rose",
+		"email": "user3@vaspp.com",
+		"contact": 1234567894,
+		"userRole": "Team Lead",
+		"city": "Bombay",
+		"address": "Bombay",
+		"zipCode": 560056,
+		"application": "Vendor Management",
+		"description": "User can manage  and give the access the user for Vendor management",
+		"assignedApps": [{
+			"appId": "APP0001",
+			"appName": "Project Management",
+			"create": false,
+			"read": true,
+			"update": false,
+			"delete": false
+		}, {
+			"appId": "APP0002",
+			"appName": "Customer Management",
+			"create": false,
+			"read": true,
+			"update": false,
+			"delete": false
+		}],
+		"createDate": "24-08-2021",
+		"editDate": "26-08-2021",
+		"deleteDate": "28-10-2021"
+	}, {
+
+		"id": "104",
+		"firstName": "Samantha",
+		"lastname": "Sonia",
+		"email": "user4@vaspp.com",
+		"contact": 1234567899,
+		"userRole": "Manger",
+		"city": "Bombay",
+		"address": "Bombay",
+		"country": "India",
+		"application": "Document Management",
+		"description": "User can manage  and give the access the user for Document management",
+		"assignedApps": [{
+			"appId": "APP0001",
+			"appName": "Project Management",
+			"create": false,
+			"read": true,
+			"update": false,
+			"delete": false
+		}, {
+			"appId": "APP0002",
+			"appName": "Customer Management",
+			"create": false,
+			"read": true,
+			"update": false,
+			"delete": false
+		}],
+		"createDate": "12-05-2021",
+		"editDate": "6-06-2021",
+		"deleteDate": "8-9-2021"
+
+	}
+
+]

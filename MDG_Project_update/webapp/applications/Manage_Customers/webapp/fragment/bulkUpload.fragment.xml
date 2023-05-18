@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>Add Customers Details}" contentWidth="30%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleAddCancel"/>
+		</endButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm" title="Upload Customer Detail">
+			<f:content>
+				<MessageStrip
+					text="Please ensure that the column names in your Excel file match the column names of the following fields: Customer Name, Contact Number, E-mail, Address, Geographical Region, Business Region, About Customer, C and V Type field, Country, City, Postal Code, Contact Person Name, Contact Person E-mail, and Contact Person Number. This is necessary for the data to be mapped correctly during the upload process."
+					type="Information" showIcon="true" showCloseButton="true"/>
+				<Label text="File Name" id="fileLabel"/>
+				<VBox>
+					<u:FileUploader id="fileUploader" width="100%" change="onUpload" placeholder="Choose a Excel file" fileType="XLSX" style="Emphasized"/>
+					<Button id="fileUploadButton" text="Upload File" press="uploadUsers"/>
+				</VBox>
+				<!--<MessageStrip id="notifyStrip" visible="false" text="{errorModel>/0/errorRows}" showIcon="true" showCloseButton="true"></MessageStrip>-->
+			</f:content>
+		</f:SimpleForm>
+		<!--<core:Card>-->
+		<!--	<List id="ShortProductList" headerText="Products" items="{ path: 'errorModel>/', sorter: { path: 'errorModel>errorRows' } }">-->
+		<!--		<items>-->
+		<!--			<StandardListItem title="{errorModel>errorRows}" icon="sap-icon://error" iconDensityAware="false" iconInset="false"/>-->
+		<!--		</items>-->
+		<!--	</List>-->
+		<!--</core:Card>-->
+	</Dialog>
+</core:FragmentDefinition>

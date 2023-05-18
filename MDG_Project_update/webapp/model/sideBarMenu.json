@@ -1,0 +1,70 @@
+{
+	"navigation": [{
+			"id": "",
+			"title": "HomePage",
+			"icon": "sap-icon://home",
+			"expanded": false,
+			"key": "Home",
+			"componentName": "",
+			"permittedRoles": ["everyone"],
+			"permissions": {
+				"create": false,
+				"read": true,
+				"update": false,
+				"delete": false
+			},
+			"items": []
+		},
+
+		{
+			"id": "APP100041",
+			"title": "Application Management",
+			"icon": "sap-icon://user-settings",
+			"expanded": false,
+			"key": "UsersManagement",
+			"componentName": "MDG.ApplicationManagement",
+			"permittedRoles": ["superadmin", "administrator"],
+			"permissions": {
+				"create": false,
+				"read": true,
+				"update": false,
+				"delete": false
+			},
+			"items": []
+		},
+
+		{
+			"id": "",
+			"title": "Projects",
+			"icon": "sap-icon://add-activity-2",
+			"expanded": false,
+			"key": "Projects",
+			"componentName": "",
+			"permittedRoles": ["manager", "technici"],
+			"permissions": {
+				"create": false,
+				"read": true,
+				"update": false,
+				"delete": false
+			},
+			"items": [
+				{
+					"applicationid": "APP10002",
+					"applicationname": "Project",
+					"componentName": "MDG.MDG_Test",
+					"createdate": "2021-08-27T07:16:01.127Z",
+					"createid": "true",
+					"deleteid": "true",
+					"modifydate": "2021-08-27T07:16:01.127Z",
+					"readid": "true",
+					"updateid": "true",
+					"userid": "USR100241",
+					"_id": "6128912ff242c51c576d5fc0"
+				}
+				]
+		}
+
+	
+]
+	
+}

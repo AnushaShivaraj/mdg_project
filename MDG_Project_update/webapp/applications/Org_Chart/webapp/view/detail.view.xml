@@ -1,0 +1,84 @@
+<mvc:View controllerName="mdg.Org_Chart.controller.detail" xmlns="sap.suite.ui.commons.networkgraph"
+	xmlns:layout="sap.suite.ui.commons.networkgraph.layout" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" height="100%" xmlns:suite="sap.suite.ui.commons">
+	<semantic:SemanticPage id="detailPage" showFooter="true" class="detailPageClass">
+		<semantic:titleHeading>
+			<m:Title text="{i18n>Organization Chart}"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd" width="50%">
+					<m:Label text="Select Project : "/>
+					<m:Select items="{path: 'programDetails>/0/attributes/m_projects/data/'}" width="55%" enabled="true" id="projectsId"
+						change="onProjectChange" class="sapUiSizeCompact">
+						<m:items>
+							<core:Item text="{programDetails>attributes/name}" key="{programDetails>id}"/>
+						</m:items>
+					</m:Select>
+				</m:VBox>
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="Organization "/>
+					<m:Text text="{programDetails>/0/attributes/m_organisation/data/attributes/name}"/>
+				</m:VBox>
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="Program "/>
+					<m:Text text="{programDetails>/0/attributes/name}"/>
+				</m:VBox>
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="Location "/>
+					<m:Text text="{programDetails>/0/attributes/countryOrCity}"/>
+				</m:VBox>
+			</m:FlexBox>
+		</semantic:headerContent>
+		<semantic:content>
+			<Graph enableWheelZoom="false" orientation="TopBottom" nodes="{/nodes}" lines="{/lines}" searchSuggest="suggest" search="search" id="graph">
+				<layoutAlgorithm>
+					<layout:LayeredLayout mergeEdges="true" nodePlacement="Simple" nodeSpacing="40"/>
+				</layoutAlgorithm>
+				<nodes>
+					<Node icon="sap-icon://action-settings" key="{id}" description="{description}" title="{title}" collapsed="{collapsed}"
+						attributes="{attributes}" showActionLinksButton="false" showDetailButton="false" descriptionLineSize="0" shape="Box">
+						<customData>
+							<core:CustomData key="supervisor" value="{supervisor}"/>
+							<core:CustomData key="team" value="{team}"/>
+						</customData>
+						<attributes>
+							<ElementAttribute label="{id}" value="{status}"/>
+						</attributes>
+						<!--<image>-->
+						<!--	<NodeImage src="{src}" width="80" height="100"/>-->
+						<!--</image>-->
+					</Node>
+				</nodes>
+				<lines>
+					<Line from="{from}" to="{to}" arrowOrientation="None" press="linePress"/>
+				</lines>
+			</Graph>
+		</semantic:content>
+		<semantic:closeAction>
+			<semantic:CloseAction id="closeColumn" press="onCloseDetailPress"/>
+		</semantic:closeAction>
+		<!--<semantic:discussInJamAction>-->
+		<!--	<semantic:DiscussInJamAction tooltip="Navigate to Help Section" press="press"/>-->
+		<!--</semantic:discussInJamAction>-->
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction id="enterFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}" press="fullScreen"/>
+		</semantic:fullScreenAction>
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction id="exitFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}" press="exitFullScreen"/>
+		</semantic:exitFullScreenAction>
+		<semantic:footerCustomActions>
+			<m:Button type="Emphasized" text="{i18n>Submit}" id="submitButtonId" press="handleSubmitOrgChart"
+				visible="{= ${programDetails>/0/attributes/status} !== 'Completed'}"/>
+			<m:Button class="Export" id="downloadChart" icon="sap-icon://download" text="Download" tooltip="{i18n>downloadTextForCustomers}"
+				press="onExport" type="Emphasized" iconFirst="true" visible="true"/>
+			<m:Button type="Emphasized" text="{i18n>Approve}" id="approveButtonId" press="handleApproveButtonPress"/>
+			<m:Button type="Reject" text="{i18n>Reject}" id="rejectButtonId" press="handleRejectButtonPress"/>
+			<!--<Button type="Transparent" text="{i18n>cancel}" id="cancelButtonId" visible="false" press="handleCancelUser"/>-->
+			<!--<Button type="Transparent" text="{i18n>edit}" id="editButtonId" press="handleEditUserPress" iconFirst="true" icon="sap-icon://edit"/>-->
+			<!--<Button type="Transparent" text="{i18n>delete}" id="deleteButtonId" press="handleDeleteUserPress" iconFirst="true" icon="sap-icon://delete"/>-->
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog  title="{i18nModel>AddAdditionalInfo}">
+		<f:SimpleForm >
+			<Label text="{i18nModel>AddInfo}"/>
+			<TextArea  width="100%" value=""></TextArea>
+		</f:SimpleForm>
+		<beginButton>
+			<Button text="{i18nModel>Save}" press="onAddInfoSavePress" type="Accept" tooltip="{i18nModel>Save}"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18nModel>Cancel}" press="onAddInfoCancelPress" tooltip="{i18nModel>Cancel}"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

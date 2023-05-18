@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog noDataText="No Users Found" title="Select Participants" search="onSearchParticipantValueHelp" confirm="onSelectUser"
+		cancel="onDialogCloseParticipant" multiSelect="true" items="{ path: '/' }">
+		<StandardListItem title="{firstName} {lastName}" description="{mrole/description}">
+			<customData>
+				<!-- Add custom data to the StandardListItem -->
+				<core:CustomData key="key" value="{id}"/>
+				<!-- Set the key property with the appropriate binding path -->
+			</customData>
+		</StandardListItem>
+	</SelectDialog>
+</core:FragmentDefinition>

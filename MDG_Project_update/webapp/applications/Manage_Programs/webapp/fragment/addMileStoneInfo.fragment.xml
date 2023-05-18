@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>AddMilestone}" contentWidth="30%">
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<Label required="true" text="{i18n>MileStoneName}"/>
+			<Input value="{newModelData>/attributes/name}"/>
+			<Label required="true" text="{i18n>milestonedesription}"/>
+			<TextArea value="{newModelData>/attributes/description}"/>
+			<!--<Label text="{i18n>StartDate}" required="true"/>-->
+			<!--<DatePicker id="Datepicker1" value="{/startDate_M}" placeholder="Enter Start Date" class="sapUiSmallMarginBottom"/>-->
+			<!--<Label text="{i18n>enddate}" required="true"/>-->
+			<!--<DatePicker id="Datepicker2" value="{/endDate_M}" placeholder="Enter End Date" class="sapUiSmallMarginBottom"/>-->
+			<Label required="true" text="{i18n>SelectTask}"/>
+			<MultiInput showValueHelp="true" tokenUpdate="handleInputTokenDeleted" valueHelpRequest="onValueHelpRequest" tokens="{/}">
+				<tokens>
+					<Token key="{id}" text="{attributes/name}"/>
+				</tokens>
+			</MultiInput>
+		</f:SimpleForm>
+		<beginButton>
+			<Button text="{i18n>Add}" press="onAdd" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" type="Emphasized" press="onClear" tooltip="{i18n>Cancel}"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

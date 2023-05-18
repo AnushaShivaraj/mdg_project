@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="mySelectedVendors" noDataText="No Vendors Found" title="Select Vendors" search="onSearchVendorsValueHelp"
+		confirm="onSelectVendors" cancel="onDialogClose" multiSelect="true" items="{ path: '/' }">
+		<StandardListItem title="{attributes/vendorName}" description="{attributes/vendorContact}" icon="" iconDensityAware="false"
+			iconInset="false" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

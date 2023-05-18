@@ -1,0 +1,66 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+	xmlns:layout="sap.ui.layout" xmlns:l="sap.ui.layout">
+	<Dialog showHeader="false" verticalScrolling="false" contentHeight="70%" contentWidth="80%">
+		<NavContainer>
+			<pages>
+				<Page showHeader="false">
+					<content>
+						<Wizard class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="wizardCompletedHandler">
+							<steps>
+								<WizardStep title="Vendor Basic Information" validated="true">
+									<form:SimpleForm editable="true">
+										<Label text="Vendor Name" required="true"/>
+										<Input valueStateText="Enter Vendor Name" liveChange="additionalInfoValidation" placeholder="Enter Vendor Name"/>
+										<Label text="Contact" required="true"/>
+										<Input valueStateText="Enter Vendor Phone Number" liveChange="additionalInfoValidation" placeholder="Enter Phone Number"/>
+										<Label text="E-mail" required="true"/>
+										<Input valueStateText="Enter Vendor E-mail id" liveChange="additionalInfoValidation" placeholder="Enter E-mail id"/>
+										<Label text="Address" required="true"/>
+										<Input valueStateText="Enter Vendor Address" liveChange="additionalInfoValidation" placeholder="Contact Person"/>
+										<Label text="C and V Type field" required="true"/>
+										<Select selectedKey="">
+											<core:Item text="Vendor Direct" key="Vendor Direct"/>
+											<core:Item text="Vendor Indirect" key="Vendor Indirect"/>
+											<core:Item text="Supplier" key="Supplier"/>
+											<core:Item text="Third Party" key="Third Party"/>
+											<core:Item text="Agency" key="Agency"/>
+											<core:Item text="Consultancy" key="Consultancy"/>
+											<core:Item text="IT Service Provider" key="IT Service Provider"/>
+										</Select>
+									</form:SimpleForm>
+								</WizardStep>
+								<WizardStep title="Contact Person Information" validated="true">
+									<form:SimpleForm editable="true">
+										<Label text="Contact Person Name" required="true"/>
+										<Input liveChange="additionalInfoValidation" placeholder="Contact Person Name"/>
+										<Label text="E-mail" required="true"/>
+										<Input valueStateText="Enter E-mail id" liveChange="additionalInfoValidation" placeholder="Enter Contact Person E-mail id"/>
+										<Label text="Contact Number" required="true"/>
+										<Input valueStateText="Enter Phone Number" liveChange="additionalInfoValidation" placeholder="Enter Contact Person Phone Number"/>
+										<Label text="Country" required="true"/>
+										<Input valueStateText="Enter Responsible person Name" liveChange="additionalInfoValidation" placeholder="Enter Contact Person Desgination"/>
+									</form:SimpleForm>
+								</WizardStep>
+								<WizardStep validated="false" title="Vendors Attachment" activate="additionalInfoValidation">
+									<l:VerticalLayout>
+										<u:FileUploader change="collectFileData" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+											uploadComplete="handleUploadComplete"/>
+										<Input placeholder="Keyword"/>
+										<Input placeholder="Short description"/>
+									</l:VerticalLayout>
+								</WizardStep>
+							</steps>
+						</Wizard>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<Button text="Save" press="handleAddUserOkPress"/>
+							<Button text="Cancel" press="handleWizardCancel"/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</NavContainer>
+	</Dialog>
+</core:FragmentDefinition>

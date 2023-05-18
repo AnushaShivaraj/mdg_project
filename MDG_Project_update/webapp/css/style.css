@@ -1,0 +1,159 @@
+.showRedBorder {
+    border: 2px solid red;
+}
+
+.showBlueBorder {
+    border: 2px solid blue;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~ App.view.xml ~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.glowOnHover:hover {
+    box-shadow: 1px 1px 8px 1px greenyellow, 0 0 10px 2px white;
+}
+
+.glow {
+    box-shadow: 0 0 6px 1px greenyellow, 3px 3px 8px 5px white;
+}
+
+.LogoBackgroung {
+    background: #3f5161 !important;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~ Home.view.xml ~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.appTitleText {
+    color: white !important;
+    margin: 0 1em;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-weight: bold !important;
+    font-size: 1.3rem !important;
+    /*padding-left: 30.5rem!important;*/
+}
+
+.banner_image {
+    /*background-image: url('https://cloud360accounting.com/wp-content/uploads/2014/11/xero-background-750x300.jpg') !important;*/
+    /*background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60');*/
+    background-image: url('image/ProjectManagement2.jpg');
+    background-size: cover;
+    background-position: center;
+    /*height: 100vh;*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    opacity: 2;
+}
+
+.bannerText {
+    color: white !important;
+    font-family: "Arial Black", Gadget, sans-serif;
+    margin: 3rem;
+    font-weight: bold !important;
+    font-size: 3.5em !important;
+}
+
+.whiteText {
+    color: white !important;
+}
+
+.boldText {
+    font-weight: bold !important;
+}
+
+.coverImage {
+    /*background-image: url('https://static.wixstatic.com/media/d5eb4e_0f24ec79a676463a803dcca68a1a7523.jpg');*/
+    /*background-image: url('https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');*/
+    /*background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=702&q=80');*/
+    /*background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-business-blue-color-block-earth-background-image_162366.jpg');*/
+    /*background-image: url('https://thumbs.gfycat.com/ZanyFrayedAplomadofalcon-size_restricted.gif');*/
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+.mousechange {
+    cursor: default !important;
+}
+
+.myformtextView:hover {
+    cursor: help;
+
+}
+
+.slideDownAnimation {
+    /* When its position is set to relative and then if we
+    set its offsets like top, bottom, left, right then it
+    will be positioned with respect to the borders of its
+    parent container. If the position is set to absolute
+    then its offsets will be calcutated from the borders
+    of the root element i.e. <html>*/
+    position: relative;
+    animation-name: banner;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes banner {
+    0% {
+
+        top: -10rem;
+        opacity: 0;
+    }
+
+    100% {
+
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.blockLayout {
+    padding: 1em;
+}
+
+
+/* Overridden SAP class definitions */
+
+.sapMTextNoWrap {
+    white-space: normal;
+}
+
+.sapTntNavLIItem {
+    height: 2.5rem !important;
+    /*cursor: pointer !important;*/
+
+}
+
+.IItem span {
+    cursor: default !important;
+}
+
+.TileMargins {
+    margin-left: 80px;
+    margin-top: 60px;
+}
+
+.sapMDialogScrollCont {
+    padding: 10px;
+}
+
+/*.sapTntNavLIItem span {*/
+/*    cursor: default !important;*/
+/*}*/

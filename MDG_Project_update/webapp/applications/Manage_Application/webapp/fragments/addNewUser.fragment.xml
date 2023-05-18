@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>AddUsers}" contentWidth="30%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleAddUserCancelPress"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Save}" press="handleAddUserOkPress"/>
+		</beginButton>
+		<SegmentedButton width="100%" accessibleName="Select a map type" selectionChange="handleSelectionChange">
+			<items>
+				<SegmentedButtonItem icon="sap-icon://create" text="Create Record"></SegmentedButtonItem>
+				<SegmentedButtonItem icon="sap-icon://upload" text="Bulk Upload"></SegmentedButtonItem>
+			</items>
+		</SegmentedButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label required="true" text="{i18n>FirstName}"/>
+				<Input value="{/firstName}"/>
+				<Label visible="false" required="true" text="{i18n>MiddleName}"/>
+				<Input visible="false" value="{/middleName}"/>
+				<Label required="true" text="{i18n>LastName}"/>
+				<Input value="{/lastName}"/>
+				<Label required="true" text="{i18n>Status}"/>
+				<Select forceSelection="false" selectedKey="{/status}" width="100%" enabled="true">
+					<core:Item text="New" key="New"/>
+					<core:Item text="Designated" key="Designated"/>
+					<core:Item text="On-boared" key="On-boarded"/>
+					<core:Item text="Off-boarded" key="Off-boarded"/>
+					<core:Item text="Archived" key="Archived"/>
+				</Select>
+				<Label required="true" text="{i18n>Email-ID}"/>
+				<Input type="Email" value="{/email}" change="handleValidateEmail"/>
+				<Label required="true" text="{i18n>ContactNo.}"/>
+				<Input value="{/phone}" liveChange="limitPhoneNumbers" type="Tel" maxLength="10"/>
+				<Label text="{i18n>StreetAddress}"/>
+				<Input value="{/streerAddress}" type="Text" required="true" tooltip="{i18n>StreetAddress}" placeholder="{i18n>StreetAddress}"/>
+				<Label text="{i18n>City}"/>
+				<Input value="{/city}" tooltip="{i18n>City}" type="Text" required="true" placeholder="{i18n>City}"/>
+				<Label text="{i18n>Country/State}"/>
+				<Input value="{/country}" tooltip="{i18n>Country/State}" type="Text" required="true" maxLength="15" showValueStateMessage="true"
+					valueStateText="{i18n>valueStateText1}" change="validateInput" placeholder="{i18n>Country/State}"/>
+				<Label text="{i18n>Role}"/>
+				<Select items="{/mroles/}" selectedKey="{/mrole/id}" width="100%" enabled="true">
+					<items>
+						<core:Item text="{attributes/roleName}" key="{id}"/>
+						<!--<core:Item text="Authenticated" key="1"></core:Item>-->
+						<!--<core:Item text="Public" key="2"></core:Item>-->
+					</items>
+				</Select>
+				<Label text="{i18n>Area}"/>
+				<Select forceSelection="false" selectedKey="{/area}" width="100%" enabled="true">
+					<core:Item text="ITS" key="ITS"/>
+					<core:Item text="Bussiness Consultant" key="Business Consultant"/>
+					<core:Item text="Marketing" key="Marketing"/>
+					<core:Item text="Finance Department" key="Finance Department"/>
+				</Select>
+				<Label text="{i18n>UserType}"/>
+				<Select forceSelection="false" selectedKey="{/type}" width="100%" enabled="true">
+					<core:Item text="Internal" key="Internal"/>
+					<core:Item text="Customer" key="Customer"/>
+					<core:Item text="Vendor" key="Vendor"/>
+				</Select>
+				<Label visible="{= ${/type} === 'Customer'}" text="{i18n>Customer}"/>
+				<Select visible="{= ${/type} === 'Customer'}" items="{/customerInfo/}" selectedKey="{/m_customer/id}" width="100%" enabled="true">
+					<items>
+						<core:Item text="{attributes/customerName}" key="{id}"/>
+					</items>
+				</Select>
+				<Label visible="{= ${/type} === 'Vendor'}" text="{i18n>Vendor}"/>
+				<Select visible="{= ${/type} === 'Vendor'}" items="{/vendorInfo/}" selectedKey="{/m_vendor/id}" width="100%" enabled="true">
+					<items>
+						<core:Item text="{attributes/vendorName}" key="{id}"/>
+					</items>
+				</Select>
+				<Label visible="{= ${/type} === 'Vendor' || ${/type} === 'Customer'}" required="true" text="Service Start Date"/>
+				<DatePicker visible="{= ${/type} === 'Vendor' || ${/type} === 'Customer'}" value="{/serviceStartDate}" displayFormat="short"
+					valueFormat="yyyy-MM-dd"/>
+				<Label visible="{= ${/type} === 'Vendor' || ${/type} === 'Customer'}" required="true" text="Service End Date"/>
+				<DatePicker visible="{= ${/type} === 'Vendor' || ${/type} === 'Customer'}" value="{/serviceEndDate}" displayFormat="short"
+					valueFormat="yyyy-MM-dd"/>
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm visible="false" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3"
+			labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm" title="Upload Glossary Details">
+			<f:content>
+				<MessageStrip
+					text="To ensure that your data is mapped correctly during the upload process, please make sure that the column names in your Excel file match the following column names exactly: First Name, Last Name, Status, UserName, Email-ID, Contact No, Role, City, Street Address, Country, Type, Area, Service Start Date, and Service End Date."
+					showIcon="true" showCloseButton="true"></MessageStrip>
+				<Label text="File Name"/>
+				<VBox>
+					<u:FileUploader width="100%" change="onUpload" placeholder="Choose a Excel file" fileType="XLSX" style="Emphasized"/>
+					<Button text="Upload File" press="uploadUsers"/>
+				</VBox>
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

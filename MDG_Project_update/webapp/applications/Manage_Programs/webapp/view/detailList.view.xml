@@ -1,0 +1,154 @@
+<mvc:View controllerName="MDG.Program.controller.detailList" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic"
+	xmlns:form="sap.ui.layout.form" xmlns:f="sap.f" xmlns:l="sap.ui.layout" xmlns:suite="sap.suite.ui.commons" xmlns:core="sap.ui.core"
+	xmlns="sap.uxap">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true" showFooter="true" isChildPage="true" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="Program Detail" wrapping="true" class="sapUiSmallMarginEnd"/>
+				</expandedHeading>
+				<snappedHeading>
+					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+						<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+							<m:Title text="{/attributes/name}" wrapping="true" class="sapUiTinyMarginEnd"/>
+						</m:FlexBox>
+					</m:FlexBox>
+				</snappedHeading>
+				<navigationActions>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="toggleFullScreen" id="enterFullScreenBtn"
+						tooltip="Enter Full Screen Mode" visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"/>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="toggleFullScreen" id="exitFullScreenBtn"
+						tooltip="Exit Full Screen Mode" visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"/>
+					<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" id="closeColumn" press="onCloseDetailPress" tooltip="Close column"/>
+				</navigationActions>
+				<actions>
+					<m:Button text="Edit" type="Emphasized" visible="false" press="toggleAreaPriority"/>
+					<m:Button text="Delete" visible="false" type="Transparent"/>
+					<m:Button text="Copy" visible="false" type="Transparent"/>
+					<m:Button text="Toggle Footer" type="Transparent" visible="false" press="onToggleFooter"/>
+					<m:Button icon="sap-icon://action" visible="false" type="Transparent"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<headerContent>
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="Program Name"/>
+					<m:Text text="{/attributes/name}"/>
+				</m:VBox>
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="ProgramID"/>
+					<m:Text text="{= 'PRG100000' + ${/id}}"/>
+				</m:VBox>
+				<m:VBox justifyContent="End" class="sapUiSmallMarginEnd">
+					<m:Label text="{i18n>Start Date}"/>
+					<m:Text text="{/attributes/startDate}"/>
+				</m:VBox>
+				<m:VBox justifyContent="End" class="sapUiSmallMarginEnd">
+					<m:Label text="{i18n>End Date}"/>
+					<m:Text text="{/attributes/endDate}"/>
+				</m:VBox>
+			</m:FlexBox>
+		</headerContent>
+		<sections>
+			<ObjectPageSection title="General Information">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<form:SimpleForm maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0"
+								emptySpanM="0" columnsL="2" columnsM="2">
+								<form:content>
+									<core:Title/>
+									<!--<core:Title/>-->
+									<m:Label text="Program ID" class="sapUiTinyMarginBeginEnd"/>
+									<m:Text text="{= 'PRG' + '100000' + ${/id}}"/>
+									<m:Label text="Program Type" class="sapUiTinyMarginBeginEnd"/>
+									<m:Text text="{/attributes/type}"/>
+									<m:Label text="Description" class="sapUiTinyMarginBeginEnd"/>
+									<m:Text text="{/attributes/description}"></m:Text>
+									<m:Label text="{i18n>Effort}"/>
+									<m:Text text="{/attributes/effort} days"/>
+									<m:Label text="{i18n>Progress}"/>
+									<m:Text text="{/attributes/progress}%"/>
+									<m:Label text="{i18n>Priority}"/>
+									<m:Text text="{/attributes/priority}"/>
+									<m:Label text="{i18n>Status}" class="sapUiTinyMarginBeginEnd"/>
+									<m:Text text="{/attributes/status}"/>
+								</form:content>
+							</form:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="{i18n>Project}">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<m:List id="list2" items="{path:'projectsInfo>/'}" mode="SingleSelectMaster" noDataText="{masterView>/noDataText}"
+								growingThreshold="20" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="OnItemPress">
+								<m:headerToolbar>
+									<m:OverflowToolbar>
+										<m:SearchField id="searchField" showRefreshButton="true" tooltip="{i18n>masterSearchTooltip}" liveChange="onSearchProjects"
+											search="onSearchProjects" width="auto">
+											<m:layoutData>
+												<m:OverflowToolbarLayoutData minWidth="150px" maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>
+											</m:layoutData>
+										</m:SearchField>
+										<m:ToolbarSpacer/>
+										<m:Button id="sortButton" tooltip="{i18n>Sort}" press="onOpenViewSettings" icon="sap-icon://sort" type="Transparent"/>
+										<m:Button id="filterButton" press="onOpenViewSettings" icon="sap-icon://filter" type="Transparent"/>
+										<m:Button id="addid" press="openAddNewProject" text="{i18n>addproject}" tooltip="{i18n>addproject}" iconFirst="true" icon="sap-icon://add"/>
+									</m:OverflowToolbar>
+								</m:headerToolbar>
+								<m:items>
+									<m:ObjectListItem number="{= 'PRG10001_0000' + ${projectsInfo>id}}" type="Navigation" press="OnItemPress" title="{projectsInfo>attributes/name}">
+										<m:firstStatus>
+											<m:ObjectStatus text="{projectsInfo>attributes/status}" state="{path:'projectsInfo>attributes/status',formatter:'.formatter.getStatus'}"/>
+										</m:firstStatus>
+										<m:attributes>
+											<m:ObjectAttribute text="{projectsInfo>attributes/startDate}"/>
+										</m:attributes>
+									</m:ObjectListItem>
+								</m:items>
+							</m:List>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="{i18n>Comment}">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<m:VBox>
+								<m:FeedInput post="onPostComment" class="sapUiSmallMarginTopBottom"/>
+								<m:List showSeparators="Inner" items="{userComments>/}">
+									<m:FeedListItem sender="{userComments>attributes/users_permissions_user/data/attributes/username}" senderPress="onSenderPress"
+										iconDensityAware="false" timestamp="{path: 'userComments>attributes/createdAt',formatter:'.formatter.handleDateValues'}"
+										text="{userComments>attributes/comment}" convertLinksToAnchorTags="All"/>
+								</m:List>
+							</m:VBox>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:OverflowToolbar>
+				<m:ToolbarSpacer/>
+				<m:Button id="editid" text="{i18n>Edit}" press="openEditProgram" tooltip="{i18n>Edit}" iconFirst="true" icon="sap-icon://edit"
+					visible="{DetailView>/isEditBtnVisible}"/>
+				<m:Button id="deleteid" text="{i18n>Delete}" press="openDeleteProgram" tooltip="{i18n>Deleteprogram}" iconFirst="true"
+					icon="sap-icon://delete" visible="{DetailView>/isDeleteBtnVisible}"/>
+				<m:Button id="Archivedid" text="{i18n>Archive}" press="openArchiveProgram" tooltip="{i18n>Archiveprogram}" iconFirst="true"
+					icon="sap-icon://toaster-down" visible="{DetailView>/isProjectArchived}"/>
+				<m:Button id="completeProgramid" text="{i18n>Complete}" press="openCompleteProgram" tooltip="{i18n>Completeprogram}" iconFirst="true"
+					icon="sap-icon://message-success" visible="{DetailView>/isProjectCancelled}"/>
+				<m:Button id="Cancelledid" text="{i18n>Cancel}" press="openCancelProgram" tooltip="{i18n>CancelProgram}" iconFirst="true"
+					icon="sap-icon://cancel" visible="{DetailView>/isProjectCancelled}"/>
+				<m:Button id="Retrivedid" text="{i18n>Retrive}" press="openRetriveProgram" tooltip="{i18n>Retriveprogram}" iconFirst="true"
+					icon="sap-icon://undo" visible="{DetailView>/isRetriveVisible}"/>
+			</m:OverflowToolbar>
+		</footer>
+	</ObjectPageLayout>
+</mvc:View>

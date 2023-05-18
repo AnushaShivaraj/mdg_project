@@ -1,0 +1,51 @@
+<mvc:View controllerName="MDG.Planning_Calendar.controller.Calendar" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:unified="sap.ui.unified" xmlns="sap.m">
+	<VBox id="_IDGenVBox1" class="sapUiSmallMargin">
+		<PlanningCalendar id="PC1" rows="{path: 'appointmentsdata>/'}" appointmentsVisualization="Filled"
+			appointmentSelect="handleAppointmentSelect" showEmptyIntervalHeaders="false" showWeekNumbers="true">
+			<toolbarContent>
+				<Title id="_IDGenTitle1" text="{i18nModel>PlanningCalendar}" titleStyle="H4"/>
+				<Button id="_IDGenButton1" icon="sap-icon://add" press="handleAppointmentCreate" tooltip="Add"/>
+				<Button id="_IDGenButton2" icon="sap-icon://clear-filter" press="handleAppointmentClear" tooltip="Clear"/>
+				<Button id="_IDGenButton3" tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+			</toolbarContent>
+			<rows>
+				<PlanningCalendarRow id="_IDGenPlanningCalendarRow1" title="{appointmentsdata>name}" text="{appointmentsdata>description}"
+					appointments="{model: 'appointmentsdata', path : 'm_appointments', templateShareable:false}">
+					<appointments>
+						<unified:CalendarAppointment id="_IDGenCalendarAppointment1"
+							startDate="{path:'appointmentsdata>startDate',formatter:'.formatter.getDateFormat'}"
+							endDate="{path:'appointmentsdata>endDate',formatter:'.formatter.getDateFormat'}" title="{path:'appointmentsdata>title'}"
+							text="{path:'appointmentsdata>meetingLink'}" type="Type02" tentative="false"></unified:CalendarAppointment>
+					</appointments>
+				</PlanningCalendarRow>
+			</rows>
+		</PlanningCalendar>
+	</VBox>
+</mvc:View>
+<!--<mvc:View controllerName="MDG.Planning_Calendar.controller.Calendar" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"-->
+<!--	xmlns:unified="sap.ui.unified" xmlns="sap.m" xmlns:l="sap.ui.layout">-->
+<!--		<VBox class="sapUiSmallMargin">-->
+<!--			<PlanningCalendar id="PC1" rows="{path: '/data/'}" appointmentsVisualization="Filled" appointmentSelect="handleAppointmentSelect"-->
+<!--				showEmptyIntervalHeaders="false" viewChange="handleViewChange" legend="PlanningCalendarLegend" showWeekNumbers="true">-->
+<!--				<toolbarContent>-->
+<!--					<Title text="{i18nModel>PlanningCalendar}" titleStyle="H4"/>-->
+<!--					<Button icon="sap-icon://add" press="handleAppointmentCreate" tooltip="Add"/>-->
+<!--					<Button icon="sap-icon://clear-filter" press="handleAppointmentClear" tooltip="Clear"/>-->
+<!--					<Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>-->
+<!--<ToggleButton pressed="{path: 'stateModel>/legendShown'}" icon="sap-icon://legend"/>-->
+<!--				</toolbarContent>-->
+<!--				<rows>-->
+<!--					<PlanningCalendarRow title="{attributes/name}" text="{attributes/description}" appointments="{path : 'appointments', templateShareable: false}">-->
+<!--						<customData>-->
+<!--							<core:CustomData key="{id}" value="{attributes/description}" writeToDom="true"/>-->
+<!--						</customData>-->
+<!--						<appointments>-->
+<!--							<unified:CalendarAppointment startDate="{path:'{attributes/startDate}', formatter:'.formatter.getDateFormat'}" endDate="{path:'{attributes/endDate}', formatter:'.formatter.getDateFormat'}" title="{title}" text="{projectName}" color="{color}" tentative="{tentative}"-->
+<!--								key="{id}"></unified:CalendarAppointment>-->
+<!--						</appointments>-->
+<!--					</PlanningCalendarRow>-->
+<!--				</rows>-->
+<!--			</PlanningCalendar>-->
+<!--		</VBox>-->
+<!--</mvc:View>-->

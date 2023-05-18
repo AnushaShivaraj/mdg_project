@@ -1,0 +1,195 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "VASPP.MDGSystem",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "version": "1.40.12",
+            "toolsId": "0eb4d37f-b419-408c-a36e-b6d53c5d3780"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "rootView": {
+            "viewName": "VASPP.MDGSystem.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        },
+        "dependencies": {
+            "minUI5Version": "1.65.6",
+            "libs": {
+                "sap.ui.layout": {},
+                "sap.ui.core": {},
+                "sap.m": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "VASPP.MDGSystem.i18n.i18n"
+                }
+            },
+            "customerInfo": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/customerInfo.json",
+                "preload": false
+            },
+            "projectInfo": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/projectInfo.json",
+                "preload": false
+            },
+            "vendorInfo": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/vendorInfo.json",
+                "preload": false
+            },
+            "navigationList": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/navigationList.json",
+                "preload": false
+            },
+            "users": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/users.json",
+                "preload": false
+            },
+            "roles": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/role.json",
+                "preload": false
+            },
+            "organisations": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/organisation.json",
+                "preload": false
+            },
+            "applications": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/application.json",
+                "preload": false
+            },
+            "glossary": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/glossary.json",
+                "preload": false
+            },
+            "program": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/program.json",
+                "preload": false
+            },
+            "DocAndQues": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/docAndques.json",
+                "preload": false
+            },
+            "assignmentModel": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "model/assignments.json",
+                "preload": false
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                },
+                {
+                    "uri": "css/IMS.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "VASPP.MDGSystem.view",
+                "controlAggregation": "pages",
+                "controlId": "mainContents",
+                "clearControlAggregation": false,
+                "bypassed": {
+                    "target": [
+                        "TargetApp"
+                    ]
+                }
+            },
+            "routes": [
+                {
+                    "name": "TargetApp",
+                    "pattern": "",
+                    "target": [
+                        "TargetHome"
+                    ]
+                },
+                {
+                    "name": "TargetHome",
+                    "pattern": "",
+                    "target": []
+                }
+            ],
+            "targets": {
+                "TargetApp": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "app",
+                    "viewName": "App"
+                },
+                "TargetHome": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "home",
+                    "viewName": "Home"
+                }
+            }
+        }
+    },
+    "sap.platform.hcp": {
+        "uri": "webapp",
+        "_version": "1.1.0"
+    }
+}

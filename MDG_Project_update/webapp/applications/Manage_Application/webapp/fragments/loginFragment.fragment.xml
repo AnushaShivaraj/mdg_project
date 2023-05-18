@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>logonBoxTitle}" contentHeight="24rem" contentWidth="30rem" draggable="true">
+		<content>
+			<VBox alignItems="Center" class="sapUiSmallMargin">
+				<ObjectStatus text="{i18n>loginFailedErrorMsg}" state="Error" visible="false" />
+				<f:Avatar displaySize="L" backgroundColor="Random" class="sapUiSmallMarginTopBottom" />
+				<VBox width="90%">
+					<Label text="{i18n>email}:" required="true" />
+					<Input type="Email" placeholder="{i18n>email}" tooltip="{i18n>emailTooltip}"  class="sapUiSmallMarginBottom" valueStateText="Please enter the Email-id" />
+					<Label text="{i18n>password}:" required="true" />
+					<Input type="Password" placeholder="{i18n>password}" tooltip="{i18n>passwordTooltip}" liveChange="hideErrMsgs" submit="performLogin"  />
+					<HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop">
+						<CheckBox text="{i18n>rememberMe}" selected="true" tooltip="{i18n>rememberMeChkBxTooltip}" />
+						<!--<Link text="{i18n>requestOTP}"  tooltip="{i18n>lnkRequestOTPTooltip}" press="getOTP" />-->
+						<Link text="{i18n>requestPasswordchange}"  tooltip="{i18n>lnkrequestPasswordchangeTooltip}" press="getOTP" />
+					</HBox>
+				</VBox>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="Log on" tooltip="Log on" press="performLogin"/>
+		</beginButton>
+		<!--<endButton>-->
+		<!--	<Button text="Bypass Logon" tooltip="Bypass the log on and log on as an anonymous user with all accesses (for developement purpose only)" press="bypassLogon"/>-->
+		<!--</endButton>-->
+	</Dialog>
+</core:FragmentDefinition>

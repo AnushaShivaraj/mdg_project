@@ -1,0 +1,68 @@
+<mvc:View controllerName="MDG.Help.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" height="100%" xmlns:suite="sap.suite.ui.commons"
+	xmlns:upload="sap.m.upload">
+	<semantic:SemanticPage id="detailPage" showFooter="true" class="detailPageClass">
+		<semantic:titleHeading>
+			<Title id="title"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<VBox>
+				<ObjectAttribute title="Topic" id="topics"/>
+				<ObjectAttribute title="Description" id="desc"/>
+			</VBox>
+		</semantic:headerContent>
+		<semantic:content>
+			<VBox>
+				<Toolbar id="T">
+					<Title id="topic"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://add" text="Add FAQ" press="openAddFAQBox" tooltip="Add Question"/>
+				</Toolbar>
+				<VBox id="innerVbox" class="sapUiSmallMargin" items="{/}">
+					<f:Form id="FormDisplay480_12120" editable="false">
+						<f:toolbar>
+							<Toolbar id="TB1">
+								<Title id="Title1" text="Q:{attributes/question}"/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://edit" press="openEditFAQBox" tooltip="Edit Question"/>
+								<Button icon="sap-icon://delete" press="DeleteFAQPress" tooltip="Delete Question"/>
+							</Toolbar>
+						</f:toolbar>
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+								emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer title="">
+								<f:formElements>
+									<f:FormElement label="">
+										<f:fields>
+											<Text id="text1" text="{attributes/answer}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+				</VBox>
+			</VBox>
+		</semantic:content>
+		<semantic:closeAction>
+			<semantic:CloseAction id="closeColumn" press="onCloseDetailPress"/>
+		</semantic:closeAction>
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction id="enterFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}" press="fullScreen"/>
+		</semantic:fullScreenAction>
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction id="exitFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}" press="exitFullScreen"/>
+		</semantic:exitFullScreenAction>
+		<semantic:footerCustomActions>
+			<Button type="Transparent" text="{i18n>edit}" id="editButtonId" tooltip="Edit Topic" press="handleEditHelpPress" iconFirst="true"
+				icon="sap-icon://edit"/>
+			<Button type="Transparent" text="{i18n>delete}" id="deleteButtonId" tooltip="Delete Topic" press="handleDeleteHelpPress" iconFirst="true"
+				icon="sap-icon://delete"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

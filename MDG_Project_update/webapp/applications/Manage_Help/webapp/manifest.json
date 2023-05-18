@@ -1,0 +1,126 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "MDG.Help",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "MDG.Help.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "MDG.Help.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/helpInfo.json",
+				"preload": false
+			},
+			"appsModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/apps.json",
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "MDG.Help.view",
+				"controlAggregation": "beginColumnPages",
+				"controlId": "layout",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "Help",
+				"pattern": "Help",
+				"target": ["Help"]
+			}, {
+				"name": "Master",
+				"pattern": "Master/{id}",
+				"target": ["Master"]
+			}, {
+				"name": "Detail",
+				"pattern": "Detail/{id}/{moduleIndex}",
+				"target": ["Master", "Detail"]
+			}],
+			"targets": {
+				"Help": {
+					"viewType": "XML",
+					"transition": "slide",
+					"controlAggregation": "beginColumnPages",
+					"viewId": "Help",
+					"viewName": "Help"
+				},
+				"Master": {
+					"viewType": "XML",
+					"transition": "slide",
+					"controlAggregation": "beginColumnPages",
+					"viewId": "Master",
+					"viewName": "Master"
+				},
+				"Detail": {
+					"viewType": "XML",
+					"transition": "slide",
+					"controlAggregation": "midColumnPages",
+					"viewId": "Detail",
+					"viewName": "Detail"
+				}
+			}
+		}
+	}
+}

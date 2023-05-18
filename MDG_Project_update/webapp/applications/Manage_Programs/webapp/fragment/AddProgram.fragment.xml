@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>AddProgram}" contentWidth="30%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleAddProgramCancel"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Add}" press="handleAddProgram"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label required="true" text="{i18n>ProgramsName}"/>
+				<Input value="{/ProgramsName}"/>
+				<Label required="true" text="{i18n>description}"/>
+				<TextArea value="{/Description}"/>
+				<Label required="true" text="{i18n>StartDate}"/>
+				<DatePicker id="DP1" valueFormat="yyy-MM-dd" value="{/startdate}" placeholder="Enter Start Date" class="sapUiSmallMarginBottom"/>
+				<Label required="true" text="{i18n>EndDate}"/>
+				<DatePicker id="DP2" valueFormat="yyy-MM-dd" value="{/enddate}" placeholder="Enter Start Date" class="sapUiSmallMarginBottom"/>
+				<Label required="true" visible="false" text="{i18n>status}"/>
+				<Input value="{/Status}" visible="false"/>
+				<Label required="true" text="{i18n>program_type}"/>
+				<ComboBox items="{path: '/'}" enabled="true" selectedKey="" id="cmbDependency">
+					<items>
+						<core:Item key="{proj_type}" text="{proj_type}"/>
+					</items>
+				</ComboBox>
+				<!--<Label required="true" text="{i18n>Organization Name}"/>-->
+				<!--<Input value="{/org_name}"/>-->
+				<Label required="true" text="{i18n>Country/City}"/>
+				<Input value="{/countryOrCity}" placeholder="Enter Country Or City"/>
+				<Label text="{i18n>Effort}"/>
+				<Input type="Number" value="{/Effort}" placeholder="Enter the Efforts"/>
+				<Label text="{i18n>Progress}"/>
+				<Input type="Number" value="{/Progress}" placeholder="Enter Progress in percentage"/>
+				<Label required="true" text="{i18n>Priority}"/>
+				<Select forceSelection="false" selectedKey="{/Priority}">
+					<core:Item text="Critical" key="Critical"/>
+					<core:Item text="Non critical" key="Non critical"/>
+					<core:Item text="Relevant" key="Relevant"/>
+					<core:Item text="Less Relevant" key="Less Relevant"/>
+				</Select>
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

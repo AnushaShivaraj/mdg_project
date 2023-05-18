@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18nModel>createDocument}" contentWidth="50%" contentHeigth="50%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18nModel>Cancel}" press="handleCreateDocCancelPress"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18nModel>Open}" press="handleOpenFormList"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label text="{i18nModel>SelectFormType}"/>
+				<Select items="{/}" width="100%" enabled="true">
+					<items>
+						<core:Item text="{attributes/type}" key="{id}"/>
+					</items>
+				</Select>
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

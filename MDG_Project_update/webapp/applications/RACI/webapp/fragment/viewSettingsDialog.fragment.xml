@@ -1,0 +1,89 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog cancel="onConfirmViewSettingsDialog" confirm="onConfirmViewSettingsDialog">
+		<sortItems >
+			<ViewSettingsItem text="{i18n>ID}" key="attributes/programID" selected="true"/>
+			<ViewSettingsItem text="{i18n>Programs Name}" key="attributes/name"/>
+			<!-- <ViewSettingsItem text="{i18n>Status}" key="attributes/status"/> -->
+		</sortItems>
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>Status}" key="attributes/status" multiSelect="false">
+				<items>
+					<!-- <ViewSettingsItem text="New" key="New"/>
+					<ViewSettingsItem text="Draft" key="Draft"/>
+					<ViewSettingsItem text="Submitted" key="Submitted"/>
+					<ViewSettingsItem text="Approved" key="Approved"/>
+					<ViewSettingsItem text="Rejected" key="Rejected"/> -->
+					<ViewSettingsItem text="New" key="New"/>
+					<ViewSettingsItem text="In-Progress" key="In-Progress"/>
+					<ViewSettingsItem text="Completed" key="Completed"/>
+					<ViewSettingsItem text="Cancelled" key="Cancelled"/>
+					<ViewSettingsItem text="Archived" key="Archived"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Program type}" key="attributes/type" multiSelect="false">
+				<items>
+					<!-- <ViewSettingsItem text="CSFR" key="CSFR"/>
+					<ViewSettingsItem text="PPR" key="PPR"/> -->
+					<ViewSettingsItem text="DGI Foundation" key="DGI Foundation"/>
+					<ViewSettingsItem text="Trans Program" key="Trans Program"/>
+					<ViewSettingsItem text="IC Data Initiative" key="IC Data Initiative"/>
+					<ViewSettingsItem text="Reg Tech Initiative" key="Reg Tech Initiative"/>
+					<ViewSettingsItem text="Data Quality" key="Data Quality"/>
+					<ViewSettingsItem text="Generic" key="Generic"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
+<!--<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">-->
+<!--	<ViewSettingsDialog cancel="onConfirmViewSettingsDialog" confirm="onConfirmViewSettingsDialog">-->
+<!--		<sortItems >-->
+<!--			<ViewSettingsItem text="{i18n>ID}" key="id" selected="true"/>-->
+<!--			<ViewSettingsItem text="{i18n>ProgramsName}" key="name"/>-->
+<!--			<ViewSettingsItem text="{i18n>Status}" key="status"/>-->
+<!--		</sortItems>-->
+<!--		<filterItems>-->
+<!--			<ViewSettingsFilterItem text="{i18n>Status}" key="status" multiSelect="false">-->
+<!--				<items>-->
+<!--					<ViewSettingsItem text="New" key="New"/>-->
+<!--					<ViewSettingsItem text="Draft" key="Draft"/>-->
+<!--					<ViewSettingsItem text="Submitted" key="Submitted"/>-->
+<!--					<ViewSettingsItem text="Approved" key="Approved"/>-->
+<!--					<ViewSettingsItem text="Rejected" key="Rejected"/>-->
+<!--				</items>-->
+<!--			</ViewSettingsFilterItem>-->
+<!--			<ViewSettingsFilterItem text="{i18n>Programtype}" key="proj_type" multiSelect="false">-->
+<!--				<items>-->
+<!--					<ViewSettingsItem text="CSFR" key="CSFR"/>-->
+<!--					<ViewSettingsItem text="PPR" key="PPR"/>-->
+<!--				</items>-->
+<!--			</ViewSettingsFilterItem>-->
+<!--		</filterItems>-->
+<!--	</ViewSettingsDialog>-->
+<!--</core:FragmentDefinition>-->
+<!--<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">-->
+<!--	<ViewSettingsDialog cancel="onConfirmViewSettingsDialog" confirm="onConfirmViewSettingsDialog">-->
+<!--		<sortItems >-->
+<!--			<ViewSettingsItem text="{i18n>ID}" key="attributes/programID" selected="true"/>-->
+<!--			<ViewSettingsItem text="{i18n>Programs Name}" key="attributes/name"/>-->
+<!--			<ViewSettingsItem text="{i18n>Status}" key="attributes/status"/>-->
+<!--		</sortItems>-->
+<!--		<filterItems>-->
+<!--			<ViewSettingsFilterItem text="{i18n>Status}" key="status" multiSelect="false">-->
+<!--				<items>-->
+<!--					<ViewSettingsItem text="New" key="New"/>-->
+<!--					<ViewSettingsItem text="Draft" key="Draft"/>-->
+<!--					<ViewSettingsItem text="Submitted" key="Submitted"/>-->
+<!--					<ViewSettingsItem text="Approved" key="Approved"/>-->
+<!--					<ViewSettingsItem text="Rejected" key="Rejected"/>-->
+<!--				</items>-->
+<!--			</ViewSettingsFilterItem>-->
+<!--			<ViewSettingsFilterItem text="{i18n>Program type}" key="proj_type" multiSelect="false">-->
+<!--				<items>-->
+<!--					<ViewSettingsItem text="CSFR" key="CSFR"/>-->
+<!--					<ViewSettingsItem text="PPR" key="PPR"/>-->
+<!--				</items>-->
+<!--			</ViewSettingsFilterItem>-->
+<!--		</filterItems>-->
+<!--	</ViewSettingsDialog>-->
+<!--</core:FragmentDefinition>-->

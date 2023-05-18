@@ -1,0 +1,24 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="mySelectDialog"
+		noDataText="No Tasks Found"
+		title="Select Task"
+		search="onSearchSelectTaskValueHelp"
+		confirm="onSelectTask"
+		cancel="onDialogClose"
+		multiSelect="true"
+		items="{
+			path: '/'
+		}"
+		>
+		<StandardListItem
+			title="{attributes/name}"
+			description="{attributes/description}"
+			icon=""
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

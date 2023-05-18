@@ -1,0 +1,13 @@
+<mvc:View controllerName="MDG.Help.controller.Help" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:grid="sap.ui.layout.cssgrid">
+	<Page title="Help/FAQ Module">
+		<grid:CSSGrid id="grid2" gridTemplateColumns="repeat(auto-fit, minmax(174px, 1fr))" class="gridPadding" gridTemplateRows=" 211px"
+			gridGap="1rem">
+			<!--<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{/attributes/name}" press="press">-->
+			<!--	<TileContent footer="Help/FAQ">-->
+			<!--		<NumericContent value="3" icon="{path:'/attributes/name',formatter:'.formatter.handleIcon'}" withMargin="true"/>-->
+			<!--<NumericContent value="3" icon="sap-icon://project-definition-triangle" withMargin="true"/>-->
+			<!--	</TileContent>-->
+			<!--</GenericTile>-->
+		</grid:CSSGrid>
+	</Page>
+</mvc:View>

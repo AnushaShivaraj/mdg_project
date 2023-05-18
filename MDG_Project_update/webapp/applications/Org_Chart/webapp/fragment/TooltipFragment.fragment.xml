@@ -1,0 +1,56 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<!--<QuickView id="quickView">-->
+	<!--	<QuickViewPage-->
+	<!--			header="Employee"-->
+	<!--			icon="{/icon}"-->
+	<!--			title="{childModel>/title}"-->
+	<!--			description="{/title}">-->
+	<!--		<QuickViewGroup heading="Contact detail">-->
+	<!--			<QuickViewGroupElement-->
+	<!--					label="Location"-->
+	<!--					value="{childModel>/title}"/>-->
+	<!--			<QuickViewGroupElement-->
+	<!--					label="Mobile"-->
+	<!--					value="{childModel>/title}"-->
+	<!--					type="mobile"/>-->
+	<!--			<QuickViewGroupElement-->
+	<!--					label="Email"-->
+	<!--					value="{/title}"-->
+	<!--					emailSubject="Subject"-->
+	<!--					type="email"/>-->
+	<!--		</QuickViewGroup>-->
+	<!--		<QuickViewGroup visible="{/title}" heading="Team">-->
+	<!--			<QuickViewGroupElement-->
+	<!--					label="Size"-->
+	<!--					value="{/title}" />-->
+	<!--		</QuickViewGroup>-->
+	<!--	</QuickViewPage>-->
+	<!--</QuickView>-->
+	<Dialog title="Details" contentWidth="25%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="Close" press="onDetailNodeClose"/>
+		</endButton>
+		<List id="list" width="auto" class="sapFDynamicPageAlignContent" items="{path:'/'}"
+			noDataText="{masterView>/noDataText}" growingThreshold="20" 
+			growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
+			<!--<headerToolbar>-->
+			<!--	<OverflowToolbar>-->
+			<!--		<SearchField id="searchField" showRefreshButton="true" tooltip="{i18n>masterSearchTooltip}" liveChange="onSearch" search="onSearch"-->
+			<!--			width="auto">-->
+			<!--			<layoutData>-->
+			<!--				<OverflowToolbarLayoutData minWidth="150px" maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>-->
+			<!--			</layoutData>-->
+			<!--		</SearchField>-->
+			<!--		<ToolbarSpacer/>-->
+			<!--		<Button id="sortButton" tooltip="{i18n>Sort}" press="onOpenViewSettings" icon="sap-icon://sort" type="Transparent"/>-->
+			<!--		<Button id="filterButton" press="onOpenViewSettings" icon="sap-icon://filter" type="Transparent"/>-->
+					<!--<Button id="settingsButton" press="handleViewSettings" icon="sap-icon://action-settings" type="Transparent"/>-->
+			<!--	</OverflowToolbar>-->
+			<!--</headerToolbar>-->
+			<items>
+				<ObjectListItem title="{title}">
+				</ObjectListItem>
+			</items>
+		</List>
+	</Dialog>
+</core:FragmentDefinition>

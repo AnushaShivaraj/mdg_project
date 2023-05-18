@@ -1,0 +1,26 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="MDG.ApplicationManagement.controller.userMaster" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="catId" title="{i18n>Users}" showNavButton="true" navButtonPress="onNavBack1">
+		<subHeader>
+			<Toolbar>
+				<SearchField liveChange="onSearch" id="userSearchId" width="100%"/>
+				<Button press="handleSortfragment" icon="sap-icon://sort" type="Transparent"/>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List items="{/}" id="itemlistId" class="deptObjListItemClass" mode="SingleSelectMaster" selectionChange="handleUsersListPress">
+				<items>
+					<ObjectListItem title="{firstName} {lastName}" type="Active" number="{='RNI100' + ${id}}"></ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<!--<Button press="openNewFragment" text="{i18n>Bulk Upload}" iconFirst="true" icon="sap-icon://add"/>-->
+					<Button id="addid" press="openAddNewUser" text="{i18n>AddUsers}" iconFirst="true" icon="sap-icon://add"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

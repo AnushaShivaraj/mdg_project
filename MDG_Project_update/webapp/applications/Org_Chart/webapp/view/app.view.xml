@@ -1,0 +1,5 @@
+<mvc:View controllerName="mdg.Org_Chart.controller.app" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f">
+	<App id="app">
+		<f:FlexibleColumnLayout id="layout" layout="{appView>/layout}"/>
+	</App>
+</mvc:View>

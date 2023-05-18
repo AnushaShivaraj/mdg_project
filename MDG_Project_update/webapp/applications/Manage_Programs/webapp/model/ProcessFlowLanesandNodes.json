@@ -1,0 +1,74 @@
+
+	{
+		"nodes": [
+			{
+				"id": "1",
+				"lane": "0",
+				"title": "This is TITLE",
+				"titleAbbreviation": "This is titleAbbreviation",
+				"children": [ 10 ],
+				"state": "Positive",
+				"stateText": "I am stateText",
+				"focused": false,
+				"highlighted": false,
+				"texts": [ "Start Date: 20.06.2021","End Date: 30.06.2021"]
+			}, {
+				"id": "10",
+				"lane": "1",
+				"title": "Technician",
+				"titleAbbreviation": "OD 40",
+				"children": [ 20 ],
+				"state": "Positive",
+				"stateText": "Zugewiesen",
+				"focused": false,
+				"highlighted": false,
+				"texts": [ "Start Date:-20.06.2021", "Florian Muller(Technician)" ]
+			}, {
+				"id": "20",
+				"lane": "2",
+				"title": "Inspection",
+				"titleAbbreviation": "I 9",
+				"children": [ 30 ],
+				"state": "Critical",
+				"stateText": "In Bearbeitung",
+				"focused": false,
+				"highlighted": false,
+				"texts":["10 Days Remaining", "10/12 Inspected   12-04-21"]
+			}, {
+				"id": "30",
+				"lane": "3",
+				"title": "Report",
+				"titleAbbreviation": "AD 5",
+				"children": [],
+				"state": "Negative",
+				"stateText": "Nicht generiert",
+				"focused": false,
+				"highlighted": false,
+				"texts": ["Node 3 Parent 0", "10/12 Inspected   12-04-21"]
+			}
+		],
+		"lanes": [
+			{
+				"id": "0",
+				"icon": "sap-icon://order-status",
+				"label": "Planung",
+				"position": 0
+			}, {
+				"id": "1",
+				"icon": "sap-icon://monitor-payments",
+				"label": "Zuweisen ",
+				"position": 1
+			}, {
+				"id": "2",
+				"icon": "sap-icon://payment-approval",
+				"label": "Betriebsmiittel",
+				"position": 2
+			}, {
+				"id": "3",
+				"icon": "sap-icon://money-bills",
+				"label": "Berichterstattung",
+				"position": 3
+			}
+		]
+	}
+

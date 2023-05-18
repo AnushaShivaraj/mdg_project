@@ -1,0 +1,80 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	class="sapUiBodyBackground sapContrastPlus">
+	<Popover title="{i18n>Notifications}" placement="Bottom" contentWidth="20rem"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+		<VBox class="sapUiSmallMargin">
+			<NotificationList items="{/}">
+				<layoutData>
+					<FlexItemData maxWidth="600px"/>
+				</layoutData>
+				<NotificationListItem title="{attributes/name}" description="{attributes/description}" showCloseButton="true"
+					datetime="{attributes/endDate}" unread="true" priority="Medium" close=".onItemClose" authorName="{attributes/priority}"
+					authorInitials="{attributes/status}"></NotificationListItem>
+			</NotificationList>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>
+<!--<core:FragmentDefinition-->
+<!--	xmlns:core="sap.ui.core"-->
+<!--	xmlns:mvc="sap.ui.core.mvc"-->
+<!--	xmlns="sap.m"-->
+<!--	xmlns:l="sap.ui.layout"-->
+<!--	class="sapUiBodyBackground sapContrastPlus">-->
+<!--	<Popover title="{i18n>Notifications}"-->
+<!--		placement="Bottom"-->
+<!--		contentWidth="20rem"-->
+<!--		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">-->
+<!--	<VBox class="sapUiSmallMargin">-->
+<!--		<NotificationList>-->
+<!--			<layoutData>-->
+<!--				<FlexItemData maxWidth="600px" />-->
+<!--			</layoutData>-->
+<!--			<NotificationListItem-->
+<!--				title="Program Kick Off"-->
+<!--				showCloseButton="true"-->
+<!--				datetime="3 days"-->
+<!--				unread="true"-->
+<!--				priority="None"-->
+<!--				close=".onItemClose"-->
+<!--				press=".onListItemPress"-->
+<!--				authorName="In Progress"-->
+<!--				>-->
+<!--			</NotificationListItem>-->
+<!--			<NotificationListItem-->
+<!--				title="PMO"-->
+<!--				description="Project Management Office Definition"-->
+<!--				showCloseButton="true"-->
+<!--				datetime="23 hours"-->
+<!--				unread="true"-->
+<!--				priority="Medium"-->
+<!--				close=".onItemClose"-->
+<!--				press=".onListItemPress"-->
+<!--				authorName="In Progress"-->
+<!--				/>-->
+<!--			<NotificationListItem-->
+<!--				title="0 Program Kick Off"-->
+<!--				description="This is CSF 1"-->
+<!--				showCloseButton="true"-->
+<!--				unread="false"-->
+<!--				datetime="5 hours"-->
+<!--				priority="High"-->
+<!--				close=".onItemClose"-->
+<!--				press=".onListItemPress"-->
+<!--				authorName="Delayed"-->
+<!--				>-->
+<!--			</NotificationListItem>-->
+<!--			<NotificationListItem-->
+<!--				title="0 Program Kick Off"-->
+<!--				description="This is Milestone 1"-->
+<!--				showCloseButton="true"-->
+<!--				datetime="3 hours"-->
+<!--				unread="true"-->
+<!--				priority="High"-->
+<!--				close=".onItemClose"-->
+<!--				press=".onListItemPress"-->
+<!--				authorName="Delayed"-->
+<!--				/>-->
+<!--		</NotificationList>-->
+<!--	</VBox>-->
+<!--</Popover>-->
+<!--</core:FragmentDefinition>-->

@@ -1,0 +1,525 @@
+[{
+		"id": "RNI10040",
+		"firstName": "Nithin",
+		"middleName": "",
+		"lastname": "Simakurthi",
+		"area": "Finance Dept",
+		"status": "Archived",
+		"orgid": "ORG10001",
+		"email": "nithin@vaspp.com",
+		"contact": 1234598765,
+		"password": "Vaspp@123",
+		"role": "SuperAdmin",
+		"userType": "Consultancy",
+		"city": "Brussels",
+		"address": "123 Known Street",
+		"country": "Belgium",
+		"startDate": "31/01/2022",
+		"endDate": "31/12/9999",
+		"pagepermission": [{
+			"appId": "APP10005",
+			"appName": "User Management",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}],
+		"createDate": "24/08/2021",
+		"editDate": "24/08/2021",
+		"deleteDate": ""
+	},
+	{
+		"id": "RNI10041",
+		"firstName": "Kavya",
+		"middleName": "",
+		"lastname": "Mahadev",
+		"area": "ITS",
+		"status": "Designated",
+		"orgid": "ORG10001",
+		"email": "kavya@vaspp.com",
+		"contact": 9875432615,
+		"password": "Vaspp@123",
+		"role": "Admin",
+		"userType": "IT Service Provider",
+		"city": "Bangalore",
+		"address": "Bangalore Street",
+		"country": "India",
+		"startDate": "31/01/2022",
+		"endDate": "31/12/9999",
+		"pagepermission": [{
+			"applicationid": "APP10005",
+			"name": "User Management",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}],
+		"createDate": "24/08/2021",
+		"editDate": "24/08/2021",
+		"deleteDate": ""
+	},
+	{
+		"id": "RNI10042",
+		"firstName": "Joseph",
+		"middleName": "B.",
+		"lastname": "Petrie",
+		"area": "Finance Dept",
+		"status": "Onboarded",
+		"orgid": "ORG10001",
+		"email": "joe@vaspp.com",
+		"contact": 7634251876,
+		"password": "Vaspp@123",
+		"role": "Editor",
+		"userType": "Customer External",
+		"city": "Denver",
+		"address": "Colorado Street",
+		"country": "Colorado",
+		"startDate": "31/01/2022",
+		"endDate": "31/12/9999",
+		"pagepermission": [{
+			"applicationid": "APP10001",
+			"name": "Manage Programs",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10002",
+			"name": "Manage Customers",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10003",
+			"name": "Manage Vendors",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10004",
+			"name": "Help",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10006",
+			"name": "Report",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10007",
+			"name": "Glossary",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10008",
+			"name": "Organizatin Chart",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10009",
+			"name": "RACI",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10010",
+			"name": "Forms",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10011",
+			"name": "Planning Calendar",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}],
+		"createDate": "24/08/2021",
+		"editDate": "24/08/2021",
+		"deleteDate": ""
+	},
+	{
+		"id": "RNI10043",
+		"firstName": "Elke",
+		"middleName": "",
+		"lastname": "Baumann",
+		"area": "Marketing",
+		"status": "Designated",
+		"orgid": "ORG10001",
+		"email": "elke@vaspp.com",
+		"contact": 8764523421,
+		"password": "Vaspp@123",
+		"role": "Publisher",
+		"userType": "Vendor Direct",
+		"city": "Waldorf",
+		"address": "Waldorf Road",
+		"country": "Germany",
+		"startDate": "31/01/2022",
+		"endDate": "31/12/9999",
+		"pagepermission": [{
+			"applicationid": "APP10001",
+			"name": "Manage Programs",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10002",
+			"name": "Manage Customers",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10003",
+			"name": "Manage Vendors",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10004",
+			"name": "Help",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10006",
+			"name": "Report",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10007",
+			"name": "Glossary",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10008",
+			"name": "Organizatin Chart",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10009",
+			"name": "RACI",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10010",
+			"name": "Forms",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10011",
+			"name": "Planning Calendar",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}],
+		"createDate": "24/08/2021",
+		"editDate": "24/08/2021",
+		"deleteDate": ""
+	},
+	{
+		"id": "RNI10044",
+		"firstName": "Balaram",
+		"middleName": "",
+		"lastname": "Pattanaik",
+		"area": "Management",
+		"status": "New",
+		"orgid": "ORG10001",
+		"email": "balaram@vaspp.com",
+		"contact": 9865342132,
+		"password": "Vaspp@123",
+		"role": "Author",
+		"userType": "Supplier",
+		"city": "Waldorf",
+		"address": "Waldorf Road",
+		"country": "Germany",
+		"startDate": "31/01/2022",
+		"endDate": "31/12/9999",
+		"pagepermission": [{
+			"applicationid": "APP10001",
+			"name": "Manage Programs",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10002",
+			"name": "Manage Customers",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10003",
+			"name": "Manage Vendors",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10004",
+			"name": "Help",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10006",
+			"name": "Report",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10007",
+			"name": "Glossary",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10008",
+			"name": "Organizatin Chart",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10009",
+			"name": "RACI",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10010",
+			"name": "Forms",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10011",
+			"name": "Planning Calendar",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}],
+		"createDate": "24/08/2021",
+		"editDate": "24/08/2021",
+		"deleteDate": ""
+	},
+	{
+		"id": "RNI10045",
+		"firstName": "Monica",
+		"middleName": "",
+		"lastname": "Ekambaram",
+		"area": "ITS",
+		"status": "Offboarded",
+		"orgid": "ORG10001",
+		"email": "monica@vaspp.com",
+		"contact": 7639087363,
+		"password": "Vaspp@123",
+		"role": "SuperAdmin",
+		"userType": "3rd Party Provider",
+		"city": "Bangalore",
+		"address": "Bangalore Street",
+		"country": "India",
+		"startDate": "31/01/2022",
+		"endDate": "31/12/9999",
+		"pagepermission":[{
+			"applicationid": "APP10001",
+			"name": "Manage Programs",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10002",
+			"name": "Manage Customers",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10003",
+			"name": "Manage Vendors",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10004",
+			"name": "Help",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10006",
+			"name": "Report",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10007",
+			"name": "Glossary",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10008",
+			"name": "Organizatin Chart",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10009",
+			"name": "RACI",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10010",
+			"name": "Forms",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10011",
+			"name": "Planning Calendar",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true}],
+		"createDate": "24/08/2021",
+		"editDate": "24/08/2021",
+		"deleteDate": ""
+	},
+	{
+		"id": "RNI10046",
+		"firstName": "Robin",
+		"middleName": "Pilar",
+		"lastname": "Haner Del Saz",
+		"area": "Business Consultant",
+		"status": "Designated",
+		"orgid": "ORG10001",
+		"email": "robin@vaspp.com",
+		"contact": 8067543712,
+		"password": "Vaspp@123",
+		"role": "Editor",
+		"userType": "Customer Internal",
+		"city": "Dallas",
+		"address": "Texas Street",
+		"country": "Colorado",
+		"startDate": "31/01/2022",
+		"endDate": "31/12/9999",
+		"pagepermission": [{
+			"applicationid": "APP10001",
+			"name": "Manage Programs",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10002",
+			"name": "Manage Customers",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10003",
+			"name": "Manage Vendors",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10004",
+			"name": "Help",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10006",
+			"name": "Report",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10007",
+			"name": "Glossary",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10008",
+			"name": "Organizatin Chart",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10009",
+			"name": "RACI",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10010",
+			"name": "Forms",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}, {
+			"applicationid": "APP10011",
+			"name": "Planning Calendar",
+			"create": true,
+			"read": true,
+			"update": true,
+			"delete": true
+		}],
+		"createDate": "24/08/2021",
+		"editDate": "24/08/2021",
+		"deleteDate": ""
+	}
+]

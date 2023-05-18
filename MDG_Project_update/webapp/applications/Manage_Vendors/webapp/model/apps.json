@@ -1,0 +1,17 @@
+[{
+	"appId":"APP0001",
+	"appName":"Project Management",
+	"description": "User can manage  and give the access the user for project management"
+},{
+  	"appId":"APP0002",
+	"appName":"Customer Management",
+	"description": "User can manage  and give the access the user for Customer management"	
+},{
+		"appId":"APP0003",
+	"appName":"Vendor Management",
+	"description": "User can manage  and give the access the user for Vendor management"
+},{
+		"appId":"APP0004",
+	"appName":"Document Management",
+	"description": "User can manage  and give the access the user for Document management"
+}]

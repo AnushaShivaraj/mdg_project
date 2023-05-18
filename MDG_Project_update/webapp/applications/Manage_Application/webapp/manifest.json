@@ -1,0 +1,217 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "MDG.ApplicationManagement",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "MDG.ApplicationManagement.view.app",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "MDG.ApplicationManagement.i18n.i18n"
+				}
+			},
+			"side": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/sideContent.json",
+				"preload": false
+			},
+			
+			"": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/userInfo.json",
+				"preload": false
+			},
+			"appsModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/apps.json",
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "MDG.ApplicationManagement.view",
+				"controlAggregation": "beginColumnPages",
+				"controlId": "layout",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Routeapp",
+					"pattern": "Routeapp",
+					"target": [
+						"Targetapp"
+					]
+				},
+				{
+					"name": "Home",
+					"pattern": "Home",
+					"target": [
+						"Home"
+					]
+				},
+				{
+					"name": "roleMaster",
+					"pattern": "roleMaster",
+					"target": [
+						"roleMaster"
+					]
+				},
+				{
+					"name": "roleDetail",
+					"pattern": "object/{objectId}",
+					"target": [
+						"roleDetail"
+					]
+				},
+				{
+					"name": "applicationlist",
+					"pattern": "applicationlist",
+					"target": [
+						"applicationlist"
+					]
+				},
+				{
+					"name": "userMaster",
+					"pattern": "userMaster",
+					"target": [
+						"userMaster"
+					]
+				},
+				{
+					"name": "userDetail",
+					"pattern": "Detail/{id}",
+					"target": [
+						"userDetail"
+					]
+				},
+				{
+					"name": "organizationMaster",
+					"pattern": "organizationMaster",
+					"target": [
+						"organizationMaster"
+					]
+				},
+					{
+					"name": "organizationDetail",
+					"pattern": "organizationDetail/{objectId}",
+					"target": [
+						"organizationDetail"
+					]
+				}
+			],
+			"targets": {
+				"Targetapp": {
+					"viewType": "HTML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "app",
+					"viewName": "app"
+				},
+				"Home": {
+					"viewType": "XML",
+					"viewName": "Home",
+					"controlAggregation": "beginColumnPages"
+				},
+				"applicationlist": {
+					"viewType": "XML",
+					"viewName": "applicationlist",
+					"controlAggregation": "midColumnPages"
+				},
+				"roleMaster": {
+					"viewType": "XML",
+					"viewName": "roleMaster",
+					"controlAggregation": "beginColumnPages"
+				},
+				"roleDetail": {
+					"viewType": "XML",
+					"viewName": "roleDetail",
+					"controlAggregation": "midColumnPages"
+				},
+				"login": {
+					"viewType": "HTML",
+					"viewName": "login"
+				},
+				"userMaster": {
+					"viewType": "XML",
+					"viewName": "userMaster",
+					"controlAggregation": "beginColumnPages"
+				},
+				"userDetail": {
+					"viewType": "XML",
+					"viewName": "userDetail",
+					"controlAggregation": "midColumnPages"
+				},
+				"organizationMaster": {
+					"viewType": "XML",
+					"viewName": "organizationMaster",
+					"controlAggregation": "beginColumnPages"
+				},
+				"organizationDetail": {
+					"viewType": "XML",
+					"viewName": "organizationDetail",
+					"controlAggregation": "midColumnPages"
+				}
+			}
+		}
+	}
+}

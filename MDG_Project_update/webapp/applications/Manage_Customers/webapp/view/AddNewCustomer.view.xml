@@ -1,0 +1,120 @@
+<mvc:View controllerName="MDG.Customer.controller.AddNewCustomer" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:f="sap.f"
+	xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:u="sap.ui.unified" xmlns:layout="sap.ui.layout" xmlns:l="sap.ui.layout"
+	xmlns:upload="sap.m.upload" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+		<content>
+			<Wizard class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="wizardCompletedHandler">
+				<steps>
+					<WizardStep title="Customer Basic Information" validated="true">
+						<form:SimpleForm editable="true">
+							<Label text="Customer Name" required="true"/>
+							<Input value="{/customerName}" id="custName" valueStateText="Enter Customer Name" liveChange="additionalInfoValidation"
+								placeholder="Enter Customer Name"/>
+							<Label text="E-mail" required="true"/>
+							<Input value="{/email}" id="eml" valueStateText="Enter Customer E-mail id" liveChange="emailValidateForVen" placeholder="Enter E-mail id"/>
+							<Label text="Contact Number" required="true"/>
+							<Input maxLength="20" value="{/contact}" id="contNum" type="Tel" liveChange="handleValidateContectNum"
+								placeholder="Enter Customer Phone Number"/>
+							<Label text="Postal Code"/>
+							<Input value="{/zipCode}" type="Number" id="pCode" valueStateText="Enter Postal Code" liveChange="additionalInfoValidation"
+								placeholder="Enter Postal Code"/>
+							<Label text="Address" required="true"/>
+							<Input value="{/address}" id="addr" valueStateText="Enter Customer Address" liveChange="additionalInfoValidation"
+								placeholder="Enter Customer Address "/>
+							<Label text="City" required="true"/>
+							<Input value="{/city}" id="cty" valueStateText="Enter City" liveChange="additionalInfoValidation" placeholder="Enter City"/>
+							<Label text="Country" required="true"/>
+							<Input value="{/country}" id="crty" valueStateText="Enter Country" liveChange="additionalInfoValidation" placeholder="Enter Country"/>
+							<Label text="Geographical Region" required="true"/>
+							<Input value="{/region1}" id="reg1" valueStateText="Geographical Region" liveChange="additionalInfoValidation"
+								placeholder="Geographical Region"/>
+							<Label text="Business Region" required="true"/>
+							<Input value="{/region2}" id="reg2" valueStateText="Business Region" liveChange="additionalInfoValidation" placeholder="Business Region"/>
+							<Label text="About Customer" required="true"/>
+							<TextArea value="{/description}" id="abtCust" valueStateText="Enter Customer Phone Number" liveChange="additionalInfoValidation"
+								placeholder="Enter Description About Company "/>
+							<Label text="C and V Type field" required="true"/>
+							<Select selectedKey="{/cvTypeField}">
+								<core:Item text="Customer Internal" key="Customer Internal"/>
+								<core:Item text="Customer External" key="Customer External"/>
+								<!--<core:Item text="Vendor Direct" key="Vendor Direct"/>-->
+								<!--<core:Item text=" Vendor Indirect" key=" Vendor Indirect"/>-->
+								<core:Item text="Supplier" key="Supplier"/>
+								<core:Item text="Third Party" key="Third Party"/>
+								<core:Item text="Agency" key="Agency"/>
+								<core:Item text="Consultancy" key="Consultancy"/>
+								<core:Item text="IT Service provider" key="IT Service provider"/>
+							</Select>
+						</form:SimpleForm>
+					</WizardStep>
+					<WizardStep title="Contact Person Information" validated="true">
+						<form:SimpleForm editable="true">
+							<Label text="Contact Person Name" required="true"/>
+							<Input liveChange="additionalInfoValidation" id="contPerson" valueStateText="Enter Contact Person" value="{/contactPerson}"
+								placeholder="Contact Person Name"/>
+							<Label text="E-mail" required="true"/>
+							<Input valueStateText="Enter E-mail id" id="perEml" value="{/contactEmail}" liveChange="emailValidateForVen"
+								placeholder="Enter Contact Person E-mail id"/>
+							<Label text="Contact Number" required="true"/>
+							<Input maxLength="20" id="perNum" value="{/contactPhone}" type="Tel" liveChange="handleValidateContectNum"
+								placeholder="Enter Contact Person Phone Number"/>
+							<!--<Label text="Designation" />-->
+							<!--<Input value="{/contactDesignation}"  valueStateText="Enter Desgination" liveChange="additionalInfoValidation"-->
+							<!--	placeholder="Enter Contact Person Desgination"/>-->
+						</form:SimpleForm>
+					</WizardStep>
+					<WizardStep validated="false" title="Attachment" activate="additionalInfoValidation">
+						<!--                      <form:SimpleForm editable="true">-->
+						<!--                      	<Label/>-->
+						<!--<u:FileUploader id="file" change="collectFileData" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"-->
+						<!--	uploadComplete="handleUploadComplete"/>-->
+						<!--<Label/>-->
+						<!--<Input id="keyword" placeholder="Keyword"/>-->
+						<!--<Label/>-->
+						<!--<Input id="short" placeholder="Short description"/>-->
+						<!--   </form:SimpleForm>-->
+						<upload:UploadSet id="uploadData" instantUpload="true" showIcons="false" uploadEnabled="false" terminationEnabled="true"
+							fileTypes="txt,doc,png" maxFileNameLength="30" maxFileSize="200" mediaTypes="text/plain,application/msword,image/jpeg"
+							uploadUrl="/OptimalCog/api/upload" items="{path:'/m_documents/'}" class="upload" afterItemRemoved="afterItemRemoved">
+							<upload:toolbar>
+								<OverflowToolbar>
+									<SearchField liveChange="onSearch" width="auto"/>
+									<ToolbarSpacer/>
+									<Button text="Add Attachment" iconFirst="true" icon="sap-icon://add" press="handleDocumentUpload" class="sapUiSmallMarginEnd"/>
+								</OverflowToolbar>
+							</upload:toolbar>
+							<upload:items>
+								<upload:UploadSetItem fileName="{attributes/name}" mediaType="{attributes/type}" url="{attributes/url}">
+									<upload:attributes>
+										<ObjectAttribute title="Keyword " text="{attributes/keywords}"/>
+										<ObjectAttribute title="Short Description " text="{attributes/description}"/>
+									</upload:attributes>
+									<!--<upload:markers>-->
+									<!--	<ObjectMarker-->
+									<!--			type="{type}"-->
+									<!--			visibility="{visibility}"/>-->
+									<!--</upload:markers>-->
+									<!--<upload:statuses>-->
+									<!--	<ObjectStatus-->
+									<!--			title="{title}"-->
+									<!--			text="{text}"-->
+									<!--			state="{state}"-->
+									<!--			icon="{icon}"-->
+									<!--			active="{active}"/>-->
+									<!--</upload:statuses>-->
+								</upload:UploadSetItem>
+							</upload:items>
+						</upload:UploadSet>
+					</WizardStep>
+				</steps>
+			</Wizard>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Save" press="handleAddUserOkPress"/>
+				<Button text="Cancel" press="handleWizardCancel"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,40 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="mdg_raci.RACI.controller.master"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:semantic="sap.f.semantic">
+	<semantic:SemanticPage id="masterPage" preserveHeaderStateOnScroll="true" toggleHeaderOnTitleClick="false" showFooter="false"
+		class="hideSemanticPage">
+		<semantic:titleHeading>
+			<Title id="masterPageTitle" text="Programs"/>
+		</semantic:titleHeading>
+		<semantic:content>
+			<List id="list" width="auto" class="sapFDynamicPageAlignContent" items="{path:'Details>/'}" busyIndicatorDelay="{masterView>/delay}"
+				noDataText="{masterView>/noDataText}" growingThreshold="20" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
+				growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
+				<headerToolbar>
+					<OverflowToolbar id="_IDGenOverflowToolbar1">
+						<SearchField id="searchField" showRefreshButton="true" tooltip="{i18n>masterSearchTooltip}" liveChange="onSearch" search="onSearch"
+							width="auto">
+							<layoutData>
+								<OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1" minWidth="150px" maxWidth="240px" shrinkable="true"
+									priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+						<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+						<Button id="sortButton" tooltip="{i18n>Sort}" press="onOpenViewSettings" icon="sap-icon://sort" type="Transparent"/>
+						<Button id="filterButton" press="onOpenViewSettings" icon="sap-icon://filter" type="Transparent"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem id="_IDGenObjectListItem1" number="{='PRG100000' + ${Details>id}}" type="Navigation" press="onSelectionChange"
+						title="{Details>attributes/name}">
+						<firstStatus>
+							<ObjectStatus id="_IDGenObjectStatus1" text="{Details>attributes/status}"/>
+						</firstStatus>
+						<attributes>
+							<ObjectAttribute id="_IDGenObjectAttribute1" text="{Details>attributes/startDate}"/>
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>

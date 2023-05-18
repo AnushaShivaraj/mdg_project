@@ -1,0 +1,331 @@
+/* Enter your custom styles here */
+.allsectionsClass>.sapMBtnInner>.sapMBtnContent{
+		color:black !important;	
+}
+.highRisk {
+    border-left: 10px red solid;
+}
+
+.mediumRisk {
+    border-left: 10px orange solid;
+}
+
+.noRisk {
+    border-left: 10px limegreen solid;
+}
+
+.topBorder {
+    border-top: 1px lightblue solid;
+}
+
+.blackBorder {
+    border: black solid 1px;
+}
+
+.blackThickBorder {
+    border: black solid 2px !important;
+}
+
+.boldAndUnderlineText {
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+.boldOnlyText {
+    font-weight: bold !important;
+}
+.overlineText {
+    text-decoration: overline;
+    /*padding-top: 5rem;*/
+}
+
+/*PDF report */
+.lableVertical {
+	margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    margin-top: 1rem;
+}
+  .lableVerticalTwo {
+	margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    margin-top: 8rem;
+}
+.LeftMargin {
+	margin-left: 1rem;
+}
+.LeftMarginLable {
+	margin-left: 0.4rem;
+}
+ .checkBoxlable {
+ 	margin-top: 1rem;
+ }
+ .columnHeaderclass {
+    height: -webkit-fill-available !important;
+}
+
+.ActionsLabelClass {
+    display: none;
+}
+
+.columnClass {
+    height: 20px!important;
+}
+
+.QuesTextClass {
+    width: -webkit-fill-available !important;
+}
+
+.sectionToolBarClass {
+    margin-right: -20px !important;
+}
+
+.CarouselHeightClass {
+    min-height: -webkit-fill-available !important;
+}
+
+.LayoutWidthClass {
+    width: -webkit-fill-available !important;
+}
+.sapMBtn.sapMBtnDisabled {
+    cursor: pointer;
+    visibility: collapse !important;
+}
+/* Enter your custom styles here */
+.toolbarBackgrounfclass {
+	    background: white;
+}
+
+.BlueText {
+	color: blue !important;
+	text-shadow: 0 0 0 #000000 !important;
+} 
+
+/*.sapUiFup>.sapMText>.sapMTextMaxLine{*/
+/*color:blue!important;*/
+/*}*/
+/*generic tile clss text color*/
+/*.sapUiBlockLayoutCellColor6D .sapUiBlockCellContent .sapMText, .sapUiBlockLayoutCellColor6D .sapUiBlockCellContent .sapMLabel, .sapUiBlockLayoutCellColor6D .sapUiBlockCellContent .sapUiBlockCellTitle {*/
+ .Tileclass {   color: black;
+}
+.PaddingRightClass: {
+    padding-right: 2rem;
+}
+.Layoutclass {
+	    color: white;
+}
+.showVerticalScrollbar {
+    height: 100%;
+    /*Scrollbar won't appear until we fix the height of the container*/
+    overflow-y: scroll;
+}
+
+.carouselPanelClass>.sapMCrslInner>.sapMCrslItem>.sapMScrollCont {
+    overflow-y: scroll!important;
+}
+
+.sapMTBStandard {
+    border-bottom: solid .0625rem #fafafa;
+}
+.confimclass {
+	padding-right: 6em !important;
+}
+.sapMPanelContent:not(.sapMPanelBGTransparent) {
+    border-bottom: 1px solid #fafafa;
+}
+
+.categoryVerticalLayoutClass>.sapUiVltCell {
+    margin: 1rem;
+}
+
+.sapMPanel>.sapMPanelHdr,
+.sapMPanelWrappingDiv,
+.sapMPanelWrappingDivTb {
+    border-bottom: 1px solid #fafafa;
+}
+
+.carouselClass {
+    heigth: 50%
+}
+
+.bulletlist {
+    display: list-item;
+    list-style-type: initial;
+    list-style-position: inside;
+    margin-left: 0.1rem;
+}
+
+
+/*.paddingclass {*/
+
+
+/*    padding-right: 8rem !important;*/
+
+
+/*}*/
+
+.vboxCarouselClass>.sapMFlexItemAlignAuto {
+    height: 50%;
+    /*margin-top:-5% ;*/
+}
+
+.objHedaerClass {
+    padding: 0rem !important;
+}
+
+
+/*.carouselPanelClass{
+	min-height:-webkit-fill-available !important;
+	width: 100% !important;
+    overflow-wrap: break-word !important;
+	position: relative;
+}*/
+
+.carouselPanelClass {
+    min-height: -webkit-fill-available;
+    min-height: -moz-available;
+    min-height: fill-available;
+    width: 100%;
+    overflow-wrap: break-word;
+    position: relative;
+    overflow: hidden;
+}
+
+.customListItemClass>.sapMLIBContent>.sapMFlexBox>.sapMFlexBox {
+    height: 100px !important;
+}
+
+.columnHeaderclass {
+    height: -webkit-fill-available !important;
+}
+
+.ActionsLabelClass {
+    display: none;
+}
+
+.columnClass {
+    height: 20px!important;
+}
+
+.QuesTextClass {
+    width: -webkit-fill-available !important;
+}
+
+.sectionToolBarClass {
+    margin-right: -20px !important;
+}
+
+.CarouselHeightClass {
+    min-height: -webkit-fill-available !important;
+}
+
+.LayoutWidthClass {
+    width: -webkit-fill-available !important;
+}
+
+.NotificationListCursor {
+    cursor: auto !important;
+}
+
+.NotificationListCursor>.sapMNLI-Body>.sapMNLI-Description>.sapMNLI-TextWrapper>.sapMText>.sapMTextMaxLine {
+    cursor: auto !important;
+}
+
+.NotificationListCursor>.sapMNLB-Header>.sapUiSelectable {
+    cursor: auto !important;
+}
+
+.highRisk {
+    border-left: 10px red solid;
+}
+
+.mediumRisk {
+    border-left: 10px orange solid;
+}
+
+.noRisk {
+    border-left: 10px limegreen solid;
+}
+
+.topBorder {
+    border-top: 1px lightblue solid;
+}
+.topBorderBlack {
+    border-top: 1px black solid;
+}
+
+.blackBorder {
+    border: black solid 1px;
+}
+
+.blackThickBorder {
+    border: black solid 2px;
+}
+
+.boldAndUnderlineText {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.overlineText {
+    text-decoration: overline;
+    /*padding-top: 5rem;*/
+}
+
+/*PDF report */
+.lableVertical {
+	margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    margin-top: 1rem;
+}
+  .lableVerticalTwo {
+	margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    margin-top: 8rem;
+}
+.LeftMargin {
+	margin-left: 1rem;
+}
+.LeftMarginLable {
+	margin-left: 0.4rem;
+}
+ .checkBoxlable {
+ 	margin-top: 1rem;
+ }
+ .marginForAns{
+ 	margin-left:0.8rem;
+ }
+ .marginForAnsText{
+ 	margin-left:0.3rem;
+ 	 /*font-weight: bold !important;*/
+ }
+ .marginForMultipleAnsText{
+    /*margin-left:0.3rem;*/
+ 	margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    /*margin-bottom: 0.8rem;*/
+ 	 
+ }
+ .marginForIconTexts {
+ 	margin-left: 0.5rem;
+ 	font-size: 10px;
+ 	margin-top: 0.5rem;
+ }
+ .marginLeftForText{
+ 		margin-left: 0.8rem;
+ }
+ div#__xmlview2--UploadSet-uploader {
+    display: none;
+}
+.NegativeMargin {
+	margin-left: -4rem;
+}
+.bulletlist {
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-left: 20px;
+}
+
+
+
+
+

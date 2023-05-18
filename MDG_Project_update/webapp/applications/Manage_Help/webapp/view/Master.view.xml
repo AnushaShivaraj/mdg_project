@@ -1,0 +1,26 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MDG.Help.controller.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="page" class="textSize" showNavButton="true" navButtonPress="onNavBack">
+		<subHeader>
+			<Toolbar>
+				<SearchField liveChange="onSearch" id="userSearchId" width="100%"/>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List items="{/}" id="itemlistId" class="deptObjListItemClass" mode="SingleSelectMaster" selectionChange="handleUsersListPress">
+				<items>
+					<ObjectListItem title="{attributes/topic}" type="Active">
+						<!--<ObjectAttribute text="{city}, {country}"></ObjectAttribute>-->
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="addid" press="openAddHelpCustomer" iconFirst="true" text="Add" icon="sap-icon://add" tooltip="Add Topic"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,111 @@
+[{
+	"applicationid": "APP10001",
+	"name": "Manage Process",
+	"description": "Process flow of the doing CRUD operations on the programs",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10002",
+	"name": "Manage Customers",
+	"description": "Process flow of the doing CRUD operations on the customer",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10003",
+	"name": "Manage Vendors",
+	"description": "Process flow of the doing CRUD operations on the vendor",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10004",
+	"name": "Help",
+	"description": "Process flow of the doing CRUD operations on the help and support",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10005",
+	"name": "User Management",
+	"description": "Process flow of the doing CRUD operations on the users and roles",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10006",
+	"name": "Report",
+	"description": "Process flow of the doing CRUD operations on the users and roles",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10007",
+	"name": "Glossary",
+	"description": "Process flow of the doing CRUD operations on the glossaries",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10008",
+	"name": "Organization Chart",
+	"description": "Process flow of the doing CRUD operations on the Organizatin Chart",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10009",
+	"name": "RACI",
+	"description": "Process flow of the doing CRUD operations on the RACI",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10010",
+	"name": "Forms",
+	"description": "Process flow of the doing CRUD operations on the Forms",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}, {
+	"applicationid": "APP10011",
+	"name": "Planning Calendar",
+	"description": "Process flow of the doing CRUD operations on the Calendar",
+	"url": "",
+	"createdby": "",
+	"createdate": "",
+	"modifydate": "",
+	"modifiedby": "",
+	"isarchived": ""
+}]

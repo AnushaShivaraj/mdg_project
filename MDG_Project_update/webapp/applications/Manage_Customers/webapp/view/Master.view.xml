@@ -1,0 +1,29 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MDG.Customer.controller.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>customers}" class="textSize" showNavButton="false" navButtonPress="onNavBack">
+		<subHeader>
+			<Toolbar>
+				<SearchField liveChange="onSearch" id="userSearchId" width="100%"/>
+				<Button press="handleSortfragment" icon="sap-icon://sort" type="Transparent"/>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List items="{/data/}" id="itemlistId" class="deptObjListItemClass" mode="SingleSelectMaster" selectionChange="handleUsersListPress">
+				<items>
+					<!--<ObjectListItem title="{attributes/customerName}" type="Active" number="{= 'CUST' + '100000' + ${id} }">-->
+					<ObjectListItem title="{attributes/customerName}" type="Active" number="{path:'id',formatter:'.formatter.formatCustomerId'}">
+						<ObjectAttribute text="{attributes/city}, {attributes/country}"></ObjectAttribute>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button press="openNewFragment" text="{i18n>Bulk Upload}" iconFirst="true" icon="sap-icon://add"/>
+					<Button id="addid" press="openAddNewCustomer" text="{i18n>AddCustomers}" iconFirst="true" icon="sap-icon://add"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

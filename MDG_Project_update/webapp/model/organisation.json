@@ -1,0 +1,152 @@
+[{
+	"orgid": "ORG10001",
+	"name": "Sample Inc",
+	"desc": "A master of gadets",
+	"email": "info@sample.com",
+	"phone": "9743266399",
+	"address": "121/26, 3rd D Main, JP Nagar, Phase 1, Bangalore, India, 560076",
+	"logo": "",
+	"contactpersonfirstname": "Paul",
+	"contactpersonlastname": "Fleming",
+	"contactpersonemail": "paul.f@sample.com",
+	"contactpersonphone": "9743266399",
+	"licenseid": "LIC1001",
+	"licensetype": "Trail License",
+	"validfrom": "12/10/2020",
+	"validto": "12/12/2021",
+	"allowedNOOfUsers": 10,
+	"applications": [{
+		"applicationid": "APP10001",
+		"name": "Manage Programs",
+		"description":"Process flow of the doing CRUD operations on the Manage programs",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}, {
+		"applicationid": "APP10002",
+		"name": "Manage Customers",
+		"description":"Process flow of the doing CRUD operations on the Manage Customers",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}, {
+		"applicationid": "APP10003",
+		"name": "Manage Vendors",
+		"description":"Process flow of the doing CRUD operations on the Manage Vendors",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}, {
+		"applicationid": "APP10004",
+		"name": "Help",
+		"description":"Process flow of the doing CRUD operations on the Help",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	},
+	{
+		"applicationid": "APP10005",
+		"name": "User Management",
+		"description":"Process flow of the doing CRUD operations on the User Management",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}, 
+	{
+		"applicationid": "APP10006",
+		"name": "Report",
+		"description":"Process flow of the doing CRUD operations on the Report",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	},
+	{
+		"applicationid":"APP10007",
+		"name":"Glossary",
+		"description":"Process flow of the doing CRUD operations on the Glossary",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}],
+	"createdby": "",
+	"createdate": "12/09/2021",
+	"modifiedby": "",
+	"modifydate": "12/09/2021",
+	"isarchived": "false"
+}, {
+	"orgid": "ORG10002",
+	"name": "Demo Inc",
+	"desc": "A master of gadets",
+	"email": "info@demo.com",
+	"phone": "9743266399",
+	"address": "121/26, 3rd D Main, JP Nagar, Phase 1, Bangalore, India, 560076",
+	"logo": "",
+	"contactpersonfirstname": "Peter",
+	"contactpersonlastname": "Wales",
+	"contactpersonemail": "peter.w@demo.com",
+	"contactpersonphone": "9743266399",
+	"licenseid": "LIC1002",
+	"licensetype": "Trail License",
+	"validfrom": "12/09/2020",
+	"validto": "12/12/2021",
+	"allowedNOOfUsers": 10,
+	"applications": [
+		{
+		"applicationid": "APP10001",
+		"name": "Manage Programs",
+		"description":"Process flow of the doing CRUD operations on the Manage programs",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}, {
+		"applicationid": "APP10002",
+		"name": "Manage Customers",
+		"description":"Process flow of the doing CRUD operations on the Manage Customers",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}, {
+		"applicationid": "APP10003",
+		"name": "Manage Vendors",
+		"description":"Process flow of the doing CRUD operations on the Manage Vendors",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}, {
+		"applicationid": "APP10004",
+		"name": "Help",
+		"description":"Process flow of the doing CRUD operations on the Help",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	},
+	{
+		"applicationid": "APP10005",
+		"name": "User Management",
+		"description":"Process flow of the doing CRUD operations on the User Management",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}, 
+	{
+		"applicationid": "APP10006",
+		"name": "Report",
+		"description":"Process flow of the doing CRUD operations on the Report",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	},
+	{
+		"applicationid":"APP10007",
+		"name":"Glossary",
+		"description":"Process flow of the doing CRUD operations on the Glossary",
+		"createdate":"10/22/2019",
+		"modifydate":"10/24/2019",
+		"url":""
+	}],
+	"createdby": "",
+	"createdate": "12/09/2021",
+	"modifiedby": "",
+	"modifydate": "12/09/2021",
+	"isarchived": "false"
+}]

@@ -1,0 +1,132 @@
+[{
+     "name":"harish",
+    "moduleName": "Project Management",
+    "topics":[{
+            "topic":"HELP FOR CREATE PROJECT",
+            "descript":" In Project Management User Can Create, Edit and Delete a Project ",
+            "FAQ":[{
+                        "Question":"How to create the project",
+                        "Answer":"Click on the plus symbol at right buttom in the master page and enter the mandotary field and press save button"
+                    },
+                    {
+                        "Question":" We can Edit and  Delete the Project  ?",
+                        "Answer":" Yes, By clicking on respective Button we can Edit and Delete the task"
+                    }]
+        },{
+            "topic":" HELP FOR TASK SECTION",
+            "descript":" In Project Management User Can Create, Edit and Delete a  Task ",
+            "FAQ":[{
+                    "Question":"How to create a Task ",
+                    "Answer":"Click on the add button and fill the mandotary filed and press ok , the task is addded"
+                },{
+                    "Question":"Can  we assign a  task for each individual ?",
+                    "Answer":"Yes, click on the add button you can select the team members and the task that you wanted to assign and press save"
+                },{
+                    "Question":"We can Edit and  Delete the task  ?",
+                    "Answer":"Yes, By clicking on respective Button we can Edit and Delete the task"
+            }]
+        },{
+            "topic":"HELP FOR MILESTONE SECTION",
+            "descript":" In Project Management User Can Create, Edit and Delete a Milstone",
+            "FAQ":[{
+                    "Question":"How to create a Milestone",
+                    "Answer":"Click on the add button and fill the mandotary filed and press ok , the Milestone is addded"
+                },{
+                    "Question":"We can Edit and  Delete the Milestone  ?",
+                    "Answer":"Yes, By clicking on respective Button we can Edit and Delete the Milestone."
+            }]
+        }]
+    },
+    {
+       "moduleName": "Customer Management",
+       "topics":[{
+            "topic":"HELP FOR CREATE CUSTOMER",
+            "descript":"In Customer Management User Can Create, Edit and Delete a Customer",
+            "FAQ":[{
+                        "Question":"How to create the Customer",
+                        "Answer":"Click on the plus symbol at right buttom in the master page and enter the mandotary field and press save button"
+                    },
+                    {
+                        "Question":"We can Edit and  Delete the Customer  ?",
+                        "Answer":"Yes, By clicking on respective Button we can Edit and Delete the Customer"
+                  }]
+        },
+        {
+            "topic":" HELP FOR ADD  DOCUMENT",
+            "descript":"In Customer Management User Can Create, Edit and Delete a Document",
+            "FAQ":[  
+                    {
+                    	"Question":"Where we can add a document in the Customer  Module?",
+                    	"Answer":" In Document tab in the detail view we can add the documents by clicking the add button"
+                    },
+                    {
+                      "Question"	:" We can delete the Document?",
+                      "Answer":"Yes, we can delete the document by ckicking the delete symbol in the document list"
+                    }]
+        }
+        
+        ]
+    },
+    {   
+       "moduleName": "Vendor Management",
+       "topics":[{
+       	    "topic":"HELP FOR CREATE VENDOR",
+       	    "descript":"In Vendor Management User Can Create, Edit and Delete a Vendor",
+       	     "FAQ":[{
+                        "Question":"How to create the Vendor",
+                        "Answer":"Click on the plus symbol at right buttom in the master page and enter the mandotary field and press save button"
+                    },
+                    {
+                        "Question":"We can Edit and  Delete the Vendor  ?",
+                        "Answer":"Yes, By clicking on respective Button we can Edit and Delete the Vendor"
+                  }]
+       },
+       {
+        
+        "topic":" HELP FOR ADD  DOCUMENT",
+        "descript":"In Vendor Management User Can Create, Edit and Delete a Document",
+            "FAQ":[  
+                    {
+                    	"Question":"Where we can add a document in the Vendor  Module?",
+                    	"Answer":" In Document tab in the detail view we can add the documents by clicking the add button"
+                    },
+                    {
+                      "Question"	:"We can delete the Document?",
+                      "Answer":"Yes, we can delete the document by ckicking the delete symbol in the document list"
+                    }]
+       }]
+       	
+    },
+    {
+    "moduleName": "Report",
+    "topics":[{
+            "topic":"HELP FOR REPORT",
+            "descript":" In Report User Can See Total Number of Projects, Programs and CSF's  ",
+            "FAQ":[{
+                        "Question":"Who are the main readers of your report?",
+                        "Answer":"If you are writing for non-specialists, go easy on the jargon. And if you are writing a report for sponsors – or for your own university management – do comment on the costs"
+                    },
+                    {
+                        "Question":" Is the report really necessary?",
+                        "Answer":" Not always. Could the report be replaced by a long-ish but informal email, by a phone conversation followed by a summary email"
+                    }]
+        }]
+    },
+    {
+       "moduleName": "GLOSSARY",
+       "topics":[{
+            "topic":"HELP FOR CREATE Glossary",
+            "descript":"In Glossary User Can Create, Edit and Delete a Glossary",
+            "FAQ":[{
+                        "Question":"How to create the Glossary",
+                        "Answer":"Click on the plus symbol at right buttom in the master page and enter the mandotary field and press save button"
+                    },
+                    {
+                        "Question":"We can Edit and  Delete the Glossary  ?",
+                        "Answer":"Yes, By clicking on respective Button we can Edit and Delete the Glossary"
+                  }]
+        }
+        
+        ]
+    }
+]

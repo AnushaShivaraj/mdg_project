@@ -1,0 +1,242 @@
+<!--<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MDG.Report.controller.dashboard"-->
+<!--	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout" xmlns:commons="sap.suite.ui.commons"-->
+<!--	xmlns:viz="sap.viz.ui5.controls" xmlns:micro="sap.suite.ui.microchart" xmlns:t="sap.ui.table"-->
+<!--	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" displayBlock="true">-->
+<!--	<App id="dashboardApp" class="sapUiSizeCompact">-->
+<!--	</App>-->
+<!--</mvc:View>-->
+<mvc:View controllerName="MDG.Report.controller.dashboard" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout"
+	xmlns:commons="sap.suite.ui.commons" xmlns:viz="sap.viz.ui5.controls" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:micro="sap.suite.ui.microchart" xmlns:t="sap.ui.table" xmlns:table="sap.ui.table" xmlns:layout="sap.ui.layout"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" displayBlock="true" xmlns="sap.m">
+	<App id="dashboardApp" class="sapUiSizeCompact">
+		<Page id="page" showHeader="false" backgroundDesign="Solid" class="sapUiContentPadding">
+			<content>
+				<Toolbar id="_IDGenToolbar1">
+					<Title id="_IDGenTitle1" class="sapUiSmallMarginBegin" level="H3" titleStyle="H3" text="Report"/>
+					<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+				</Toolbar>
+				<FlexBox id="_IDGenFlexBox1" class="main-container" alignItems="Center" justifyContent="SpaceBetween">
+					<HBox id="_IDGenHBox1" justifyContent="Center" alignItems="Center">
+						<FlexBox id="_IDGenFlexBox2" alignItems="Center" class="sub-container">
+							<Text id="_IDGenText1" class="filter-label" text="{i18n>Filters}:"></Text>
+							<VBox id="_IDGenVBox9">
+								<Text id="_IDGenText2" text="{i18n>Programs}" class="text-color"></Text>
+								<Select id="programId" forceSelection="true" width="200px" selectedKey="{/selProgram}" change="onChangeSelect" items="{mprogramsmmodel>/}">
+									<core:Item id="_IDGenItem6" key="{mprogramsmmodel>id}" text="{mprogramsmmodel>attributes/name}"/>
+								</Select>
+							</VBox>
+							<VBox id="_IDGenVBox10">
+								<Text id="_IDGenText3" text="{i18n>Status}" class="text-color"></Text>
+								<Button id="_IDGenButtonreset" press="onAllStatus" text="{i18n>All}"></Button>
+							</VBox>
+							<VBox id="_IDGenHBox3">
+								<Text id="_IDGenText30" text=""></Text>
+								<Select id="prgStatusId" forceSelection="false" selectedKey="{mprogramsmmodel>/status}">
+									<core:Item id="_IDGenItem1" key="New" text="New"/>
+									<core:Item id="_IDGenItem2" key="In-progress" text="In-Progress"/>
+									<core:Item id="_IDGenItem3" key="Completed" text="Completed"/>
+									<core:Item id="_IDGenItem4" key="Archived" text="Archived"/>
+									<core:Item id="_IDGenItem5" key="Cancelled" text="Cancelled"/>
+								</Select>
+							</VBox>
+						</FlexBox>
+					</HBox>
+					<HBox id="_IDGenHBox2" class="b-go">
+						<Button id="_IDGenButton1" type="Transparent" press="OnResetPress" text="{i18n>Reset}"></Button>
+						<Button id="_IDGenButton2" type="Emphasized" press="onGoPress" text="{i18n>Go}"></Button>
+					</HBox>
+				</FlexBox>
+				<!--<FlexBox id="_IDGenFlexBox1" class="main-container" alignItems="Center" justifyContent="SpaceBetween">-->
+				<!--	<HBox id="_IDGenHBox1" justifyContent="Center" alignItems="Center">-->
+				<!--		<FlexBox id="_IDGenFlexBox2" alignItems="Center" class="sub-container">-->
+				<!--			<Text id="_IDGenText1" class="filter-label" text="{i18n>Filters}:"></Text>-->
+				<!--			<VBox id="_IDGenVBox9">-->
+				<!--				<Text id="_IDGenText2" text="{i18n>Programs}" class="text-color"></Text>-->
+				<!--				<Select id="programId" forceSelection="true" selectedKey="{/selProgram}" change="onChangeSelect" items="{mprogramsmmodel>/}">-->
+				<!--					<core:Item id="_IDGenItem6" key="{mprogramsmmodel>id}" text="{mprogramsmmodel>attributes/name}"/>-->
+				<!--				</Select>-->
+				<!--			</VBox>-->
+				<!--			<VBox id="_IDGenVBox10">-->
+				<!--				<Text id="_IDGenText3" text="{i18n>Status}" class="text-color"></Text>-->
+				<!--				<HBox id="_IDGenHBox3">-->
+				<!--					<Select id="prgStatusId" forceSelection="false" selectedKey="{mprogramsmmodel>/status}">-->
+				<!--						<core:Item id="_IDGenItem1" key="New" text="New"/>-->
+				<!--						<core:Item id="_IDGenItem2" key="In-progress" text="In-Progress"/>-->
+				<!--						<core:Item id="_IDGenItem3" key="Completed" text="Completed"/>-->
+				<!--						<core:Item id="_IDGenItem4" key="Archived" text="Archived"/>-->
+				<!--						<core:Item id="_IDGenItem5" key="Cancelled" text="Cancelled"/>-->
+				<!--					</Select>-->
+				<!--				</HBox>-->
+				<!--				<HBox id="_IDGenVBox11">-->
+				<!--					<Button id="_IDGenButtonreset" press="onAllStatus" text="{i18n>All}"></Button>-->
+				<!--				</HBox>-->
+				<!--			</VBox>-->
+				<!--		</FlexBox>-->
+				<!--	</HBox>-->
+				<!--	<HBox id="_IDGenHBox2" class="b-go">-->
+				<!--		<Button id="_IDGenButton1" type="Transparent" press="OnResetPress" text="{i18n>Reset}"></Button>-->
+				<!--		<Button id="_IDGenButton2" type="Emphasized" press="onGoPress" text="{i18n>Go}"></Button>-->
+				<!--	</HBox>-->
+				<!--</FlexBox>-->
+				<HeaderContainer scrollStep="200" showDividers="false" class="sapUiTinyMarginTop " id="container1">
+					<content>
+						<VBox class="kpiTile" width="24rem" id="totalCalls">
+							<Link id="_IDGenLin1" text="Total Programs" class="link" press="onKpiLinkPress"/>
+							<VBox id="_IDGenVBo8" class="top">
+								<TileContent id="_IDGenTileContnt1" unit="">
+									<content>
+										<NumericContent id="_IDGenNumeriContent1" scale="" value="{modelLength>/programLength}"/>
+									</content>
+								</TileContent>
+							</VBox>
+						</VBox>
+						<VBox class="kpiTile" width="24rem" id="totalprojects">
+							<Link id="_IDGeink1" text="Total Projects" class="link" press="onKpiLinkPressProject"/>
+							<VBox id="_IDGox8" class="top">
+								<TileContent id="_IDGenTiltent1" unit="">
+									<content>
+										<NumericContent id="_IDGenericContent1" scale="" value="{modelLength>/projectLength}"/>
+									</content>
+								</TileContent>
+							</VBox>
+						</VBox>
+						<VBox class="kpiTile" width="24rem" id="totaltasks">
+							<Link id="_IDGenLink1" text="Total Tasks" class="link" press="onKpiLinkPressTasks"/>
+							<VBox id="_IDGenVBox8" class="top">
+								<TileContent id="_IDGenTileContent1" unit="">
+									<content>
+										<NumericContent id="_IDGenNumericContent1" scale="" value="{modelLength>/taskLength}"/>
+									</content>
+								</TileContent>
+							</VBox>
+						</VBox>
+					</content>
+				</HeaderContainer>
+				<!-- Pie chart-->
+				<l:BlockLayout id="BlockLayout1" background="Default" visible="true" class="sapUiTinyMarginTop" keepFontSize="true">
+					<l:BlockLayoutRow id="_IDGenBlockLayoutRow1" accentCells="Accent1">
+						<l:BlockLayoutCell id="_IDGenBlockLayoutCell2" class="chartCard">
+							<commons:ChartContainer id="chartContainer0" showZoom="false" visible="true" showLegend="true" showFullScreen="true"
+								showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange"
+								title="Programs By Status in Pie chart">
+								<!-- <Link id="_IDGenLin6" text="Total Projects" class="link" press="onKpiLinkPress"/> -->
+								<commons:customIcons>
+									<!--<core:Icon src="sap-icon://download" press="onExportPress"></core:Icon>-->
+								</commons:customIcons>
+								<commons:content>
+									<commons:ChartContainerContent id="_IDGenChartContainerContent2" icon="sap-icon://vertical-bar-chart" title="Column Chart">
+										<commons:content>
+											<viz:VizFrame id="idVizFrame1" uiConfig="{applicationSet:'fiori'}"
+												vizProperties="{title:{visible:false,text:'By Bureau'},legend:{visible:true,title:{visible:false}},legendGroup:{layout: {position:'right',alignment:'center'}} ,plotArea:{window:{start:{valueAxis:null,valueAxis2:null}, end:{valueAxis:null,valueAxis2:null}},background:{visible:false},gridline:{visible:false}, dataLabel :{visible:true,type:'value'},colorPalette:['#5499C7', '7FB3D5', '#A9CCE3', '#D4E6F1', '#EAF2F8', '#7D6608', '#9A7D0A', '#B7950B', '#D4AC0D', '#F1C40F', '#F4D03F', '#F7DC6F', '#F9E79F', '#FCF3CF', '#FEF9E7']},valueAxis:{title:{visible:false,text:' Value Axis Value'}},categoryAxis:{title:{visible:false,text:'Category Axis Value'}}}"
+												height='22rem' width="100%" vizType='pie' deselectData="onDeSelectChartData" selectData="onSelectChartData">
+												<viz:dataset>
+													<!--{mreport>/attributes/0/status}}-->
+													<viz.data:FlattenedDataset id="_IDGenFlattenedDataset2" data="{mreportchartstatuspie>/chartData/}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition id="_IDGenDimensionDefinition2" name="WfStatus" value="{mreportchartstatuspie>status}"/>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition id="_IDGenMeasureDefinition2" name="WfCount" value="{mreportchartstatuspie>count}"/>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem id="_IDGenFeedItem3" uid="size" type="Measure" values="WfCount"/>
+													<viz.feeds:FeedItem id="_IDGenFeedItem4" uid="color" type="Dimension" values="WfStatus"/>
+												</viz:feeds>
+											</viz:VizFrame>
+										</commons:content>
+									</commons:ChartContainerContent>
+								</commons:content>
+							</commons:ChartContainer>
+						</l:BlockLayoutCell>
+						<!-- bar chart -->
+						<!-- </l:BlockLayoutRow> -->
+						<!-- <l:BlockLayoutRow id="_IDGenBlockLayoutRow3"> -->
+						<l:BlockLayoutCell id="_IDGenBlockLayoutCell4" class="chartCard">
+							<commons:ChartContainer id="chartContainer1" showLegend="false" showZoom="false" visible="true" showFullScreen="true"
+								showPersonalization="false" autoAdjustHeight="false" showLegendButton="false" personalizationPress="attachPersonalizationPress"
+								contentChange="attachContentChange" title="Projects By Status in Bar chart">
+								<commons:toolbar>
+									<OverflowToolbar id="_IDGenOverflowToolbar3">
+										<ToolbarSpacer id="_IDGenToolbarSpacer4"/>
+										<!-- <Button id="clearFilterForCompId" type="Emphasized" icon="sap-icon://clear-filter" visible="false" press="handleClearFilterPress"/> -->
+										<commons:ChartContainerToolbarPlaceholder id="_IDGenChartContainerToolbarPlaceholder3"></commons:ChartContainerToolbarPlaceholder>
+									</OverflowToolbar>
+								</commons:toolbar>
+								<commons:customIcons></commons:customIcons>
+								<commons:content>
+									<commons:ChartContainerContent id="_IDGenChartContainerContent3" icon="sap-icon://vertical-bar-chart" title="Column Chart">
+										<commons:content>
+											<viz:VizFrame id="idVizFrame3" uiConfig="{applicationSet:'fiori'}" class="titlestyle sapUiLargeMarginTop"
+												vizProperties="{title:{visible:false,class:'textstyle',alignment:'left'},legend:{visible:true,title:{visible:false}},legendGroup:{layout: {position:'top',alignment:'center'}} ,plotArea:{window:{start:{valueAxis:null,valueAxis2:null}, end:{valueAxis:null,valueAxis2:null}},background:{visible:false},gridline:{visible:false}, dataLabel :{visible:true},colorPalette:['#1F618D','#D4E6F1','#5499C7','#2471A3']},valueAxis:{title:{visible:false,text:' Value Axis Value'}},categoryAxis:{title:{visible:false,text:'Category Axis Value'}}}"
+												height='19rem' width="100%" vizType='bar' deselectData="onDeSelectChartData" selectData="onSelectChartData">
+												<viz:dataset>
+													<viz.data:FlattenedDataset id="_IDGenFlattenedDataset3" data="{mprogramsmcmodel>/chartData/}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition id="_IDGenDimensionDefinition3" name="Type" value="{mprogramsmcmodel>status}"/>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition id="_IDGenMeasureDefinition3" name="Count" value="{mprogramsmcmodel>count}"/>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem id="_IDGenFeedItem5" uid="valueAxis" type="Measure" values="Count"/>
+													<viz.feeds:FeedItem id="_IDGenFeedItem6" uid="categoryAxis" type="Dimension" values="Type"/>
+												</viz:feeds>
+											</viz:VizFrame>
+										</commons:content>
+									</commons:ChartContainerContent>
+								</commons:content>
+							</commons:ChartContainer>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow id="_IDGenBlockLayoutRow4">
+						<l:BlockLayoutCell id="_IDGenBlockLayoutCell5" class="chartCard">
+							<commons:ChartContainer id="chartContainer2" showZoom="false" visible="true" showLegend="true" showFullScreen="true"
+								showPersonalization="false" autoAdjustHeight="false" personalizationPress="attachPersonalizationPress" contentChange="attachContentChange"
+								title="Projects Received">
+								<commons:toolbar>
+									<OverflowToolbar id="_IDGenOverflowToolbar4">
+										<ToolbarSpacer id="_IDGenToolbarSpacer5"/>
+										<Button id="clearFilterForCBSId" type="Emphasized" icon="sap-icon://clear-filter" visible="false" press="handleClearFilterPress"/>
+										<commons:ChartContainerToolbarPlaceholder id="_IDGenChartContainerToolbarPlaceholder4"></commons:ChartContainerToolbarPlaceholder>
+									</OverflowToolbar>
+								</commons:toolbar>
+								<commons:content>
+									<commons:ChartContainerContent id="_IDGenChartContainerContent4" icon="sap-icon://vertical-bar-chart" title="Column Chart">
+										<commons:content>
+											<ObjectIdentifier id="_IDGenObjectIdentifier1" title="{Name}"/>
+											<viz:VizFrame id="idVizFrame4" uiConfig="{applicationSet:'fiori'}"
+												vizProperties="{title:{visible:false,text:'By Bureau'},legend:{visible:true,title:{visible:false}},legendGroup:{layout: {position:'right',alignment:'center'}} ,plotArea:{window:{start:{valueAxis:null,valueAxis2:null}, end:{valueAxis:null,valueAxis2:null}},background:{visible:false},gridline:{visible:false}, dataLabel :{visible:true,type:'value'},colorPalette:['#5499C7', '7FB3D5', '#A9CCE3', '#D4E6F1', '#EAF2F8', '#7D6608', '#9A7D0A', '#B7950B', '#D4AC0D', '#F1C40F', '#F4D03F', '#F7DC6F', '#F9E79F', '#FCF3CF', '#FEF9E7']},valueAxis:{title:{visible:false,text:' Value Axis Value'}},categoryAxis:{title:{visible:false,text:'Category Axis Value'}}}"
+												height='22rem' width="100%" vizType='line' deselectData="onDeSelectChartData" selectData="onSelectChartData">
+												<viz:dataset>
+													<!--{events: { dataReceived: '.onDataReceived'},path:'/ReqByStatus'}-->
+													<viz.data:FlattenedDataset id="_IDGenFlattenedDataset4" data="{mreportchartmonth>/chartData/}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition id="_IDGenDimensionDefinition4" name="CategoryText" value="{mreportchartmonth>sMonthName}"/>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition id="_IDGenMeasureDefinition4" name="ProjectCount" value="{mreportchartmonth>count}"/>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem id="_IDGenFeedItem7" uid="valueAxis" type="Measure" values="ProjectCount"/>
+													<viz.feeds:FeedItem id="_IDGenFeedItem8" uid="categoryAxis" type="Dimension" values="CategoryText"/>
+												</viz:feeds>
+											</viz:VizFrame>
+										</commons:content>
+									</commons:ChartContainerContent>
+								</commons:content>
+							</commons:ChartContainer>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+				<!-- <viz:Popover id="idPopOver7"></viz:Popover> -->
+			</content>
+		</Page>
+	</App>
+</mvc:View>

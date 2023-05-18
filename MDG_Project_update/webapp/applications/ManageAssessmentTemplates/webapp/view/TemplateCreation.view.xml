@@ -1,0 +1,200 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:micro="sap.suite.ui.microchart"
+	xmlns:f="sap.ui.layout.form" controllerName="EHS.ManageAssessmentTemplates.controller.TemplateCreation"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="oPage" title="{i18nModel>FormtemplateCreationWizard}" showNavButton="true" navButtonPress="onNavBack" enableScrolling="true">
+		<l:BlockLayout id="BlockLayout" background="Default">
+			<l:BlockLayoutRow id="headerId">
+				<l:BlockLayoutCell class="sapUiResponsiveContentPadding" visible="{= !${device>/system/phone}}" backgroundColorSet="ColorSet6"
+					backgroundColorShade="ShadeC">
+					<l:VerticalLayout class="verticalLayoutClass">
+						<!--<Title text="Loreum Ipsum" class="darkTheme"/>-->
+						<Text text="{i18nModel>PleaseselectthesectionbeforecreatingtheTemplate}" class="sapUiSmallMarginBottom"/>
+						<Image src="https://cloud360accounting.com/wp-content/uploads/2014/11/xero-background-750x300.jpg" width="100%"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell class="sapUiResponsiveContentPadding" backgroundColorSet="ColorSet6" backgroundColorShade="ShadeC">
+					<l:VerticalLayout>
+						<Title text=""/>
+						<Label required="true" text="{i18nModel>Title}:" class="darkTheme"/>
+						<Input width="170%" class="sapUiTinyMarginBottom darkTheme" value="{/name}" id="titleId" liveChange="onTitleAdd" enabled="true"/>
+						<Label text="{i18nModel>Description}:" class="darkTheme"/>
+						<TextArea value="{/description}" class="sapUiTinyMarginBottom darkTheme" width="170%" rows="2" id="descId"/>
+						<Label id="labelEquipType" required="true" text="{i18nModel>Categories}:" class="darkTheme" visible="true"/>
+						<Select items="{formType>/}" selectedKey="{/m_form_type}" change="handleChange" width="170%" id="indusId" class="darkTheme" visible="true">
+							<items>
+								<core:Item text="{formType>attributes/type}" key="{formType>id}"/>
+								<!--<core:Item text="AOF – Agenda Of Meeting" key="AOF"/>-->
+								<!--<core:Item text="MOM – Minutes Of Meeting" key="MOM"/>-->
+								<!--<core:Item text="QGI – Questionnaire General Information" key="QGI"/>-->
+								<!--<core:Item text="QIM – Organizational Information Management" key="QIM"/>-->
+								<!--<core:Item text="HRM – Human Resources Management" key="HRM"/>-->
+								<!--<core:Item text="BPM – Business Process Management" key="BPM"/>-->
+								<!--<core:Item text="MDG – Master Data Governance" key="MDG"/>-->
+								<!--<core:Item text="DPM – Data Process Management" key="DPM"/>-->
+								<!--<core:Item text="RDM – Reference Data Management" key="RDM"/>-->
+								<!--<core:Item text="MDM – Master Data Management" key="MDM"/>-->
+								<!--<core:Item text="ISM – Information Security Management" key="ISM"/>-->
+								<!--<core:Item text="DQM – Data Quality Management" key="DQM"/>-->
+								<!--<core:Item text="LDM – Lifecycle Data Management Process" key="LDM"/>-->
+								<!--<core:Item text="DPP – Data Privacy / Protection" key="DPP"/>-->
+							</items>
+						</Select>
+						<!--<Label id="labelIndus" required="true" text="{i18nModel>Industry}:" class="darkTheme" visible="{=${/type} ==='Assessment' || ${/type}=== 'Bewertung'}"/>-->
+						<!--<Select items="{industryListModel>/}"  change="handleChange"  width="100%" id="indusId2" class="darkTheme"-->
+						<!--visible="{=${/type} ==='Assessment' || ${/type}=== 'Bewertung'}" >-->
+						<!--	<items>-->
+						<!--	<core:Item text="{industryListModel>name}" key="{industryListModel>name}"/>-->
+						<!--		</items>-->
+						<!--</Select>-->
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell class="sapUiResponsiveContentPadding" backgroundColorSet="ColorSet6" backgroundColorShade="ShadeC">
+					<l:VerticalLayout>
+						<Title text=""/>
+						<Label required="true" text="{i18nModel>ValidityStartDate}:" class="darkTheme"/>
+						<DatePicker width="150%" class="sapUiTinyMarginBottom darkTheme" placeholder="Enter Start Date" valueFormat="dd.MM.yyyy" id="startDateId"
+							change="handleStartDateChange" value="{path:'/validFrom', formatter:'.Formatter.getDate'}"/>
+						<Label required="true" text="{i18nModel>ValidityEndDate}:" class="darkTheme"/>
+						<DatePicker width="150%" class="sapUiTinyMarginBottom darkTheme" placeholder="Enter End Date" valueFormat="dd.MM.yyyy" id="subDateIdd"
+							change="handleStartDateChange" value="{path:'/validTo', formatter:'.Formatter.getDate'}"/>
+						<Label text="{i18nModel>Status}" class="darkTheme"/>
+						<Input value="{path: '/status'}" id="statusid" enabled="false" class="sapUiTinyMarginBottom" width="110%"/>
+						<!--<Select width="100%" id="statusId" class="darkTheme">-->
+						<!--	<core:Item text="Draft" key="0"/>-->
+						<!--	<core:Item text="Published" key="1"/>-->
+						<!--	<core:Item text="Archived" key="O"/>-->
+						<!--</Select>-->
+						<!--value="{path: '/Status', formatter: '.Formatter.translateStatus'}"-->
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell class="sapUiResponsiveContentPadding categoryLayoutCellClass" backgroundColorSet="ColorSet6"
+					backgroundColorShade="ShadeB" id="categoryRow">
+					<Toolbar id="listheader" visible="true" class="noBorderToolbar">
+						<ToolbarSpacer width="1rem"/>
+						<!-- <Title text="All Categories" class="whiteText" level="H1"/> -->
+						<Button iconFirst="false" id="allCategoryButtonId" text="{i18nModel>AllSections}" class="categoryButtonPress"
+							press="handleAllCategoriesExpand" visible="true" type="Transparent"/>
+						<ToolbarSpacer/>
+						<Button iconFirst="false" id="editbtnid" icon="sap-icon://edit" class="categoryButtonPress" press="onEditSectionpress" visible="true"
+							type="Transparent" tooltip="{i18nModel>edit}"/>
+						<Button iconFirst="false" id="addbtnid" icon="sap-icon://add" class="categoryButtonPress" press="onAddSectionpress" visible="true"
+							type="Transparent" tooltip="{i18nModel>add}"/>
+						<Button iconFirst="false" id="deletebtnid" icon="sap-icon://delete" tooltip="{i18nModel>delete}" class="categoryButtonPress"
+							press="ondeleteSubSectionpress" visible="true" type="Transparent"/>
+						<Button iconFirst="false" id="donebtnid" icon="sap-icon://accept" tooltip="Done" class="categoryButtonPress" press="ondonepress"
+							visible="false" type="Transparent"/>
+						<ToolbarSpacer width="0.5rem"/>
+					</Toolbar>
+					<l:VerticalLayout width="100%" id="addCategoryLayoutId" class="sapUiSizeCompact categoryVerticalLayoutClass">
+						<List id="sectionListId" itemPress="onSubFactorpress" items="{/subfactors/}" selectionChange="onSubFactorpress" mode="SingleSelectMaster"
+							delete="handleSubSectionDelete">
+							<StandardListItem title="{subFactName}"/>
+						</List>
+					</l:VerticalLayout>
+					<Toolbar id="listfooter" class="noBorderToolbar" visible="false">
+						<ToolbarSpacer width="10rem"/>
+						<Button iconFirst="false" text="{i18nModel>Save}" class="categoryButtonPress" press="onSaveSubSectionpress" visible="true"
+							type="Transparent"/>
+						<Button iconFirst="false" text="{i18nModel>Cancel}" class="categoryButtonPress" press="onCancelSubSectionpress" visible="true"
+							type="Transparent"/>
+					</Toolbar>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell width="2" visible="{= !${device>/system/phone}}" class="sapUiResponsiveContentPadding customCellClass"
+					backgroundColorSet="ColorSet11" backgroundColorShade="ShadeA" id="questionBlock">
+					<Bar class="questionAreaBarClass">
+						<contentLeft >
+							<Button icon="sap-icon://navigation-left-arrow" type="Transparent" press="openCloseHeaderForCategory" class="sapUiSizeCompact"
+								visible="{device>/system/phone}"/>
+						</contentLeft>
+						<contentRight>
+							<Button text="{i18nModel>Addquestion}" icon="sap-icon://add" press="addQuestion" id="addQuesButId"></Button>
+						</contentRight>
+					</Bar>
+					<l:VerticalLayout class="breadLayoutClass" width="100%">
+						<l:content>
+							<Title text="{i18nModel>Sections}" id="breadCrumbsId" level="H3"/>
+						</l:content>
+					</l:VerticalLayout>
+					<ScrollContainer id="questionArea" horizontal="false" vertical="true" class="scrollclass">
+						<List id="questionPanel" items="{path:'/questions/', sorter:{path:'subFactName', group:true}}">
+							<CustomListItem>
+								<Panel id="panelid" expandable="false" expanded="false" width="auto" class="sapUiResponsiveMargin">
+									<headerToolbar>
+										<Toolbar height="3rem" style="Clear">
+											<Text text="{Question_No}"/>
+											<TextArea value="{Question}" placeholder="{i18nModel>Question}" width="100%" liveChange="onInputChange" class="textAreaBorder"
+												enabled="{appView>/questionsEnabled}"/>
+											<Button id="questionDeleteId" icon="sap-icon://delete" tooltip="{i18nModel>Delete_T}" press="handleQuestionDelete" type="Transparent"/>
+											<MenuButton tooltip="Menu" id="menuButtons">
+												<menu width="50%">
+													<Menu itemSelected="onMenuAction" id="id12">
+														<items>
+															<MenuItem icon="sap-icon://edit" text="{i18nModel>QuestionType}">
+																<items>
+																	<MenuItem text="{i18nModel>MultipleChoice}" key="mc"></MenuItem>
+																	<MenuItem text="{i18nModel>SingleChoice}" key="sc"></MenuItem>
+																	<MenuItem text="{i18nModel>Paragraph}" key="p"></MenuItem>
+																	<MenuItem text="{i18nModel>DateSelection}" key="d"></MenuItem>
+																</items>
+															</MenuItem>
+														</items>
+														<MenuItem icon="sap-icon://delete" tooltip="{i18nModel>Delete_T}" press="handleQuestionDelete"
+															enabled="{= ${/status} === 'Published' ? false : true}"></MenuItem>
+													</Menu>
+												</menu>
+											</MenuButton>
+										</Toolbar>
+									</headerToolbar>
+									<VBox alignContent="Center" alignItems="Center" items="{path: 'Options/', templateShareable: false }"
+										visible="{path:'QuestionType',formatter:'.Formatter.getTypeofQuestionForSingChoi'}">
+										<items>
+											<HBox>
+												<RadioButton select="onSelectRadio" selected="{=${weight} === '' ? false : ${weight}}"/>
+												<Input value="{option}" placeholder="{i18nModel>Option}" width="20rem" class="inputOptionClass" change="onInputChange"></Input>
+												<Button tooltip="{i18nModel>DeleteOption}" icon="sap-icon://delete" type="Transparent"
+													enabled="{= ${/status} === 'Published' ? false : true}" press="handleOptionDelete"/>
+											</HBox>
+										</items>
+									</VBox>
+									<VBox alignContent="Center" alignItems="Center" items="{path: 'Options/', templateShareable: false }"
+										visible="{path:'QuestionType',formatter:'.Formatter.getTypeofQuestionForMultiChoi'}">
+										<items>
+											<HBox>
+												<CheckBox select="onSelectCheckBox" selected="{=${weight} === '' ? false : ${weight}}"/>
+												<Input value="{option}" placeholder="{i18nModel>Option}" width="20rem" class="inputOptionClass" change="onInputChange"></Input>
+												<Button tooltip="{i18nModel>DeleteOption}" icon="sap-icon://delete" enabled="{= ${/status} === 'Published' ? false : true}"
+													type="Transparent" press="handleOptionDelete"/>
+												<!--<Input width="4rem" class="inputOptionClass" placeholder="{i18nModel>Weight}" value="{weight}"></Input>-->
+											</HBox>
+										</items>
+									</VBox>
+									<TextArea id="id15" placeholder="{i18nModel>Option}" value="{Options/0/option}" liveChange="onTextAreaChange" rows="2" width="80%"
+										class="sapUiLargeMarginBegin" visible="{path:'QuestionType',formatter:'.Formatter.getTypeofQuestionForPara'}"/>
+									<VBox alignContent="Center" alignItems="Center" items="{path: 'Options/', templateShareable: false }"
+										visible="{path:'QuestionType',formatter:'.Formatter.getTypeofQuestionForDateSelect'}">
+										<items>
+											<HBox>
+												<DateTimePicker width="100%" class="sapUiTinyMarginBottom" placeholder="Enter Date" id="startDateId1" valueFormat="yyyy-MM-dd-HH-mm-ss"
+													value="{option}"/>
+											</HBox>
+										</items>
+									</VBox>
+								</Panel>
+							</CustomListItem>
+						</List>
+					</ScrollContainer>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+		</l:BlockLayout>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="saveDraftId" class="saveButtonClass" text="{i18nModel>Save}" press="onSaveDraftPress" tooltip="{i18nModel>Save}"/>
+					<Button id="publishId" type="Emphasized" text="{i18nModel>Publish}" press="onPublishPress" tooltip="{i18nModel>Publish}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

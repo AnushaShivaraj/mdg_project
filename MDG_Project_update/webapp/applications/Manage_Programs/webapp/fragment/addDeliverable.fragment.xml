@@ -1,0 +1,95 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>addDel}" contentWidth="38%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleAddDelCancelPress"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Save}" press="handleAddDelOkPress"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label required="true" text="{i18n>deliverName}"/>
+				<Input value="{/taskName}"/>
+				<Label text="{i18n>status}"/>
+				<Input required="true" enabled="false" visible="true" showValueStateMessage="true" valueStateText="{i18n>valueStateText1}"
+					change="validateInput"/>
+				<ComboBox items="{path: '/'}" visible="false" selectedKey="">
+					<items>
+						<core:Item key="{taskStatus}" text="{taskStatus}"/>
+					</items>
+				</ComboBox>
+				<Label required="true" text="{i18n>delDes}"/>
+				<TextArea value="{/taskdesp}"/>
+				<Label required="true" text="{i18n>CSF}"/>
+				<Select items="{/}" width="100%" enabled="true">
+					<items>
+						<core:Item key="{id}" text="{attributes/name}"/>
+					</items>
+				</Select>
+				<Label required="true" text="{i18n>start_date}"/>
+				<DatePicker change="handleDateValidation" value="{/startDate}" valueFormat="yyyy-MM-dd" placeholder="{i18n>EnterStartDate}"
+					class="sapUiSmallMarginBottom"/>
+				<!--<Input type="Email" value="{/email}" change="handleValidateEmail"/>-->
+				<Label required="true" text="{i18n>end_date}"/>
+				<DatePicker valueFormat="yyyy-MM-dd" change="handleDateValidation" value="{/endDate}" placeholder="{i18n>EnterEndDate}"
+					class="sapUiSmallMarginBottom"/>
+				<!--<Input value="{/contact}" liveChange="limitPhoneNumbers" type="Tel" maxLength="20"/>-->
+				<!--	<Label text="{i18nModel>Roles}"/>-->
+				<Label visible="false" text="{i18n>deadline_date}"/>
+				<DatePicker value="{/deadLineDate}" visible="false" placeholder="{i18n>EnterDeadLineDate}" class="sapUiSmallMarginBottom"/>
+				<Label text="{i18n>SelectType}"/>
+				<SegmentedButton width="100%" selectedKey="Joint" selectionChange="onSelectionDeliverable">
+					<items>
+						<SegmentedButtonItem key="Teammember" text="{i18n>Teammember}"/>
+						<SegmentedButtonItem key="Vendor" text="{i18n>Vendor}"/>
+						<SegmentedButtonItem key="Joint" text="{i18n>Joint}"/>
+					</items>
+				</SegmentedButton>
+				<Label text="{i18n>assigned_team_member}"/>
+				<Select items="{/}" width="100%" enabled="true">
+					<items>
+						<core:Item text="{attributes/users_permissions_user/data/attributes/firstName}" key="{attributes/users_permissions_user/data/id}"/>
+					</items>
+				</Select>
+				<!--<Input tooltip="{i18n>City}" type="Text" required="true" placeholder="{i18n>City}"/>-->
+				<Label text="{i18n>assigned_to}"/>
+				<Select items="{/}" width="100%" enabled="true">
+					<items>
+						<core:Item text="{attributes/vendorName}" key="{id}"/>
+					</items>
+				</Select>
+				<!--<HBox class="sapUiTinyMarginTopBottom">-->
+				<!--<VBox>-->
+				<Label text="{i18n>Is_there_any_dependency}" labelFor="groupB"/>
+				<RadioButtonGroup valueState="Success" selectedIndex="1" columns="5">
+					<RadioButton text="{i18n>Yes}" select="selectDepencyPress"/>
+					<RadioButton text="{i18n>No}" select="selectDepencyPress"/>
+				</RadioButtonGroup>
+				<!--</VBox>-->
+				<!--</HBox>-->
+				<Label text="{i18n>Dependency}" visible="false" required="false"></Label>
+				<ComboBox items="{path: '/'}" visible="false" enabled="true" selectionChange="onDependencySelect">
+					<items>
+						<core:Item key="{attributes/name}" text="{attributes/name}"/>
+					</items>
+				</ComboBox>
+				<Label text="{i18n>Effort}"/>
+				<Input value="{/Effort}" placeholder="Enter the Efforts"/>
+				<Label text="{i18n>Progress}"/>
+				<Input value="{/Progress}" placeholder="Enter Progress in percentage"/>
+				<Label text="{i18n>Priority}"/>
+				<Select forceSelection="false" selectedKey="{/Priority}">
+					<core:Item text="Critical" key="Critical"/>
+					<core:Item text="Not Critical" key="Not Critical"/>
+					<core:Item text="Relevant" key="Relevant"/>
+					<core:Item text="Less Relevant" key="Less relevant"/>
+				</Select>
+				<!--<Label text="Groups"/>
+				<Select items="{/results}" width="100%" enabled="true">
+					<core:Item text="{Name}" key="{Department Id}"/>
+				</Select>-->
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,68 @@
+
+	{
+	"Vendors":[
+    {
+    	"vendor_id":"VID000101",
+    	"vendor_Name":"Ample Infotec Private Limited",
+		"vendor_email":"vendor1@gmail.com",
+		"vendor_contact":"099715 00522",
+		"vendor_address":"Plot No. 6, Kh. No. 152/153, Rajpur Khurd Ext.,Near MCD Primary School Via-Tivoli Garden, Chhatarpur, New Delhi, Delhi 110068",
+		"vendor_city":"New Delhi",
+		"vendor_country":"India"
+    },
+	{
+		"vendor_id":"VID000102",
+		"vendor_Name":"Delvetech",
+		"vendor_email":"vendor3@gmail.com",
+		"vendor_contact":"098738 95154",
+		"vendor_address":"87A/1, 3rd Floor, Opp. Block N-115, G.K-1, Near Moolchand Merto, Block B, Zamrudpur, Greater Kailash, New Delhi, Delhi 110048",
+		"vendor_city":"New Delhi",
+		"vendor_country":"India"
+	},
+	{
+		"vendor_id":"VID000103",
+		"vendor_Name":"INOSPIRE Softwares",
+		"vendor_email":"vendor2@gmail.com",
+		"vendor_contact":"09632147850",
+		"vendor_address":"Plot No 126, Vikas Nagar, Sector 10, Gurugram, Haryana 122001",
+		"vendor_city":"Gurugram",
+		"vendor_country":"India"
+	},
+	{
+			"vendor_id":"VID000104",
+	 	"vendor_Name":"Spg Technologies",
+		"vendor_email":"vendor4@gmail.com",
+		"vendor_contact":"080 4606 2029",
+		"vendor_address":"B-16 Dwarka Mor, Bhagwati Garden, Nawada, Delhi, 110059",
+		"vendor_city":"Delhi",
+		"vendor_country":"India"
+	},
+	{
+			"vendor_id":"VID000105",
+		"vendor_Name":"B21soft",
+		"vendor_email":"vendor5@gmail.com",
+		"vendor_contact":"1234567890",
+		"vendor_address":"2nd cross rajajinagar 2nd Phase Bangalore 560058",
+		"vendor_city":"Banglore",
+		"vendor_country":"India"
+	},
+	{
+			"vendor_id":"VID000106",
+		"vendor_Name":"Cabsoftware",
+		"vendor_email":"vendor6@gmail.com",
+		"vendor_contact":"785424356",
+		"vendor_address":"No.93 GA ROAD SHOP NO.5 KVN COMPLEX, Chennai, Tamil Nadu 600021",
+		"vendor_city":"Chennai",
+		"vendor_country":"India"
+	},
+	{
+			"vendor_id":"VID000107",
+		"vendor_Name":"Daansystems",
+		"vendor_email":"vendor7@gmail.com",
+		"vendor_contact":"7632434567",
+		"vendor_address":"near McDonalds, Railway Colony, Andheri East, Mumbai, Maharashtra 400053",
+		"vendor_city":"Mumbai",
+		"vendor_country":"India"
+}
+]
+}

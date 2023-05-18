@@ -1,0 +1,65 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>AddNewProject}" contentWidth="40%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleProjectCancel"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Add}" press="handleAddProject"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="12"
+			adjustLabelSpan="true" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title text="{i18n>ProjectBasicInformation}"/>
+				<Label text="{i18n>ProjectName}" required="true"/>
+				<Input value="{/projectname}" liveChange="handleValidateOrganizationInputFields"/>
+				<Label text="{i18n>ProjectDescription}" required="true"/>
+				<TextArea value="{/description}" liveChange="handleValidateOrganizationInputFields"/>
+				<Label text="{i18n>StartDate}" required="true"/>
+				<DatePicker id="DP22" valueFormat="yyyy-MM-dd" value="{/startdate}" placeholder="Enter Start Date" class="sapUiSmallMarginBottom"/>
+				<Label text="{i18n>EndDate}" required="true"/>
+				<DatePicker id="DP33" valueFormat="yyyy-MM-dd" value="{/enddate}" placeholder="Enter End Date"/>
+				<!--<core:Title text="{i18n>AssigningCustomer}"/>-->
+				<!--<Label text="{i18n>customerName}" required="true"/>-->
+				<!--<Input value="{/customerName}" id="customerInputs" type="Text" placeholder="Select Customer..." showValueHelp="true" valueHelpOnly="true"-->
+				<!--	valueHelpRequest="addCustomerhere" class="sapUiSmallMarginBottom"/>-->
+				<!--<ComboBox items="{path: 'customerdata>/'}" enabled="true" id="cmbCustName22" selectionChange="onConfirmCustomer">-->
+				<!--	<items>-->
+				<!--		<core:Item key="{customerdata>customerName}" text="{customerdata>customerName}"/>-->
+				<!--	</items>-->
+				<!--</ComboBox>-->
+				<!--<MultiInput showValueHelp="true" tokenUpdate="onConfirmCustomer" valueHelpRequest="onValueHelpRequestCustomer" tokens="{path: '/'}">-->
+				<!--	<tokens>-->
+				<!--		<Token key="{attributes/customerName}" text="{attributes/customerName}"/>-->
+				<!--	</tokens>-->
+				<!--</MultiInput>-->
+				<!--<core:Title text="{i18n>AssigningVendors}"/>-->
+				<!--<Label text="{i18n>VendorName}" required="true"/>-->
+				<!--<Input id="selectVendor" type="Text" placeholder="Select Vendor..." showValueHelp="true" valueHelpOnly="true"-->
+				<!--	valueHelpRequest="handleValueHelp" class="sapUiSmallMarginBottom"/>-->
+				<!--<ComboBox items="{path: 'vendordata>/Vendors/'}" enabled="true" id="cmbCustName122" selectionChange="onConfirm">-->
+				<!--	<items>-->
+				<!--		<core:Item key="{vendordata>vendor_Name}" text="{vendordata>vendor_Name}"/>-->
+				<!--	</items>-->
+				<!--</ComboBox>-->
+				<!--<MultiInput showValueHelp="true" tokenUpdate="onConfirm" valueHelpRequest="onValueHelpRequestVendor"-->
+				<!--	tokens="{path: '/'}">-->
+				<!--	<tokens>-->
+				<!--		<Token key="{attributes/vendorName}" text="{attributes/vendorName}"/>-->
+				<!--	</tokens>-->
+				<!--</MultiInput>-->
+				<core:Title text="{i18n>EffortsDetails}"/>
+				<Label text="{i18n>Effort}"/>
+				<Input value="{/Effort}" placeholder="Enter the Efforts"/>
+				<Label text="{i18n>Progress}"/>
+				<Input value="{/Progress}" placeholder="Enter Progress in percentage"/>
+				<Label required="true" text="{i18n>Priority}"/>
+				<Select forceSelection="false" selectedKey="{/Priority}">
+					<core:Item text="Critical" key="Critical"/>
+					<core:Item text="Not Critical" key="Not Critical"/>
+					<core:Item text="Relevant" key="Relevant"/>
+					<core:Item text="Less Relevant" key="Less Relevant"/>
+				</Select>
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

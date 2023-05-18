@@ -1,0 +1,16 @@
+.textSize {
+    font-size: 10px;
+    color: red;
+
+}
+
+.sapMBtn.sapMBtnDisabled {
+    cursor: pointer;
+    visibility: collapse !important;
+}
+
+
+
+.sapMInputBase {
+    width: "100%";
+}

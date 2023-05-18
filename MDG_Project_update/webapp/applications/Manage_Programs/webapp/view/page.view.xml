@@ -1,0 +1,5 @@
+<mvc:View controllerName="MDG.Program.controller.page" xmlns:mvc="sap.ui.core.mvc"  xmlns="sap.m" displayBlock="true" xmlns:f="sap.f">
+	<App id="app" class="sapUiSizeCompact">
+		<f:FlexibleColumnLayout id="layout" layout="{appView>/layout}" backgroundDesign="Translucent"></f:FlexibleColumnLayout>
+	</App>
+</mvc:View>

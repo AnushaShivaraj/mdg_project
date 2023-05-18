@@ -1,0 +1,52 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MDG.ApplicationManagement.controller.Home"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+	<Page id="Home" showHeader="false">
+		<l:BlockLayout id="BlockLayout" background="Default">
+			<l:BlockLayoutRow class="blockLayoutRowOne">
+				<l:BlockLayoutCell class="sapUiNoContentPadding">
+					<Image src="https://www.nexmo.com/wp-content/uploads/2017/11/secondary-user-management-dashboard.jpg" height="20rem" width="100%"/>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+			<l:BlockLayoutRow >
+				<l:BlockLayoutCell class="sapUiResponsiveContentPadding" title="{i18n>shopAdminTitle}" backgroundColorSet="ColorSet9"
+					backgroundColorShade="ShadeA" titleAlignment="Left"/>
+			</l:BlockLayoutRow>
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell visible="{= ${loggedOnUserModel>/mrole/roleName} !== 'Admin'}" backgroundColorSet="ColorSet11"
+					backgroundColorShade="ShadeD">
+					<l:VerticalLayout>
+						<core:Icon src="sap-icon://key-user-settings" size="2.5rem" color="White"/>
+						<Link text="Organization" press="handleSuperAdminPress" titleStyle="H2"
+							class="sapMTitleStyleH2 sapUiDocTitleLink darkTheme sapUiTinyMarginTopBottom"/>
+						<Text text="Maintaining the Application access based on the license" class="sapUiTinyMarginBottom"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell id="superAdminCell" visible="{= ${loggedOnUserModel>/mrole/roleName} !== 'Admin'}" backgroundColorSet="ColorSet11"
+					backgroundColorShade="ShadeB">
+					<l:VerticalLayout>
+						<core:Icon src="sap-icon://product" size="2.5rem" color="Default"/>
+						<Link text="Application" press="handleApplicationPress" titleStyle="H2" class="sapMTitleStyleH2 sapUiDocTitleLink sapUiTinyMarginTopBottom"/>
+						<Text text="Create and manage an applications" class="sapUiTinyMarginBottom"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell id="roleCell" visible="{= ${loggedOnUserModel>/mrole/roleName} !== 'Super Admin'}" backgroundColorSet="ColorSet11"
+					backgroundColorShade="ShadeD">
+					<l:VerticalLayout>
+						<core:Icon src="sap-icon://role" size="2.5rem" color="White"/>
+						<Link press="handleRolesPress" text="{i18n>productTitle}" class="sapMTitleStyleH2 sapUiDocTitleLink darkTheme sapUiTinyMarginTopBottom"/>
+						<Text text="{i18n>productContent}" class="sapUiTinyMarginBottom"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell id="userCell" visible="{= ${loggedOnUserModel>/mrole/roleName} !== 'Super Admin'}" backgroundColorSet="ColorSet11"
+					backgroundColorShade="ShadeB">
+					<l:VerticalLayout>
+						<core:Icon src="sap-icon://user-edit" size="2.5rem" color="Default"/>
+						<Link text="{i18n>revenueTitle}" press="handleUserPress" titleStyle="H2" class="sapMTitleStyleH2 sapUiDocTitleLink sapUiTinyMarginTopBottom"/>
+						<Text text="{i18n>revenueContent}" class="sapUiTinyMarginBottom"/>
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+			<l:BlockLayoutRow></l:BlockLayoutRow>
+		</l:BlockLayout>
+	</Page>
+</mvc:View>

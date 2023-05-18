@@ -1,0 +1,22 @@
+[
+	{
+		"licid":		"LIC1001",
+		"type": 		"Annual",
+		"desc":			"An annual license",
+		"createdate":	"",
+		"createdby":	"",
+		"modifydate":   "",
+		"modifiedby":   "",
+		"isarchived":   "false"
+	},
+	{
+		"licid":		"LIC1002",
+		"type": 		"Quarter",
+		"desc":			"A quartely license",
+		"createdate":	"",
+		"createdby":	"",
+		"modifydate":   "",
+		"modifiedby":   "",
+		"isarchived":   "false"
+	}
+]

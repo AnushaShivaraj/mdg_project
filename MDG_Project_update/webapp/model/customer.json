@@ -1,0 +1,24 @@
+[
+	{
+		"organisationid":		"ORG10001",
+		"customerid":			"CUST1001",
+		"name":					"RV Infotech",	
+		"description":			"Dealer of SAAS for mobile applications",
+		"email":                "info@rvinfotech.com",
+		"phone":                "9743266399",
+		"addressline1":         "12/3, Infotech Building, 3rd Floor, 1st Cross, 3rd D Main",
+		"addressline2":         "Jayananagr Phase 1",
+		"city":                 "Bangalore",
+		"country":              "India",
+		"zip":                  "560034",
+		"contactfirstname":     "Naveen",
+		"contactlastname":      "RV",
+		"contactemail":			"naveen.rv@rvinfotech.com",
+		"contactphone":         "9743266399",
+		"createdate":           "",
+		"createdby":            "",
+		"modifydate":           "",
+		"modifiedby":           "",
+		"isarchived":           ""
+	}
+]

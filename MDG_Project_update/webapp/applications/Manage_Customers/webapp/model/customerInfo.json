@@ -1,0 +1,104 @@
+[{
+		"custID": "CUST1000",
+		"customerName": "Agies Logistics",
+		"orgid":"ORG10001",
+		"cvTypeField" : "Customer Internal",
+		"email": "Custometr1@gmail.com",
+		"contact": 1234567890,
+		"contactPerson": "Jhon",
+		"contactEmail": "Jhon@gmail.com",
+		"contactPhone": "988765432",
+		"contactDesignation": "Manager",
+		"country":"India",
+		"city": "Bangalore",
+		"address": "2nd cross rajajinagar 2nd Phase Bangalore 560058",
+		"description":"A company, abbreviated as co., is a legal entity representing an association of people, whether natural, legal or a mixture of both, with a specific objective. Company members share a common purpose and unite to achieve specific, declared goals.",
+		"zipCode": 560058,
+			"documents":[{
+			"fileName": "Project Plan Agenda.doc",
+			"mediaType": "application/msword",
+			"url": "demokit/sample/UploadCollection/LinkedDocuments/Business Plan Agenda.doc",
+			"keyword":"Project",
+			"shortDescription":"this documents Belongs to Project "
+		}]
+		
+
+	}, {
+		"custID": "CUST10002",
+		"customerName": "Johnson & Johnson ",
+		"orgid": "ORG10002",
+		"cvTypeField" : "Customer External",
+		"lastname": "Joan",
+		"email": "Custometr2@gmail.com",
+		"contact": 1234567891,
+		"contactPerson": "Rocky",
+		"contactEmail": "Rocky@gmail.com",
+		"contactPhone": "785424356",
+		"contactDesignation": "Assistant Manager",
+		"country":"India",
+		"city": "Chennai",
+		"address": " No.93 GA ROAD SHOP NO.5 KVN COMPLEX, Chennai, Tamil Nadu 600021",
+		"description":"A company, abbreviated as co., is a legal entity representing an association of people, whether natural, legal or a mixture of both, with a specific objective. Company members share a common purpose and unite to achieve specific, declared goals.",
+		"zipCode": 560055,
+		"documents":[{
+			"fileName": "Business Plan Agenda.doc",
+			"mediaType": "application/msword",
+			"url": "demokit/sample/UploadCollection/LinkedDocuments/Business Plan Agenda.doc",
+			"keyword":"payment",
+			"shortDescription":"this documents Belongs to project Payments"
+		}]
+	
+		
+
+	}, {
+		"custID": "CUST10003",
+		"customerName": "Indian Motors",
+		"cvTypeField" : "Agency",
+		"lastname": "Rose",
+		"email": "Custometr3@gmail.com",
+		"contact": 1234567894,
+		"contactPerson": "Rose",
+		"contactEmail": "Rose@gmail.com",
+		"contactPhone": "7632434567",
+		"contactDesignation": "Director",
+		"country":"U.S.A",
+		"city": "New York",
+		"address": "near McDonalds, Railway Colony, Andheri East, Mumbai, Maharashtra 400053",
+		"description":"A company, abbreviated as co., is a legal entity representing an association of people, whether natural, legal or a mixture of both, with a specific objective. Company members share a common purpose and unite to achieve specific, declared goals.",
+		"zipCode": 560056,
+			"documents":[{
+			"fileName": "Payment Plan Agenda.doc",
+			"mediaType": "application/msword",
+			"url": "demokit/sample/UploadCollection/LinkedDocuments/Business Plan Agenda.doc",
+			"keyword":"payment",
+			"shortDescription":"this documents Belongs to Payments"
+		}]
+		
+	}, {
+
+		"custID": "CUST10004",
+		"customerName": "HR Technologies",
+		"cvTypeField" : "Customer External",
+		"lastname": "Sonia",
+		"email": "Custometr4@gmail.com",
+		"contact": 1234567899,
+		"contactPerson": "Sonia",
+		"contactEmail": "Sonia@gmail.com",
+		"contactPhone": "745656798",
+		"contactDesignation": "Assosicate",
+		"country":"Europe",
+		"city": "Paris",
+		"address": " 8, Reqab Gunj, Madina Market, Madina Market, Hyderabad, Telangana 500002",
+		"description":"A company, abbreviated as co., is a legal entity representing an association of people, whether natural, legal or a mixture of both, with a specific objective. Company members share a common purpose and unite to achieve specific, declared goals.",
+		"zipCode": 560056,
+			"documents":[{
+			"fileName": "Document Plan Agenda.doc",
+			"mediaType": "application/msword",
+			"url": "demokit/sample/UploadCollection/LinkedDocuments/Business Plan Agenda.doc",
+			"keyword":"Document",
+			"shortDescription":"this documents Belongs to Project Documnent"
+		}]
+		
+	}
+
+]

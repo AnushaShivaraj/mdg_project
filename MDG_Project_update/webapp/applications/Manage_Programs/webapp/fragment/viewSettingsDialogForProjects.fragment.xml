@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog  confirm="onConfirmViewSettingsDialog">
+		<sortItems >
+			<ViewSettingsItem text="{i18n>ID}" key="id" selected="true"/>
+			<ViewSettingsItem text="{i18n>Project Name}" key="name"/>
+			<ViewSettingsItem text="{i18n>Status}" key="status"/>
+		</sortItems>
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>Status}" key="status" multiSelect="false">
+				<items>
+						<ViewSettingsItem text="In-Progress" key="In-Progress"/>
+					<ViewSettingsItem text="Completed" key="Completed"/>
+					<ViewSettingsItem text="New" key="New"/>
+					<ViewSettingsItem text="Archived" key="Archived"/>
+					<ViewSettingsItem text="Cancelled" key="Cancelled"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

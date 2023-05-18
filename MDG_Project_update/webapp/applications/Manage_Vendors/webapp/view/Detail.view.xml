@@ -1,0 +1,128 @@
+<mvc:View controllerName="MDG.Vendor.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" height="100%" xmlns:suite="sap.suite.ui.commons"
+	xmlns:upload="sap.m.upload">
+	<semantic:SemanticPage id="detailPage" showFooter="true" class="detailPageClass">
+		<semantic:titleHeading>
+			<Title text="{i18n>VendorDetails}"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<ObjectHeader class="objHeaderClass" title="{/vendorName}" number="{path:'/id',formatter:'.formatter.formatCustomerId'}">
+				<attributes id="id24">
+					<ObjectAttribute title="About:" text="{/about}"/>
+				</attributes>
+			</ObjectHeader>
+		</semantic:headerContent>
+		<semantic:content>
+			<IconTabBar id="itb1" selectedKey="key3" upperCase="false" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter text="{i18n>generalinfo}" icon="sap-icon://business-card" class="tabWidthClass">
+						<l:VerticalLayout id="containerLayout" width="100%">
+							<l:BlockLayout id="BlockLayout" background="Dashboard">
+								<l:BlockLayoutRow >
+									<l:BlockLayoutCell width="2" title="{i18n>General}">
+										<f:SimpleForm editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="4"
+											adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+											singleContainerFullSize="false" visible="true" class="removeTitle">
+											<f:content>
+												<core:Title text="Vendor Details"/>
+												<Label text="Vendor Name"/>
+												<Text text="{/vendorName} "></Text>
+												<Label text="Contact "/>
+												<Text text="{/vendorContact}"></Text>
+												<Label text="E-mail"/>
+												<Text text="{/vendorEmail}"></Text>
+												<Label text="Address "/>
+												<Text text="{/vendorAddress}"></Text>
+												<Label text="C and V Type field"/>
+												<Text text="{/cvTypeField}"></Text>
+												<core:Title text="Contact Person Details"/>
+												<Label text="Contact Person"/>
+												<Text text="{/contactPerson}"></Text>
+												<Label text="Email-ID"/>
+												<Text text="{/contactEmail}"></Text>
+												<Label text="{i18n>Geographical Region}"/>
+												<Text text="{/region1}"></Text>
+												<Label text="{i18n>Business Region}"/>
+												<Text text="{/region2}"></Text>
+												<Label text="{i18n>contact}"/>
+												<Text text="{/contactPhone}"></Text>
+												<!--<Label text="Desgination"/>-->
+												<!--<Text text="{contactDesignation}"></Text>-->
+												<!--<Label text="{i18n>address}"/>-->
+												<!--<Text text="{address}"></Text>-->
+											</f:content>
+										</f:SimpleForm>
+									</l:BlockLayoutCell>
+								</l:BlockLayoutRow>
+							</l:BlockLayout>
+						</l:VerticalLayout>
+					</IconTabFilter>
+					<IconTabFilter text="{i18n>documents}" icon="sap-icon://add-document">
+						<!--<upload:UploadSet id="UploadSet" instantUpload="true" showIcons="true" uploadEnabled="true" terminationEnabled="true"
+							fileTypes="txt,doc,png" maxFileNameLength="30" maxFileSize="200" mediaTypes="text/plain,application/msword,image/jpeg"
+						  items="{path:'documents/'}" class="upload">
+							<upload:toolbar>
+								<OverflowToolbar>
+									<SearchField liveChange="onSearch" id="userSearchId" width="auto"/>
+									<ToolbarSpacer/>
+									<Button text="Add Documents" iconFirst="true" icon="sap-icon://add" press="handleDocumentUpload"/>
+								</OverflowToolbar>
+							</upload:toolbar>
+							<upload:items>
+								<upload:UploadSetItem fileName="{fileName}" mediaType="{mediaType}" url="{url}">
+									<upload:attributes>
+										<ObjectAttribute title="{keyword}" text="{shortDescription}"/>
+									</upload:attributes>
+								</upload:UploadSetItem>
+							</upload:items>
+						</upload:UploadSet>-->
+						<upload:UploadSet id="UploadSet" instantUpload="true" showIcons="true" uploadEnabled="false" terminationEnabled="true"
+							fileTypes="txt,doc,png" maxFileNameLength="30" maxFileSize="200" mediaTypes="text/plain,application/msword,image/jpeg"
+							items="{path:'/m_documents/data/',templateShareable: false}" afterItemRemoved="afterItemRemoved" class="upload">
+							<upload:toolbar>
+								<OverflowToolbar>
+									<SearchField liveChange="onSearch" id="userSearchId" width="auto"/>
+									<Button text="Add Attachment" iconFirst="true" icon="sap-icon://add" press="handleDocumentUpload"/>
+								</OverflowToolbar>
+							</upload:toolbar>
+							<upload:items>
+								<!--<upload:UploadSetItem fileName="{fileName}">-->
+								<upload:UploadSetItem id="agrigation" removePressed="onDeleteItem" fileName="{attributes/name}" mediaType="{attributes/mediaType}"
+									url="{attributes/url}">
+									<upload:attributes>
+										<ObjectAttribute title="Keyword " text="{attributes/keywords}"/>
+										<ObjectAttribute title="Short Description " text="{attributes/description}"/>
+										<ObjectAttribute title="Category" text="{attributes/type}"/>
+									</upload:attributes>
+									<!--<upload:markers>-->
+									<!--	<ObjectMarker type="{type}" visibility="{visibility}"/>-->
+									<!--</upload:markers>-->
+								</upload:UploadSetItem>
+							</upload:items>
+						</upload:UploadSet>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:closeAction>
+			<semantic:CloseAction id="closeColumn" press="onCloseDetailPress"/>
+		</semantic:closeAction>
+		<!--<semantic:discussInJamAction>-->
+		<!--	<semantic:DiscussInJamAction tooltip="Navigate to Help Section" press="press"/>-->
+		<!--</semantic:discussInJamAction>-->
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction id="enterFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}" press="fullScreen"/>
+		</semantic:fullScreenAction>
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction id="exitFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}" press="exitFullScreen"/>
+		</semantic:exitFullScreenAction>
+		<semantic:footerCustomActions>
+			<Button type="Transparent" text="{i18n>save}" id="saveButtonId" visible="false" press="handleSaveUserAccess"/>
+			<Button type="Transparent" text="{i18n>cancel}" id="cancelButtonId" visible="false" press="handleCancelUser"/>
+			<Button type="Transparent" text="{i18n>edit}" id="editButtonId" press="handleEditUserPress" iconFirst="true" icon="sap-icon://edit"/>
+			<Button type="Transparent" text="{i18n>delete}" id="deleteButtonId" press="handleDeleteUserPress" iconFirst="true" icon="sap-icon://delete"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

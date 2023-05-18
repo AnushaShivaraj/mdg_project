@@ -1,0 +1,38 @@
+specVersion: "2.6"
+metadata:
+  name: VASPP.MDGSystem
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: http://202.140.45.173:3060
+            destination: OPTIMALCog
+          - path: /OptimalCog
+            destination: OPTIMALCog
+            url: http://202.140.45.173:3060
+            pathPrefix: /
+          - path: /OPTIMALCog_UploadFile
+            destination: OPTIMALCog_UploadFile
+            url: ""
+            pathPrefix: /
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: VASPP.MDGSystem
+        ui5Theme: sap_fiori_3

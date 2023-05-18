@@ -1,0 +1,102 @@
+<mvc:View controllerName="MDG.glossary.controller.main" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table"
+	displayBlock="true" xmlns="sap.m" xmlns:c="sap.ui.core">
+	<!--<Shell id="shell">-->
+	<App id="app">
+		<m:pages>
+			<m:Page id="page" title="{i18nModel>Glossary}" enableScrolling="false">
+				<m:content>
+					<table:Table id="glossaryTable" rows="{path:'/'}" showColumnVisibilityMenu="true" enableGrouping="false" enableCellTextSelection="false"
+						noData="{i18nModel>common.NoItemSelected}" visible="true" visibleRowCount="5">
+						<table:extension>
+							<m:OverflowToolbar style="Clear">
+								<m:SearchField id="searchField" showRefreshButton="true" tooltip="{i18nModel>masterSearchTooltip}" liveChange="onSearchGlossary"
+									search="onSearchGlossary" width="30%"></m:SearchField>
+								<m:ToolbarSpacer/>
+								<m:Button class="Export" id="downloadButtonIDCustomers" icon="sap-icon://download" text="" tooltip="{i18nModel>downloadTextForCustomers}"
+									press="onExport" type="Emphasized" iconFirst="true" visible="true"/>
+								<m:Button id="addid" type="Transparent" press="openAddNewGlossary" text="" tooltip="{i18nModel>addglossary}" iconFirst="true"
+									icon="sap-icon://add"/>
+								<!--<m:Button id="deleteid" type="Transparent" press="delete" text="" tooltip="{i18nModel>deleteglossary}" iconFirst="true" icon="sap-icon://delete"/>-->
+								<m:Button id="completedid" type="Transparent" press="deletioncompleted" text="" tooltip="{i18nModel>doneglossary}" visible="false"
+									iconFirst="true" icon="sap-icon://accept"/>
+							</m:OverflowToolbar>
+						</table:extension>
+						<table:columns>
+							<table:Column autoResizable="true" sortProperty="classification" filterProperty="classification" width="8rem">
+								<Text text="{i18nModel>Classification}"/>
+								<table:template>
+									<Text text="{attributes/classification}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="Terminology" filterProperty="Terminology" width="8rem">
+								<Text text="{i18nModel>Terminology}"/>
+								<table:template>
+									<Text text="{attributes/terminology}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="Abbreviation" filterProperty="Abbreviation" width="8rem">
+								<Text text="{i18nModel>Abbreviation}"/>
+								<table:template>
+									<Text text="{attributes/abbrevation}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="Definition" filterProperty="Definition" width="30rem">
+								<Text text="{i18nModel>Udefinition}"/>
+								<table:template>
+									<Text text="{attributes/definition}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="BusDefinition" filterProperty="BusDefinition" width="30rem">
+								<Text text="{i18nModel>Bdefinition}"/>
+								<table:template>
+									<Text text="{attributes/businessDef}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="TecDefinition" filterProperty="TecDefinition" width="30rem">
+								<Text text="{i18nModel>Tdefinition}"/>
+								<table:template>
+									<Text text="{attributes/techDef}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="FinDefinition" filterProperty="FinDefinition" width="30rem">
+								<Text text="{i18nModel>Fdefinition}"/>
+								<table:template>
+									<Text text="{attributes/financeDef}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="Source" filterProperty="Source" width="30rem">
+								<Text text="{i18nModel>Source}"/>
+								<table:template>
+									<Text text="{attributes/source}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="Status" filterProperty="Status" width="10rem">
+								<Text text="{i18nModel>Status}"/>
+								<table:template>
+									<Text text="{attributes/status}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="Char" filterProperty="Char" width="10rem">
+								<Text text="{i18nModel>Char}"/>
+								<table:template>
+									<Text text="{attributes/char}"/>
+								</table:template>
+							</table:Column>
+							<table:Column autoResizable="true" sortProperty="" filterProperty="" width="5rem">
+								<m:Text text="{i18nModel>Actions}"/>
+								<table:template>
+									<m:HBox>
+										<m:Button iconFirst="true" visible="true" icon="sap-icon://edit" type="Transparent" press="openEditGlossary"/>
+										<m:Button id="b2" press="deleteGlossary" text="" visible="true" iconFirst="true" icon="sap-icon://delete"/>
+									</m:HBox>
+								</table:template>
+							</table:Column>
+						</table:columns>
+					</table:Table>
+					<!--</VBox>-->
+				</m:content>
+			</m:Page>
+		</m:pages>
+	</App>
+	<!--</Shell>-->
+</mvc:View>

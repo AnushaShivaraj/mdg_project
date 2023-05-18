@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog  noDataText="No Customer Found" title="Select Customer" search="onSearchCustomerValueHelp"
+		confirm="onSelectCustomer" cancel="onDialogClose" multiSelect="true" items="{ path: '/' }">
+		<StandardListItem title="{attributes/customerName}" description="{attributes/contact}" icon="" iconDensityAware="false" iconInset="false"
+			type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

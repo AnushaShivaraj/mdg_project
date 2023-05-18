@@ -1,0 +1,35 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="MDG.ApplicationManagement.controller.organizationMaster"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="catId" title="{i18n>Organizations}" showNavButton="true" navButtonPress="onNavBack">
+		<subHeader>
+			<Toolbar>
+				<SearchField liveChange="onSearch" id="organizationSearchId" width="100%"/>
+			
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List items="{path:'/data/',templateSharable:'true'}" id="organizationList" class="deptObjListItemClass" mode="SingleSelectMaster"
+				selectionChange="handleOrganizationsListPress">
+				<items>
+					<ObjectListItem title="{attributes/name}" type="Navigation">
+						<firstStatus>
+						<!--	<ObjectStatus text="{roleId}"/>-->
+						</firstStatus>
+						<attributes>
+							<ObjectAttribute text="{attributes/description}"/>
+							<!--<ObjectAttribute text="{i18n>Authorozation} : {parts:[{path:'organization>createdate'},{path:'organization>enddate'}],formatter:'.formatter.getAuthorizeDays'}"/>-->
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="addRoleid" press="handleAddNewOrganization" text="{i18n>AddOrganization}" iconFirst="true" icon="sap-icon://add"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

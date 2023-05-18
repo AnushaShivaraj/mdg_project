@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>CreateRole}" contentWidth="30%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleRolesFragmentCancel"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Save}" press="handleRolesFragmentSave"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true"  layout="ResponsiveGridLayout" labelSpanL="4"
+			labelSpanM="12" adjustLabelSpan="true" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+			<f:content>
+				<Label text="{i18n>RoleName}" required="true"/>
+				<Input liveChange="handleValidationsForRoles1" value="{/type}"/>
+				<Label text="{i18n>RoleDescription}"/>
+				<!--<Input liveChange="handleValidationsForRoles1" value="{/description}"/>-->
+				<TextArea value="{/description}" maxLength="250" width="100%"/>
+				<Label text="Role Type"/>
+				<Select forceSelection="false" selectedKey="{/roleType}">
+					<core:Item text="Functional Role" key="Functional role"/>
+					<core:Item text="Solution Role" key="Solution Role"/>
+				</Select>
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

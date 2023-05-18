@@ -1,0 +1,58 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="VASPP.MDGSystem.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App backgroundImage="images/back-HomeImage.png" backgroundOpacity="1">
+		<Page id="homePageId" showHeader="false" enableScrolling="false" class="banner_image">
+			<!--<Image id="logo" src="image/ProjectManagement2.jpg"  class="banner_image" />-->
+			<!--<VBox>-->
+			<!--	<HBox>-->
+			<GenericTile id="OCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="O-Cog" press="onPress" subheader="Organization">
+				<TileContent>
+					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="PCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="P-Cog" press="onPress" subheader="Process">
+				<TileContent>
+					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="TCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="T-Cog" press="onPress" subheader="Technology">
+				<TileContent>
+					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="ICog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="I-Cog" press="onPress" subheader="Information">
+				<TileContent>
+					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="MCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="M-Cog" press="onPress" subheader="Management">
+				<TileContent>
+					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
+				</TileContent>
+			</GenericTile>
+			<!--</HBox>-->
+			<!--</VBox>-->
+			<!--<VBox>-->
+			<!--	<HBox>-->
+			<GenericTile id="ACog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="A-Cog" press="onPress" subheader="Alliance">
+				<TileContent>
+					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile id="LCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="L-Cog" press="onPress" subheader="Location">
+				<TileContent>
+					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
+				</TileContent>
+			</GenericTile>
+			<!--</HBox>-->
+			<!--</VBox>-->
+			<l:BlockLayout id="BlockLayout" background="Default">
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell class="sapUiNoContentPadding">
+						<VBox id="idVBox" width="100%" height="18rem" class="slideDownAnimation" alignItems="Center" justifyContent="Center"></VBox>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+			</l:BlockLayout>
+		</Page>
+	</App>
+</mvc:View>

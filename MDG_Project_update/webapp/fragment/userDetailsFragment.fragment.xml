@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f">
+	<Popover
+		title="{path: '/organisation/name', formatter: '.formatter.getFirstWord'} {i18n>account}"
+		placement="Bottom"
+		contentWidth="20rem"
+		initialFocus="btnLogout"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button
+					id="btnLogout1"
+					text=""
+					icon="sap-icon://user-settings"
+					tooltip="{i18n>usersettings}"
+					press="OnUserSettingPress" />
+					<Button
+					id="btnLogout"
+					text="{i18n>btnLogoutText}"
+					press="performLogout" />
+			</OverflowToolbar>
+		</footer>
+		
+		<VBox alignItems="Center" class="sapUiSmallMargin">
+			<f:Avatar src="{/profilePhoto}" displaySize="L" backgroundColor="Random" class="sapUiSmallMarginTopBottom">
+				<f:detailBox>
+					<LightBox>
+						<LightBoxItem
+								imageSrc="{/profilePhoto}"
+								alt="{/firstName} {/lastname}"
+								title="{/firstName} {/lastname}"
+								subtitle="{/intro}"
+								tooltip="{/firstName} {/lastname}&#10;{/intro}">
+						</LightBoxItem>
+					</LightBox>
+				</f:detailBox>
+			</f:Avatar>
+			<Title text="{/firstName} {/lastname} ({/mrole/roleName})" class="sapUiTinyMarginBottom" />
+			<Text text="{/email}" class="sapUiTinyMarginBottom" />
+			<Text text="{/role/description}" class="sapUiTinyMarginBottom" visible="{= !!${/role/description}}" />
+			<Text text="{/m_organisation/name}" visible="{= !!${/m_organisation/name}}" />
+		</VBox>
+		
+	</Popover>
+</core:FragmentDefinition>

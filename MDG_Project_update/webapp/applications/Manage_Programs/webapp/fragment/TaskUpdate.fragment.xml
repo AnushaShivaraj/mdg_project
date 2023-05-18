@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+	<Dialog title="{i18n>EditTask}" contentWidth="30%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleAddUserCancelPress"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Save}" press="handleAddTaskOkPress"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+			<f:content>
+				<Label required="true" text="{i18n>taskName}"/>
+				<Input value="{/taskName}"/>
+				<Label text="{i18n>status}"/>
+				<Input required="true" maxLength="6" liveChange="limitZipCode" showValueStateMessage="true" valueStateText="{i18n>valueStateText1}"
+					change="validateInput"/>
+				<Label required="true" text="{i18n>taskdes}"/>
+				<Input value="{/taskdesp}"/>
+				<Label required="true" text="{i18n>start_date}"/>
+				<DatePicker value="{/startDate}"  placeholder="Enter Start Date" class="sapUiSmallMarginBottom"/>
+				<!--<Input type="Email" value="{/email}" change="handleValidateEmail"/>-->
+				<Label required="true" text="{i18n>end_date}"/>
+				<DatePicker value="{/endDate}" placeholder="Enter End Date" class="sapUiSmallMarginBottom"/>
+				<!--<Input value="{/contact}" liveChange="limitPhoneNumbers" type="Tel" maxLength="20"/>-->
+				<!--	<Label text="{i18nModel>Roles}"/>-->
+				<Label visible="false" text="{i18n>deadline_date}"/>
+				<DatePicker value="{/deadLineDate}"  visible="false" placeholder="Enter Dead Line Date" class="sapUiSmallMarginBottom"/>
+				<Label text="{i18n>assigned_team_member}"/>
+				<Select items="{assigned_teammember/}" width="100%" enabled="true">
+					<items>
+						<core:Item text="{tmName}" key="{tmName}"/>
+					</items>
+				</Select>
+				<!--<Input tooltip="{i18n>City}" type="Text" required="true" placeholder="{i18n>City}"/>-->
+				<Label text="{i18n>assigned_to}"/>
+				<Select items="{assignedVendors/}" width="100%" enabled="true">
+					<items>
+						<core:Item text="{vendor_Name}" key="{vendor_Name}"/>
+					</items>
+				</Select>
+				<!--<Label text="Groups"/>
+				<Select items="{/results}" width="100%" enabled="true">
+					<core:Item text="{Name}" key="{Department Id}"/>
+				</Select>-->
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

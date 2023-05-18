@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:unified="sap.ui.unified">
+	<Dialog title="{i18n>CreateOrganization}" contentWidth="70%" class="sapUiSizeCompact">
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleOrganizationCancel"/>
+		</endButton>
+		<beginButton>
+			<Button text="{i18n>Save}" press="handleOrganizationSave"/>
+		</beginButton>
+		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="12"
+			adjustLabelSpan="true" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+			<f:content>
+				<core:Title text="{i18n>OrganizationDetails}"/>
+				<Label text="{i18n>OrganizationName}" required="true"/>
+				<Input value="{/name}"/>
+				<Label text="{i18n>OrganizationDescription}" required="true"/>
+				<TextArea value="{/description}"/>
+				<!--	<Label text="Email" required="true"/>
+				<Input value="" />-->
+				<core:Title text="{i18n>CommunicationData}"/>
+				<Label text="{i18n>Phone}"/>
+				<Input type="Tel" maxLength="20" liveChange="handleValidateOrganizationInputFieldsm" value="{/phone}"/>
+				<Label text="{i18n>Email}" required="true"/>
+				<Input value="{/orgEmail}" change="handleValidateEmail" liveChange="handleValidateOrganizationInputFieldse"/>
+				<Label text="{i18n>address}"/>
+				<TextArea rows="2" value="{/orgAddress}"/>
+				<core:Title text="{i18n>LicenseDetails}"/>
+				<Label text="{i18n>LicenseType}" required="true"/>
+				<Select items="{/licenceType/}" selectedKey="{/licence_Type}">
+					<core:Item key="{id}" text="{attributes/licenseType}"/>
+				</Select>
+				<Label text="{i18n>LicensePeriod}" required="true"/>
+				<DateRangeSelection change="handleDateRange" value="{/validFrom} - {/validTo}"/>
+				<Label text="{i18n>NoOfDays}" required="true"/>
+				<Input liveChange="handleValidateOrganizationInputFields" value="{parts:['/validFrom','/validTo'],formatter:'.formatter.getNoOfDays'}"
+					editable="false"></Input>
+				<!--<Label text="Authorize to Create No Of Dashboards" required="true"/>-->
+				<!--<Input value="{/dashboardcountallowed}"></Input>-->
+				<Label text="{i18n>AuthorizetoCreateNoOfUsers}" required="true"/>
+				<Input value="{/allowedNoOfUsers}" liveChange="handleValidateOrganizationInputFields"></Input>
+				<core:Title text="{i18n>AdminDetails}"/>
+				<Label text="{i18n>FirstName}" required="true"/>
+				<Input editable="{/editable}" value="{/contactpersonfirstname}" liveChange="handleValidateOrganizationInputFields"/>
+				<Label text="{i18n>LastName}" required="true"/>
+				<Input editable="{/editable}" value="{/contactpersonlastname}" liveChange="handleValidateOrganizationInputFields"/>
+				<Label text="{i18n>Email}" required="true"/>
+				<Input editable="{/editable}" value="{/contactpersonemail}" change="limitemailadmin" liveChange="handleValidateOrganizationInputFieldse"/>
+				<Label text="{i18n>ContactNo.}" required="true"/>
+				<Input editable="{/editable}" type="Tel" maxLength="20" value="{/contactpersonphone}" liveChange="handleValidateOrganizationInputFieldsm"/>
+				<core:Title text="{i18n>ApplicationDetails}"/>
+				<Label text="{i18n>Application}"/>
+				<MultiInput showValueHelp="true" tokenUpdate="handleInputTokenDeleted" valueHelpRequest="handleApplicationValueHelp"
+					tokens="{/applications/}">
+					<tokens>
+						<Token key="{attributes/name}" text="{attributes/name}"/>
+					</tokens>
+				</MultiInput>
+			</f:content>
+		</f:SimpleForm>
+	</Dialog>
+</core:FragmentDefinition>

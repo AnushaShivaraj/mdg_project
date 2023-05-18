@@ -1,0 +1,36 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="MDG.ApplicationManagement.controller.roleMaster" xmlns:html="http://www.w3.org/1999/xhtml">
+<Page id="catId" title="{i18n>productTitle}" showNavButton="true" navButtonPress="onNavBack">
+		<subHeader>
+			<Toolbar>
+				<SearchField liveChange="onSearch" id="roleSearchId" width="100%"/>
+				 <Button press="handleSortfragment" icon="sap-icon://sort" type="Transparent"/>
+			
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List items="{path:'/data/', templateSharable:'true'}" id="roleList" class="deptObjListItemClass" mode="SingleSelectMaster"
+				selectionChange="handleRolesListPress" updateFinished="onUpdateFinished">
+				<items>
+					<ObjectListItem title="{attributes/roleName}" type="Navigation">
+						<firstStatus>
+							<ObjectStatus text="{attributes/roleID}"/>
+						</firstStatus>
+						<attributes>
+							<ObjectAttribute text="{attributes/description}"/>
+							<!--<ObjectAttribute id="usercount" text="TotalUsers : {path:'NoOfUsers',formatter:'.formatter.getNoOfUsers'}"/>-->
+							<!--<ObjectAttribute text="No Of Users : {path:'rolesDetails>countofcreateuser',formatter:'.formatter.getNoOfUsers'}"/>-->
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="addRoleid" press="handleAddNewRole" text="{i18n>AddRole}" iconFirst="true" icon="sap-icon://add"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

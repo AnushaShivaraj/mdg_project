@@ -1,0 +1,263 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="MDG.ApplicationManagement.controller.organizationDetail" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" height="100%" xmlns:suite="sap.suite.ui.commons">
+	<semantic:SemanticPage id="detailPage" showFooter="true" class="detailPageClass">
+		<semantic:titleHeading>
+			<Title text="{i18n>OrganizationDetails}"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<ObjectHeader class="objHedaerClass" title="{/name}" number="{/orgID}">
+				<statuses>
+					<!--<ObjectStatus text="{organizationId}"/>-->
+				</statuses>
+				<attributes id="id24">
+					<!--<ObjectAttribute title="User Id" text="{UserId}"/>-->
+					<ObjectAttribute title="{i18n>Description}" text="{/description}"/>
+					<!--<ObjectAttribute title="License Period" text="{parts:[{path:'/0License/startdate'},{path:'/0License/enddate'}],formatter:'.formatter.getAuthorizeDays'}"/>-->
+				</attributes>
+			</ObjectHeader>
+		</semantic:headerContent>
+		<semantic:content>
+			<IconTabBar id="itb1" selectedKey="key3" upperCase="false" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter text="{i18n>GeneralInfo}" icon="sap-icon://business-card" class="tabWidthClass">
+						<l:VerticalLayout id="containerLayout" width="100%">
+							<l:BlockLayout id="BlockLayout" background="Dashboard">
+								<l:BlockLayoutRow >
+									<l:BlockLayoutCell width="2" title="">
+										<f:SimpleForm editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="4"
+											adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+											singleContainerFullSize="false" visible="true" class="removeTitle">
+											<f:content>
+												<core:Title text=""/>
+												<ObjectIdentifier title="{i18n>General}"/>
+												<Label text="{i18n>Name}"/>
+												<!--<Text text="{CreatedBy}"></Text>-->
+												<Text text="{/name}"></Text>
+												<Label text="{i18n>Description}"/>
+												<Text text="{/description}"></Text>
+												<!--<Label text="{i18n>OrganizationId}"/>-->
+												<!--<Text text="{organizationId}"/>-->
+												<core:Title text=""/>
+												<Title text="" level="H4"/>
+												<Label text="{i18n>Email-ID}"/>
+												<Text text="{/email}"></Text>
+												<Label text="{i18n>Contact No.}"/>
+												<Text text="{/phone}"></Text>
+												<Label text="{i18n>address}"/>
+												<Text text="{/address}"></Text>
+												<core:Title text=""/>
+												<!--<Text text="{CreatedBy}"></Text>-->
+												<ObjectIdentifier title="{i18n>AdminDetails}"/>
+												<!--<Label text="Admin Name"/>
+												<Text text="{admin/0/adminName}"></Text>
+												<Label text="Email"/>
+												<Text text="{admin/0/Email}"/>
+												<Label text="Contact No."/>
+												<Text text="{admin/0/Contact No.}"></Text>-->
+												<Label text="{i18n>FirstName}"/>
+												<Text text="{/users_permissions_user/data/0/attributes/firstName}"/>
+												<Label text="{i18n>LastName}"/>
+												<Text text="{/users_permissions_user/data/0/attributes/lastName}"/>
+												<Label text="{i18n>Email}"/>
+												<Text text="{/users_permissions_user/data/0/attributes/email}"/>
+												<Label text="{i18n>ContactNo}"/>
+												<Text text="{/users_permissions_user/data/0/attributes/phone}"/>
+											</f:content>
+										</f:SimpleForm>
+									</l:BlockLayoutCell>
+								</l:BlockLayoutRow>
+							</l:BlockLayout>
+						</l:VerticalLayout>
+					</IconTabFilter>
+					<IconTabFilter text="{i18n>License}" icon="sap-icon://history">
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="{i18n>AccessDetails}" labelSpanXL="3"
+							labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+							columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Label text="{i18n>LicenseType}"/>
+								<Select id="LicenseTypeId" items="{licenceDetails>/}" selectedKey="{/m_license_type/data/id}" enabled="false">
+									<core:Item text="{licenceDetails>attributes/licenseType}" key="{licenceDetails>id}"/>
+									<!--<core:Item text="{i18n>PermissiveLicense}" key="Permissive License"/>-->
+									<!--<core:Item text="{i18n>FullAccessLicense}" key="Full Access License"/>-->
+								</Select>
+								<Label text="{i18n>LicensePeriod}"/>
+								<DateRangeSelection id="DRS1" editable="false" change="handleDateRange" displayFormat="dd-MM-yyyy"
+									value="{path:'/validFrom', formatter:'.formatter.handleDateValues'} - {path:'/validTo', formatter:'.formatter.handleDateValues'}"/>
+								<Label text="{i18n>NoOfDays}"/>
+								<!--<Input value="{parts:['validfrom', 'validto'], formatter:'.formatter.getNoOfDays'}" editable="false" id="NoOfDaysId"></Input>-->
+								<Input value="{parts:['/validFrom', '/validTo'], formatter:'.formatter.getNoOfDays'}" editable="false" id="NoOfDaysId"></Input>
+								<!--<Label text="Authorize to Create No Of Dashboards"/>-->
+								<!--<Input value="{/0/License/0/dashboardcountallowed}" editable="false" id="NoOfDashboardId"></Input>-->
+								<Label text="{i18n>AuthorizetoCreateNoOfUsers}"/>
+								<Input value="{/allowedNoOfUsers}" editable="false" id="NoOfUsersId"></Input>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter id="appId" text="{i18n>Applications}" icon="sap-icon://product">
+						<Table id="appTableId" inset="false" items="{/m_applications/data/}">
+							<headerToolbar>
+								<Toolbar>
+									<Title text="{i18n>ApplicationInformation}" id="tableTitleId" level="H2"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" width="5em" demandPopin="true" hAlign="Center">
+									<Text text="{i18n>AppId}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="{i18n>Name}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="{i18n>Description}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="{i18n>AppUrl}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="{i18n>CreatedAt}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="{i18n>LastChangedAt}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{attributes/applicationID}"/>
+										<Text text="{attributes/name}"/>
+										<Text text="{attributes/description}" wrapping="true"/>
+										<Link text="{attributes/url}"/>
+										<Text text="{path:'attributes/publishedAt',formatter:'.formatter.handleDateValues'}"/>
+										<Text text="{path:'attributes/updatedAt',formatter:'.formatter.handleDateValues'}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+					<IconTabFilter id="userGroups" text="{i18n>UserGroups}" icon="sap-icon://group">
+						<Panel expandable="true" expanded="true" headerText="{i18n>RolesDetails}" width="auto" class="sapUiResponsiveMargin">
+							<content>
+								<Table items="{/mroles/data/}" id="rolesTableId">
+									<!--	<headerToolbar>
+								<Toolbar>
+									<Title text="Roles Details" level="H2"/>
+									<ToolbarSpacer/>
+								</Toolbar>
+							</headerToolbar>-->
+									<columns>
+										<Column>
+											<Text text="{i18n>RoleName}"/>
+										</Column>
+										<!--<Column>-->
+										<!--	<Text text="Access to Create Dashboards"/>-->
+										<!--</Column>-->
+										<Column>
+											<Text text="{i18n>CreatedAt}" width="8em"/>
+										</Column>
+										<Column>
+											<Text text="{i18n>LastChangedAt}" width="8em"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Link text="{attributes/roleName}" press="handleUsersTableItems"/>
+												<!--<Text text="{countofcreatepage}"/>-->
+												<Text text="{path:'attributes/createdAt',formatter:'.formatter.handleDateValues'}"/>
+												<Text text="{path:'attributes/updatedAt',formatter:'.formatter.handleDateValues'}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</content>
+						</Panel>
+						<Panel expandable="true" id="userPanelId" expanded="true" headerText="{i18n>UsersDetails}" width="auto" class="sapUiResponsiveMargin">
+							<content>
+								<Table items="{/users_permissions_user/data/}" id="usersTableId" updateFinished="handleUpdateTableItems">
+									<headerToolbar>
+										<Toolbar id="clearFilterId">
+											<ToolbarSpacer/>
+											<Button visible="false" text="{i18n>ClearFilters}" type="Transparent" icon="sap-icon://clear-filter" iconFirst="true"
+												press="handleClearUserTableFilters"/>
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column width="12em">
+											<Text text="{i18n>UserName}"/>
+										</Column>
+										<Column width="12em">
+											<Text text="{i18n>Email}"/>
+										</Column>
+										<Column>
+											<Text text="{i18n>CreatedAt}"/>
+										</Column>
+										<Column>
+											<Text text="{i18n>LastChangedAt}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{attributes/username}"></Text>
+												<!--<Text text="{/0/user/type}"/>-->
+												<Text text="{attributes/email}"></Text>
+												<Text text="{path:'attributes/createdAt',formatter:'.formatter.handleDateValues'}"/>
+												<Text text="{path:'attributes/updatedAt',formatter:'.formatter.handleDateValues'}"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</content>
+						</Panel>
+					</IconTabFilter>
+					<IconTabFilter id="history" text="{i18n>LogDetails}" icon="sap-icon://history" visible="false">
+						<Table items="{/actions}" id="transcationTableId">
+							<columns>
+								<Column width="16em">
+									<Text text="{i18n>Action}"/>
+								</Column>
+								<!--<Column >-->
+								<!--	<Text text="New Value"/>-->
+								<!--</Column>-->
+								<!--<Column >
+									<Text text="{i18n>ChangedBy}"/>
+								</Column>-->
+								<Column >
+									<Text text="{i18n>ChangedOn}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{Action}"/>
+										<!--<Text text="{value}"/>-->
+										<!--<Text text="Administrator{i18n>NoOfDays}"/>-->
+										<Text text="{path:'Changed_On',formatter:'.formatter.handleDateValues'}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:closeAction>
+			<semantic:CloseAction id="closeColumn" press="onCloseDetailPress"/>
+		</semantic:closeAction>
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction id="enterFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}" press="toggleFullScreen"/>
+		</semantic:fullScreenAction>
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction id="exitFullScreen"
+				visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}" press="toggleFullScreen"/>
+		</semantic:exitFullScreenAction>
+		<semantic:footerCustomActions>
+			<!--		<Button type="Transparent" text="Save" id="saveButtonId" visible="false" press="handleSaveOrganization"/>
+			<Button type="Transparent" text="Cancel" id="cancelButtonId" visible="false" press="handleCancelOrganization"/>-->
+			<Button type="Transparent" text="{i18n>Edit}" id="editButtonId" press="handleEditOrganizationPress"/>
+			<Button type="Transparent" text="{i18n>Delete}" id="deleteButtonId" press="handleDeleteOrganizationPress"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>

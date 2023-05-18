@@ -1,0 +1,29 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MDG.Vendor.controller.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="catId" title="{i18n>vendors}">
+		<subHeader>
+			<Toolbar>
+				<SearchField liveChange="onSearch" id="userSearchId" width="100%"/>
+				<ToolbarSpacer/>
+				<Button press="handleSortfragment" icon="sap-icon://sort" type="Transparent"/>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List items="{/data/}" id="itemlistId" class="deptObjListItemClass" mode="SingleSelectMaster" selectionChange="handleUsersListPress">
+				<items>
+					<ObjectListItem title="{attributes/vendorName}" type="Active" number="{path:'id',formatter:'.formatter.formatCustomerId'}">
+						<ObjectAttribute text="{attributes/vendorCity}, {attributes/vendorCountry}"></ObjectAttribute>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button press="openNewFragment" text="{i18n>Bulk Upload}" iconFirst="true" icon="sap-icon://add"/>
+					<Button id="addid" press="openAddNewVendor" text="{i18n>AddVendors}" iconFirst="true" icon="sap-icon://add"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

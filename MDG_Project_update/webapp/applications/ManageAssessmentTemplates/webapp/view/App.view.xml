@@ -1,0 +1,6 @@
+<mvc:View controllerName="EHS.ManageAssessmentTemplates.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:f="sap.f" xmlns="sap.m"
+	class="sapUiSizeCompact" xmlns:tnt="sap.tnt">
+			<App backgroundColor="Transparent" id="app">
+			<f:FlexibleColumnLayout id="layout" layout="{appView>/layout}" backgroundDesign="Translucent"></f:FlexibleColumnLayout>
+		</App>
+</mvc:View>

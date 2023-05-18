@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="onConfirmViewSettingsDialog">
+		<sortItems >
+			<ViewSettingsItem text="{i18n>ID}" key="id" selected="true"/>
+			<ViewSettingsItem text="{i18n>ProgramsName}" key="name"/>
+			<ViewSettingsItem text="{i18n>Status}" key="status"/>
+		</sortItems>
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>Status}" key="status" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="In-Progress" key="In-Progress"/>
+					<ViewSettingsItem text="Completed" key="Completed"/>
+					<ViewSettingsItem text="New" key="New"/>
+					<ViewSettingsItem text="Archived" key="Archived"/>
+					<ViewSettingsItem text="Cancelled" key="Cancelled"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Programtype}" key="proj_type" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="DGI Foundation" key="DGI Foundation"/>
+					<ViewSettingsItem text="Trans Program" key="Trans Program"/>
+					<ViewSettingsItem text="IC Data Initiative" key="IC Data Initiative"/>
+					<ViewSettingsItem text="Reg Tech Initiative" key="Reg Tech Initiative"/>
+					<ViewSettingsItem text="Data Quality" key="Data Quality"/>
+					<ViewSettingsItem text="Generic" key="Generic"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>
