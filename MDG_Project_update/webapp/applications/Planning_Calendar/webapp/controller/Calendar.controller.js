@@ -185,16 +185,6 @@ sap.ui.define([
 				});
 			},
 			handleAppointmentSelect: function (oEvent) {
-				// var that = this;
-				// if (!this._oAppointmentInfo) {
-				// 	this._oAppointmentInfo = sap.ui.xmlfragment(this.getView().getId(), "MDG.Planning_Calendar.fragment.AppointmentInfo", this);
-				// 	this._oAppointmentInfo.setModel(this.getOwnerComponent().getModel("i18nModel"), "i18n");
-				// 	this.getView().addDependent(this._oAppointmentInfo);
-				// }
-
-				// that._oAppointmentInfo.setModel(new JSONModel(oEvent.getParameter("appointment").getBindingContext("appointmentsdata").getObject()));
-				// that._oAppointmentInfo.open();
-
 				var that = this;
 				if (!this._oAppointmentInfo) {
 					this._oAppointmentInfo = sap.ui.xmlfragment(this.getView().getId(), "MDG.Planning_Calendar.fragment.AppointmentInfo", this);
@@ -234,6 +224,7 @@ sap.ui.define([
 
 											if (parentSet[i].users_permissions_users.data[k].id === user[u].id) {
 												//	if (parentSet[i].users_permissions_users.data.length === Set.length) {
+												that.userData = parentSet[i];
 												var change = {
 													"title": parentSet[i].title,
 													"id": parentSet[i].data,
@@ -320,6 +311,7 @@ sap.ui.define([
 									var user = this.getView().getModel("usersDetails").getData();
 									for (var u = 0; u < checkAppoint[j].users_permissions_users.data.length; u++) {
 										var userdeat = checkAppoint[j].users_permissions_users.data[u];
+										that.userData = userdeat;
 										var change = {
 											m_projects: checkAppoint[j].m_project.data.attributes.name,
 											title: checkAppoint[j].title,
@@ -553,17 +545,6 @@ sap.ui.define([
 				evt.getParameters().selectedContexts.forEach(function (obj, index) {
 					that.participants.push(obj.getObject());
 				});
-				//
-				// if (evt.getSource().getId().includes("fragAddParticipants")) {
-				// 	that._oAppointmentInfo.getModel().getData().participants.push(that.participants);
-				// 	this.getView().getModel().updateBindings();
-				// } 
-				//
-				// if (evt.getSource().getId().includes("fragAddParticipants")) {
-				// 	that._oAppointmentInfo.getModel().getData().push(that.participants)
-				// 	this.getView().getModel("appointmentsdata").updateBindings();
-				// } else {
-				//
 				var oMultiInput = this.byId("selectPerson");
 				if (aSelectedItems && aSelectedItems.length > 0) {
 					aSelectedItems.forEach(function (oItem) {
@@ -582,16 +563,52 @@ sap.ui.define([
 				var that = this;
 				var aContexts = evt.getParameter("selectedContexts");
 				that.participants = [];
+				that.userManagment = [];
 				var aSelectedItems = evt.getParameter("selectedItems");
 				evt.getParameters().selectedContexts.forEach(function (obj, index) {
 					that.participants.push(obj.getObject());
+					that.userManagment.push(obj.getObject().id);
 				});
+				if(!that._oAppointmentInfo){
+					var Id = that._oAppointmentInfo.getModel().getData()[0].id;
+					var getData = that._oAppointmentInfo.getContent()[1].getModel().getData();
+				} else{
+					var Id = this.AppointmentInfoFilter.getModel().getData()[0].id;
+					var getData = this.AppointmentInfoFilter.getContent()[1].getModel().getData();
+				}
+		
+				let mainObj = [];
+				for (let k = 0; k < that.participants.length; k++) {
+					let objec = {
+						endDate: getData[0].endDate ,
+						firstName: that.participants[k].firstName,
+						id: that.participants[k].id,
+						lastName: that.participants[k].lastName,
+						m_programs: getData[0].m_programs,
+						m_projects: getData[0].m_projects,
+						meetingLink: getData[0].meetingLink,
+						startDate: getData[0].startDate,
+						title: getData[0].title
+					}
+					mainObj.push(objec);
+				}
+				that._oAppointmentInfo.getContent()[1].getModel().setData(mainObj);
+				that._oAppointmentInfo.getContent()[1].getModel().updateBindings();
 
+				let removeUser = this.userData.users_permissions_users == undefined ? [this.userData] : this.userData.users_permissions_users.data;
+
+				for (let g = 0; g < mainObj.length; g++) {
+					for (let h = 0; h < removeUser.length; h++) {
+						if (mainObj[g].id == removeUser[h].id) {
+							removeUser.splice(removeUser[h], 1);
+						}
+					}
+				}
+				this.selectUser.getModel().updateBindings();
 				//	that._oAppointmentInfo.getModel().getData().push(that.participants);
-				var Id = that._oAppointmentInfo.getModel().getData()[0].id
 
 				that.oNewAppointment = {
-					"users_permissions_users": that.participants,
+					"users_permissions_users": that.userManagment,
 				};
 				$.ajax({
 					url: "/OptimalCog/api/m-appointments/" + Id,
@@ -607,15 +624,16 @@ sap.ui.define([
 						if (getValues.error) {
 							MessageBox.error(getValues.error.message + "data is not created Something went wrong!");
 						} else {
-							that.getView().getModel("appointmentsdata").updateBindings(true);
+							that.getView().getModel("appointmentsdata").updateBindings();
 							that.getView().getModel("appointmentsdata").refresh();
+							MessageBox.success("Participant Successfully Added");
 							// that.onCloseDetailPress();
-
+							that.onInit();
 						}
 					}
 				});
-				this.selectUser.close();
-				this._oAppointmentInfo.close();
+				// this.selectUser.close();
+				// this._oAppointmentInfo.close();
 			},
 
 			handleAppointmentDeleteFilter: function () {
@@ -703,16 +721,29 @@ sap.ui.define([
 					evt.getParameters().value)]);
 			},
 			handleAddExternalParticipants: function (evt) {
-				// this.selectParticipants.setModel(this.getOwnerComponent().getModel("users"));
-				// this.selectParticipants.open();
 				if (!this.selectUser) {
 					this.selectUser = sap.ui.xmlfragment(this.getView().getId(), "MDG.Planning_Calendar.fragment.selectUser", this);
 					this.selectUser.setModel(this.getOwnerComponent().getModel("i18nModel"), "i18n");
 					this.getView().addDependent(this.selectUser);
 				}
-				var userModel = this.getView().getModel("usersDetails").getData();
-
+				let getData = this.userData.users_permissions_users == undefined ? [this.userData] : this.userData.users_permissions_users.data;
+				let userModel = this.getView().getModel("usersDetails").getData();
 				this.selectUser.setModel(new sap.ui.model.json.JSONModel(userModel));
+				let aList = this.selectUser._oList.getItems();
+
+				let defaultSelectedItems = [];
+				for (let m = 0; m < aList.length; m++) {
+					let selListItem = aList[m];
+					let defaultSelectedItem = selListItem.getCustomData()[0].getValue();
+
+					for (let j = 0; j < getData.length; j++) {
+						if (getData[j].id === defaultSelectedItem) {
+							selListItem.setSelected(true);
+							break;
+						}
+					}
+				}
+				//this.selectUser.setSelectedItems(defaultSelectedItems);
 				this.selectUser.open();
 			},
 			handleFilterButtonPressed: function (oEvent) {

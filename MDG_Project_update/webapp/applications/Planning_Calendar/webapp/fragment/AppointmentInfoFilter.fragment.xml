@@ -8,7 +8,7 @@
 		<endButton>
 			<Button text="{i18n>Cancel}" press="handleAppointmentFilterCancel"/>
 		</endButton>
-					<customHeader>
+		<customHeader>
 			<Bar>
 				<contentRight>
 					<Button text="{i18n>Delete}" type="Reject" press="handleAppointmentDeleteFilter"/>
