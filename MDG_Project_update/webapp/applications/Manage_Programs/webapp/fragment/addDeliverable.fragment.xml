@@ -9,7 +9,7 @@
 		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
 			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
 			<f:content>
-				<Label required="true" text="{i18n>deliverName}"/>
+				<Label text="{i18n>deliverName}" required="true"/>
 				<Input value="{/taskName}"/>
 				<Label text="{i18n>status}"/>
 				<Input required="true" enabled="false" visible="true" showValueStateMessage="true" valueStateText="{i18n>valueStateText1}"
@@ -74,11 +74,11 @@
 						<core:Item key="{attributes/name}" text="{attributes/name}"/>
 					</items>
 				</ComboBox>
-				<Label text="{i18n>Effort}"/>
+				<Label text="{i18n>Effort of DCL}"/>
 				<Input value="{/Effort}" placeholder="Enter the Efforts"/>
-				<Label text="{i18n>Progress}"/>
+				<Label text="{i18n>Progress of DCL}"/>
 				<Input value="{/Progress}" placeholder="Enter Progress in percentage"/>
-				<Label text="{i18n>Priority}"/>
+				<Label text="{i18n>Priority of DCL}"/>
 				<Select forceSelection="false" selectedKey="{/Priority}">
 					<core:Item text="Critical" key="Critical"/>
 					<core:Item text="Not Critical" key="Not Critical"/>

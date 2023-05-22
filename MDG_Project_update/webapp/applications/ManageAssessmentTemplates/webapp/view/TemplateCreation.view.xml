@@ -109,7 +109,7 @@
 								visible="{device>/system/phone}"/>
 						</contentLeft>
 						<contentRight>
-							<Button text="{i18nModel>Addquestion}" icon="sap-icon://add" press="addQuestion" id="addQuesButId"></Button>
+							<Button text="{i18nModel>Add}" icon="sap-icon://add" press="addQuestion" id="addQuesButId"></Button>
 						</contentRight>
 					</Bar>
 					<l:VerticalLayout class="breadLayoutClass" width="100%">
@@ -124,7 +124,7 @@
 									<headerToolbar>
 										<Toolbar height="3rem" style="Clear">
 											<Text text="{Question_No}"/>
-											<TextArea value="{Question}" placeholder="{i18nModel>Question}" width="100%" liveChange="onInputChange" class="textAreaBorder"
+											<TextArea value="{Question}" placeholder="{i18nModel>Enter your information here}" width="100%" liveChange="onInputChange" class="textAreaBorder"
 												enabled="{appView>/questionsEnabled}"/>
 											<Button id="questionDeleteId" icon="sap-icon://delete" tooltip="{i18nModel>Delete_T}" press="handleQuestionDelete" type="Transparent"/>
 											<MenuButton tooltip="Menu" id="menuButtons">

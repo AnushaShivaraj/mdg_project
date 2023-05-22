@@ -275,7 +275,7 @@
 							</items>
 						</Table>
 					</IconTabFilter>
-					<IconTabFilter text="{i18n>Deliverable}" icon="sap-icon://task">
+					<IconTabFilter text="{i18n>DCL/Deliverable(s)}" icon="sap-icon://task">
 						<Table items="{path:'mDeliverableModel>/'}" id="pagesAccessId3" mode="MultiSelect">
 							<headerToolbar>
 								<Toolbar design="Transparent">
@@ -288,7 +288,7 @@
 							</headerToolbar>
 							<columns>
 								<Column>
-									<Text text="{i18n>Deliverable}"/>
+									<Text text="{i18n>deliverName}"/>
 								</Column>
 								<!--<Column width="13em">-->
 								<!--	<Text text="Page Title"/>-->

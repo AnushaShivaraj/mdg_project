@@ -24,7 +24,7 @@
 					</OverflowToolbar>
 				</headerToolbar>
 				<items>
-					<ObjectListItem number="{= 'PRG100000' + ${id} }" type="Navigation" press="onSelectionChange" title="{attributes/name}">
+					<ObjectListItem number="{= 'PRG1000' + ${id} }" type="Navigation" press="onSelectionChange" title="{attributes/name}">
 						<firstStatus>
 							<ObjectStatus text="{attributes/status}" state="{path:'attributes/status',formatter:'.formatter.getStatus'}"/>
 						</firstStatus>
