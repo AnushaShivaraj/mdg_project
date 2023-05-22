@@ -448,19 +448,24 @@ sap.ui.define([
 				//	this.getOwnerComponent().getModel("customerId").getData().id = "";
 			},
 			handleValidateContectNum: function (evt) {
-				var regex = evt.getSource().getValue();
-				var regex = regex = /\(?\+?\(?[0-9]{2}\)?[ ()]?([- ()]?\d[- ()]?){8,25}/;
-				if (regex.test(evt.getSource().getValue()) === false) {
-					evt.getSource().setValueState("Error");
-					if (evt.getSource().getValue().length) {
-						// MessageToast.show(this.oBundle.getText("invalidEntryMsgEmail"));
-					} else {
-						evt.getSource().setValueState("None");
-					}
-				} else {
-					evt.getSource().setValueState("None");
-				}
+				var userInput = evt.getSource().getValue();
+				var sanitizedInput = userInput.replace(/\D/g, ''); // Remove non-numeric characters
+				evt.getSource().setValue(sanitizedInput); // Update input field with sanitized input
 			},
+			// handleValidateContectNum: function (evt) {
+			// 	var regex = evt.getSource().getValue();
+			// 	var regex = regex = /\(?\+?\(?[0-9]{2}\)?[ ()]?([- ()]?\d[- ()]?){8,25}/;
+			// 	if (regex.test(evt.getSource().getValue()) === false) {
+			// 		evt.getSource().setValueState("Error");
+			// 		if (evt.getSource().getValue().length) {
+			// 			// MessageToast.show(this.oBundle.getText("invalidEntryMsgEmail"));
+			// 		} else {
+			// 			evt.getSource().setValueState("None");
+			// 		}
+			// 	} else {
+			// 		evt.getSource().setValueState("None");
+			// 	}
+			// },
 			emailValidateForVen: function (evt) {
 				var regex = evt.getSource().getValue();
 				var regex = /^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$/;

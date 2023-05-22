@@ -569,7 +569,7 @@ sap.ui.define([
 					that.participants.push(obj.getObject());
 					that.userManagment.push(obj.getObject().id);
 				});
-				if(!that._oAppointmentInfo){
+				if(that._oAppointmentInfo){
 					var Id = that._oAppointmentInfo.getModel().getData()[0].id;
 					var getData = that._oAppointmentInfo.getContent()[1].getModel().getData();
 				} else{

@@ -14,7 +14,7 @@
 							<Input value="{/vendorEmail}" id="vEml" valueStateText="Enter Vendor E-mail id" liveChange="emailValidateForVen"
 								placeholder="Enter E-mail id"/>
 							<Label text="Contact Number" required="true"/>
-							<Input maxLength="20" value="{/vendorContact}" id="contNum" type="Tel" liveChange="handleValidateContectNum"
+							<Input maxLength="20" value="{/vendorContact}" id="contNum"  liveChange="handleValidateContectNum"
 								placeholder="Enter Vendor Phone Number"/>
 							<Label text="Postal Code"/>
 							<Input value="{/zipCode}" id="pCode" valueStateText="Enter Postal Code" liveChange="additionalInfoValidation"
@@ -56,7 +56,7 @@
 							<Input valueStateText="Enter E-mail id" id="vPerEml" liveChange="emailValidateForVen" value="{/contactEmail}"
 								placeholder="Enter Contact Person E-mail id"/>
 							<Label text="Contact Number" required="true"/>
-							<Input maxLength="20" id="perNum" value="{/contactPhone}" type="Tel" liveChange="handleValidateContectNum"
+							<Input maxLength="20" id="perNum" value="{/contactPhone}"  liveChange="handleValidateContectNum"
 								placeholder="Enter Contact Person Phone Number"/>
 							<!--<Label text="Designation" />-->
 							<!--<Input value="{/contactDesignation}"  valueStateText="Enter Responsible person Name" liveChange="additionalInfoValidation" placeholder="Enter Contact Person Desgination"/>-->
