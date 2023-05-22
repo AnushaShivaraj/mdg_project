@@ -215,32 +215,32 @@
 							</headerToolbar>
 							<columns>
 								<Column>
-									<Text text="{i18n>CSF}"/>
+									<Text text="{i18n>CSF Name}"/>
 								</Column>
 								<!--<Column width="13em">-->
 								<!--	<Text text="Page Title"/>-->
 								<!--</Column>-->
 								<Column>
-									<Text text="{i18n>status}"/>
+									<Text text="{i18n>CSF Status}"/>
 								</Column>
 								<Column>
 									<!--<Text text="{i18n>taskdes}"/>-->
-									<Text text="{i18n>MileStoneName}"/>
+									<Text text="{i18n>Milestone Name}"/>
 								</Column>
 								<Column>
-									<Text text="{i18n>start_date}"/>
+									<Text text="{i18n>CSF Start Date}"/>
 								</Column>
 								<Column>
-									<Text text="{i18n>end_date}"/>
+									<Text text="{i18n>CSF End Date}"/>
 								</Column>
 								<!--<Column>-->
 								<!--	<Text text="{i18n>deadline_date}"/>-->
 								<!--</Column>-->
 								<Column>
-									<Text text="{i18n>assigned_team_member}"/>
+									<Text text="{i18n>Assigned Team Member to CSF}"/>
 								</Column>
 								<Column>
-									<Text text="{i18n>assigned_to}"/>
+									<Text text="{i18n>Assigned Vendor to CSF}"/>
 								</Column>
 								<!--<Column>-->
 								<!--	<Text text="Share Access"/>-->

@@ -9,9 +9,9 @@
 		<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
 			emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
 			<f:content>
-				<Label required="true" text="{i18n>csfName}"/>
+				<Label required="true" text="{i18n>CSF Name}"/>
 				<Input value="{/taskName}"/>
-				<Label text="{i18n>status}"/>
+				<Label text="{i18n>CSF Status}"/>
 				<Input required="true" enabled="false" visible="true" showValueStateMessage="true" valueStateText="{i18n>valueStateText1}"
 					change="validateInput"/>
 				<ComboBox items="{path: '/'}" visible="false" selectedKey="" id="cmbDependency">
@@ -19,13 +19,13 @@
 						<core:Item key="{taskStatus}" text="{taskStatus}"/>
 					</items>
 				</ComboBox>
-				<Label  text="{i18n>csfdes}"/>
+				<Label  text="{i18n>CSF Description}"/>
 				<TextArea value="{/taskdesp}"/>
-				<Label required="true" text="{i18n>start_date}"/>
+				<Label required="true" text="{i18n>CSF Start Date}"/>
 				<DatePicker change="handleCSFDate" value="{/startDate}" valueFormat="yyy-MM-dd" placeholder="{i18n>EnterStartDate}"
 					class="sapUiSmallMarginBottom"/>
 				<!--<Input type="Email" value="{/email}" change="handleValidateEmail"/>-->
-				<Label required="true" text="{i18n>end_date}"/>
+				<Label required="true" text="{i18n>CSF End Date}"/>
 				<DatePicker change="handleCSFDate" value="{/endDate}" valueFormat="yyy-MM-dd" placeholder="{i18n>EnterEndDate}"
 					class="sapUiSmallMarginBottom"/>
 				<!--<Input value="{/contact}" liveChange="limitPhoneNumbers" type="Tel" maxLength="20"/>-->
@@ -40,7 +40,7 @@
 						<SegmentedButtonItem key="Joint" text="{i18n>Joint}"/>
 					</items>
 				</SegmentedButton>
-				<Label text="{i18n>assigned_team_member}"/>
+				<Label text="{i18n>Assigned Team Member to CSF}"/>
 				<Select items="{/}" width="100%" selectedKey="{/selectedMemeber}" enabled="true">
 					<items>
 						<core:Item text="{attributes/users_permissions_user/data/attributes/firstName}"
@@ -48,33 +48,17 @@
 					</items>
 				</Select>
 				<!--<Input tooltip="{i18n>City}" type="Text" required="true" placeholder="{i18n>City}"/>-->
-				<Label text="{i18n>assigned_to}"/>
+				<Label text="{i18n>Assigned Vendor to CSF}"/>
 				<Select items="{projectModel>/}" selectedKey="{/selectedVendor}" width="100%" enabled="true">
 					<items>
 						<core:Item text="{projectModel>attributes/vendorName}" key="{projectModel>attributes/vendorName}"/>
 					</items>
 				</Select>
-				<!--<HBox class="sapUiTinyMarginTopBottom">-->
-				<!--	<VBox>-->
-				<!--		<Label text="{i18n>Is_there_any_dependency}" labelFor="groupB"/>-->
-				<!--		<RadioButtonGroup id="groupB" valueState="Success" selectedIndex="1" columns="5" class="sapUiMediumMarginBottom">-->
-				<!--			<RadioButton text="{i18n>Yes}" select="OnSelectYesToDepencyPress"/>-->
-				<!--			<RadioButton text="{i18n>No}" select="OnSelectYesToDepencyPress"/>-->
-				<!--		</RadioButtonGroup>-->
-				<!--	</VBox>-->
-				<!--</HBox>-->
-				<!--<Label text="{i18n>Dependency}" visible="false" required="false"></Label>-->
-				<!--<ComboBox items="{path: '/'}" visible="false" enabled="true" selectedKey="{dependentTask}" id="cmbDependency1"-->
-				<!--	selectionChange="onDependencySelect">-->
-				<!--	<items>-->
-				<!--		<core:Item key="{id}" text="{taskName}"/>-->
-				<!--	</items>-->
-				<!--</ComboBox>-->
-				<Label visible="true" text="{i18n>Efforts}"/>
+				<Label visible="true" text="{i18n>Effort of CSF}"/>
 				<Input type="Number" value="{/Efforts}" placeholder="Enter the Efforts"/>
-				<Label text="{i18n>Progress}"/>
+				<Label text="{i18n>Progress of CSF}"/>
 				<Input type="Number" value="{/Progress}" placeholder="Enter Progress in percentage"/>
-				<Label required="true" text="{i18n>Priority}"/>
+				<Label required="true" text="{i18n>Priority of CSF}"/>
 				<Select forceSelection="false" selectedKey="{/Priority}">
 					<core:Item text="Critical" key="Critical"/>
 					<core:Item text="Not Critical" key="Not Critical"/>
