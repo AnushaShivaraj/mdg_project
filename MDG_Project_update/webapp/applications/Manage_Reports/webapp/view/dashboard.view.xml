@@ -102,7 +102,7 @@
 							</VBox>
 						</VBox>
 						<VBox class="kpiTile" width="24rem" id="totaltasks">
-							<Link id="_IDGenLink1" text="Total Tasks" class="link" press="onKpiLinkPressTasks"/>
+							<Link id="_IDGenLink1" text="Total CSFs" class="link" press="onKpiLinkPressTasks"/>
 							<VBox id="_IDGenVBox8" class="top">
 								<TileContent id="_IDGenTileContent1" unit="">
 									<content>

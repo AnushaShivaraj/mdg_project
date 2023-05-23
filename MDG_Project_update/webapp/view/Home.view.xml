@@ -1,31 +1,31 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
 	controllerName="VASPP.MDGSystem.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml">
-	<App backgroundImage="images/back-HomeImage.png" backgroundOpacity="1">
+	<App backgroundImage="images/back-HomeImage.png" backgroundOpacity="0">
 		<Page id="homePageId" showHeader="false" enableScrolling="false" class="banner_image">
 			<!--<Image id="logo" src="image/ProjectManagement2.jpg"  class="banner_image" />-->
 			<!--<VBox>-->
 			<!--	<HBox>-->
-			<GenericTile id="OCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="O-Cog" press="onPress" subheader="Organization">
+			<GenericTile backgroundImage="Image/o.svg" sizeBehavior="Responsive" id="OCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout myCustomTile" header="O-Cog" press="onPress" subheader="Organization">
+				<TileContent>
+   					 	<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList" />
+  				</TileContent>
+			</GenericTile>
+			<GenericTile backgroundImage="Image/p.svg" id="PCog" class="sapUiSmallMarginBegin myCustomTile sapUiTinyMarginTop tileLayout" header="P-Cog" press="onPress" subheader="Process">
+				<TileContent>
+				<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile backgroundImage="Image/t.svg" id="TCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout myCustomTile" header="T-Cog" press="onPress" subheader="Technology">
 				<TileContent>
 					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
 				</TileContent>
 			</GenericTile>
-			<GenericTile id="PCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="P-Cog" press="onPress" subheader="Process">
+			<GenericTile backgroundImage="Image/i.svg" id="ICog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout myCustomTile" header="I-Cog" press="onPress" subheader="Information">
 				<TileContent>
 					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
 				</TileContent>
 			</GenericTile>
-			<GenericTile id="TCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="T-Cog" press="onPress" subheader="Technology">
-				<TileContent>
-					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile id="ICog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="I-Cog" press="onPress" subheader="Information">
-				<TileContent>
-					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
-				</TileContent>
-			</GenericTile>
-			<GenericTile id="MCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="M-Cog" press="onPress" subheader="Management">
+			<GenericTile backgroundImage="Image/m.svg" id="MCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout myCustomTile" header="M-Cog" press="onPress" subheader="Management">
 				<TileContent>
 					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
 				</TileContent>
@@ -34,12 +34,12 @@
 			<!--</VBox>-->
 			<!--<VBox>-->
 			<!--	<HBox>-->
-			<GenericTile id="ACog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="A-Cog" press="onPress" subheader="Alliance">
+			<GenericTile id="ACog" backgroundImage="Image/a.svg" class="myCustomTile sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="A-Cog" press="onPress" subheader="Alliance">
 				<TileContent>
 					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
 				</TileContent>
 			</GenericTile>
-			<GenericTile id="LCog" class="sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="L-Cog" press="onPress" subheader="Location">
+			<GenericTile backgroundImage="Image/l.svg" id="LCog" class="myCustomTile sapUiSmallMarginBegin sapUiTinyMarginTop tileLayout" header="L-Cog" press="onPress" subheader="Location">
 				<TileContent>
 					<Link tooltip="more" text="{i18n>more}" class="TileMargins" press="displayAppList"/>
 				</TileContent>

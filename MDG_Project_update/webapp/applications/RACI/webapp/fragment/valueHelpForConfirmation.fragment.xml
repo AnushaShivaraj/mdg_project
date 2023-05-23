@@ -14,7 +14,7 @@
 					<Text></Text>
 					<Label text="If Yes, Please Select the Approver" required="true"/>
 					<Select change="handleSelectChange" class="sapUiSmallMarginTop" items="{usersDetails>/}" forceSelection="false" width="60%">
-						<core:Item key="{usersDetails>id} " text="{usersDetails>firstName} "/>
+						<core:Item key="{usersDetails>id} " text="{usersDetails>firstName} {usersDetails>lastName} "/>
 					</Select>
 				</f:content>
 			</f:SimpleForm>

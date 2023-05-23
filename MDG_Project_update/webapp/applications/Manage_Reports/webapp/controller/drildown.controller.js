@@ -96,7 +96,7 @@ sap.ui.define([
 				this.getView().byId("drillDownTableIdprograms").setVisible(false);
 				this.getView().byId("drillDownTableIdtask").setVisible(false);
 			}
-			if (this.Title == "Total Tasks") {
+			if (this.Title == "Total CSFs") {
 				this.getView().byId("drilldownTitleId").setText(this.Title);
 				this.getView().byId("drillDownTableIdproject").setVisible(false);
 				this.getView().byId("drillDownTableIdtask").setVisible(true);

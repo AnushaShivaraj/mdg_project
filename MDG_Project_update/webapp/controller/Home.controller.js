@@ -116,7 +116,7 @@ sap.ui.define([
 				break;
 			case tileId.includes("PCog"):
 				AppList.push({
-					title: "Manage Programs",
+					title: "Manage Process",
 					id: "APP10001",
 					key: "Manage Programs",
 					componentName: "MDG.Program",

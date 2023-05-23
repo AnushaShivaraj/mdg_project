@@ -186,7 +186,7 @@ sap.ui.define([
 					that.tdata = {
 						m_project: [Number(selectedData.getContent()[1].getSelectedKey())],
 						m_csf: [Number(selectedData.getContent()[3].getSelectedKey())],
-						m_responsible: [Number(selectedData.getContent()[5].getSelectedKey())],
+						//	m_responsible: [Number(selectedData.getContent()[5].getSelectedKey())],
 
 						type: "CSFR",
 						status: "New",
@@ -208,12 +208,12 @@ sap.ui.define([
 							if (getValues.error) {
 								MessageBox.error(getValues.error.message + "data is not Added Something went wrong!");
 							} else {
-								that.getView().getModel("programDetails").updateBindings();
+								that.getView().getModel("programDetails").updateBindings(true);
 
 								var kModel = new sap.ui.model.json.JSONModel(getValues.data);
-								that.getView().setModel(kModel, "daata");
-								that.getView().getModel("daata").getData();
-								that.getView().getModel("daata").updateBindings();
+								that.getView().setModel(kModel, "CSFRmodel");
+								that.getView().getModel("CSFRmodel").getData();
+								that.getView().getModel("CSFRmodel").updateBindings(true);
 								$.ajax({
 									url: "/OptimalCog/api/m-consulteds?populate=*",
 									type: "POST",
@@ -223,7 +223,7 @@ sap.ui.define([
 									data: JSON.stringify({
 
 										"data": {
-											"mraci": [that.getView().getModel("daata").getData().id],
+											"mraci": [that.getView().getModel("CSFRmodel").getData().id],
 											"users_permissions_users": [Number(that.consultedidforcheck)]
 										}
 
@@ -234,8 +234,8 @@ sap.ui.define([
 										if (getValues.error) {
 											MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
 										} else {
-											that.getView().getModel("programDetails").updateBindings();
-											that.getView().getModel("daata").updateBindings();
+											that.getView().getModel("programDetails").updateBindings(true);
+											that.getView().getModel("CSFRmodel").updateBindings(true);
 											$.ajax({
 												url: "/OptimalCog/api/m-accountables?populate=*",
 												type: "POST",
@@ -245,7 +245,7 @@ sap.ui.define([
 												data: JSON.stringify({
 
 													"data": {
-														"mraci": [that.getView().getModel("daata").getData().id],
+														"mraci": [that.getView().getModel("CSFRmodel").getData().id],
 														"users_permissions_users": [Number(that.accountidforcheck)]
 
 													}
@@ -257,8 +257,9 @@ sap.ui.define([
 													if (getValues.error) {
 														MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
 													} else {
-														that.getView().getModel("programDetails").updateBindings();
-														that.getView().getModel("daata").updateBindings();
+														that.getView().getModel("programDetails").updateBindings(true);
+														that.getView().getModel("CSFRmodel").updateBindings(true);
+														//
 														$.ajax({
 															url: "/OptimalCog/api/m-informeds?populate=*",
 															type: "POST",
@@ -268,7 +269,7 @@ sap.ui.define([
 															data: JSON.stringify({
 
 																"data": {
-																	"mraci": [that.getView().getModel("daata").getData().id],
+																	"mraci": [that.getView().getModel("CSFRmodel").getData().id],
 																	"users_permissions_users": [Number(that.informedidforcheck)]
 
 																}
@@ -280,17 +281,59 @@ sap.ui.define([
 																if (getValues.error) {
 																	MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
 																} else {
-																	that.getView().getModel("daata").updateBindings();
-																	MessageToast.show("CSFR Added Successfully!");
-																	that.selectedObjectRaci();
-																	that.getView().getModel("programDetails").updateBindings();
-																	that.AddRaci.close();
-																	//	that.onInit();
+																	$.ajax({
+																		url: "/OptimalCog/api/m-responsibles?populate=*",
+																		type: "POST",
+																		headers: {
+																			"Content-Type": 'application/json'
+																		},
+																		data: JSON.stringify({
+
+																			"data": {
+																				"mraci": [that.getView().getModel("CSFRmodel").getData().id],
+																				"users_permissions_users": [Number(that.responsibleidforcheck)]
+
+																			}
+
+																		}),
+																		success: function (res) {
+																			var getValues = JSON.parse(res);
+
+																			if (getValues.error) {
+																				MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
+																			} else {
+
+																				MessageToast.show("CSFR Added Successfully!");
+
+																				that.getView().getModel("programDetails").updateBindings(true);
+																				that.getView().getModel("CSFRmodel").updateBindings(true);
+
+																				that.getView().getModel("CSFRmodel").refresh();
+																				that.getView().getModel("programDetails").refresh();
+																				that.selectedObjectRaci(that.sObjectId);
+
+																				that.AddRaci.close();
+
+
+																			}
+																		}
+																	})
+																	// 	MessageToast.show("CSFR Added Successfully!");
+
+																	// 	that.getView().getModel("programDetails").updateBindings(true);
+																	// 	that.getView().getModel("CSFRmodel").updateBindings(true);
+
+																	//  that.getView().getModel("CSFRmodel").refresh();
+																	//  that.getView().getModel("programDetails").refresh();
+																	//  that.selectedObjectRaci(that.sObjectId);
+
+																	// 	that.AddRaci.close();
+
 
 																}
 															}
 														})
-
+														//
 													}
 												}
 											})
@@ -302,7 +345,8 @@ sap.ui.define([
 							}
 						}
 					});
-				} else {
+				}
+				else {
 
 					var mResponsibleId = that.mRaciModel.attributes.m_responsible.data.id;
 					var mAccountableId = that.mRaciModel.attributes.m_accountable.data.id;
@@ -370,8 +414,7 @@ sap.ui.define([
 												}),
 												success: function (res) {
 													$.ajax({
-														url: "/OptimalCog/api/m-racis/" + that.mRaciModel.id +
-															"?populate[0]=m_responsible.users_permissions_users&populate[1]=m_accountable.users_permissions_users&populate[2]=m_project&populate[3]=m_assignment",
+														url: "/OptimalCog/api/m-racis/" + that.mRaciModel.id + "?populate[0]=m_responsible.users_permissions_users&populate[1]=m_accountable.users_permissions_users&populate[2]=m_project&populate[3]=m_assignment",
 														type: "PUT",
 														headers: {
 															"Content-Type": 'application/json'
@@ -385,14 +428,19 @@ sap.ui.define([
 															if (getValues.error) {
 																MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
 															} else {
+
+																that.getView().getModel("CSFRmodel").updateBindings(true);
 																MessageToast.show("CSFR Edited Successfully!");
-																that.selectedObjectRaci();
-																that.getView().getModel("programDetails").updateBindings(true);
+
+																that.getView().getModel("CSFRmodel").refresh();
+																that.getView().getModel("programDetails").refresh();
+																that.selectedObjectRaci(that.sObjectId);
 																that.AddRaci.close();
-																//	that.onInit();
+																//that.addRaciPPR.close();
 															}
 														}
 													});
+
 
 												}
 											});
@@ -422,13 +470,14 @@ sap.ui.define([
 					type: "PPR",
 					status: "New",
 
+
 				};
 
 				if (AddOrUpdate == "Add") {
 					that.tdata = {
 						m_project: [Number(selectedData.getContent()[1].getSelectedKey())],
 						m_assignment: [Number(selectedData.getContent()[3].getSelectedKey())],
-						m_responsible: [Number(selectedData.getContent()[5].getSelectedKey())],
+						//	m_responsible: [Number(selectedData.getContent()[5].getSelectedKey())],
 
 						type: "PPR",
 						status: "New",
@@ -453,9 +502,9 @@ sap.ui.define([
 								that.getView().getModel("programDetails").updateBindings(true);
 
 								var kModel = new sap.ui.model.json.JSONModel(getValues.data);
-								that.getView().setModel(kModel, "daata");
-								that.getView().getModel("daata").getData();
-								that.getView().getModel("daata").updateBindings(true);
+								that.getView().setModel(kModel, "PPRmodel");
+								that.getView().getModel("PPRmodel").getData();
+								that.getView().getModel("PPRmodel").updateBindings(true);
 								$.ajax({
 									url: "/OptimalCog/api/m-consulteds?populate=*",
 									type: "POST",
@@ -465,7 +514,7 @@ sap.ui.define([
 									data: JSON.stringify({
 
 										"data": {
-											"mraci": [that.getView().getModel("daata").getData().id],
+											"mraci": [that.getView().getModel("PPRmodel").getData().id],
 											"users_permissions_users": [Number(that.consultedidforcheck)]
 										}
 
@@ -477,7 +526,7 @@ sap.ui.define([
 											MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
 										} else {
 											that.getView().getModel("programDetails").updateBindings(true);
-											that.getView().getModel("daata").updateBindings(true);
+											that.getView().getModel("PPRmodel").updateBindings(true);
 											$.ajax({
 												url: "/OptimalCog/api/m-accountables?populate=*",
 												type: "POST",
@@ -487,7 +536,7 @@ sap.ui.define([
 												data: JSON.stringify({
 
 													"data": {
-														"mraci": [that.getView().getModel("daata").getData().id],
+														"mraci": [that.getView().getModel("PPRmodel").getData().id],
 														"users_permissions_users": [Number(that.accountidforcheck)]
 
 													}
@@ -500,7 +549,7 @@ sap.ui.define([
 														MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
 													} else {
 														that.getView().getModel("programDetails").updateBindings(true);
-														that.getView().getModel("daata").updateBindings(true);
+														that.getView().getModel("PPRmodel").updateBindings(true);
 														$.ajax({
 															url: "/OptimalCog/api/m-informeds?populate=*",
 															type: "POST",
@@ -510,7 +559,7 @@ sap.ui.define([
 															data: JSON.stringify({
 
 																"data": {
-																	"mraci": [that.getView().getModel("daata").getData().id],
+																	"mraci": [that.getView().getModel("PPRmodel").getData().id],
 																	"users_permissions_users": [Number(that.informedidforcheck)]
 
 																}
@@ -522,12 +571,48 @@ sap.ui.define([
 																if (getValues.error) {
 																	MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
 																} else {
-																	that.getView().getModel("daata").updateBindings(true);
-																	MessageToast.show("PPR Added Successfully!");
-																	that.selectedObjectRaci();
-																	that.getView().getModel("programDetails").updateBindings(true);
-																	that.addRaciPPR.close();
-																	//	that.onInit();
+																	$.ajax({
+																		url: "/OptimalCog/api/m-responsibles?populate=*",
+																		type: "POST",
+																		headers: {
+																			"Content-Type": 'application/json'
+																		},
+																		data: JSON.stringify({
+
+																			"data": {
+																				"mraci": [that.getView().getModel("PPRmodel").getData().id],
+																				"users_permissions_users": [Number(that.responsibleidforcheck)]
+
+																			}
+
+																		}),
+																		success: function (res) {
+																			var getValues = JSON.parse(res);
+
+																			if (getValues.error) {
+																				MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
+																			} else {
+
+																				that.getView().getModel("PPRmodel").updateBindings(true);
+																				MessageToast.show("PPR Added Successfully!");
+
+																				that.getView().getModel("PPRmodel").refresh();
+																				that.getView().getModel("programDetails").refresh();
+																				that.selectedObjectRaci(that.sObjectId);
+																				that.addRaciPPR.close();
+
+
+																			}
+																		}
+																	})
+																	// 	that.getView().getModel("PPRmodel").updateBindings(true);
+																	// 	MessageToast.show("PPR Added Successfully!");
+
+																	// 	that.getView().getModel("PPRmodel").refresh();
+																	//  that.getView().getModel("programDetails").refresh();
+																	//  that.selectedObjectRaci(that.sObjectId);
+																	// 	that.addRaciPPR.close();
+
 																}
 															}
 														})
@@ -543,6 +628,7 @@ sap.ui.define([
 							}
 						}
 					});
+
 
 				} else {
 
@@ -610,8 +696,7 @@ sap.ui.define([
 												success: function (res) {
 
 													$.ajax({
-														url: "/OptimalCog/api/m-racis/" + that.mRaciModel.id +
-															"?populate[0]=m_responsible.users_permissions_users&populate[1]=m_accountable.users_permissions_users&populate[2]=m_project&populate[3]=m_assignment",
+														url: "/OptimalCog/api/m-racis/" + that.mRaciModel.id + "?populate[0]=m_responsible.users_permissions_users&populate[1]=m_accountable.users_permissions_users&populate[2]=m_project&populate[3]=m_assignment",
 														type: "PUT",
 														headers: {
 															"Content-Type": 'application/json'
@@ -626,15 +711,23 @@ sap.ui.define([
 															if (getValues.error) {
 																MessageBox.error(getValues.error.message + "data is not Updated Something went wrong!");
 															} else {
-																MessageToast.show("PPR Edited Successfully!");
-																that.selectedObjectRaci();
-																that.getView().getModel("programDetails").updateBindings(true);
+																// MessageToast.show("PPR Edited Successfully!");
+																// that.selectedObjectRaci();
+																// that.getView().getModel("programDetails").updateBindings(true);
+																// that.getView().getModel("programDetails").refresh();
+																// that.addRaciPPR.close();
+																that.getView().getModel("PPRmodel").updateBindings(true);
+																MessageToast.show("PPR Added Successfully!");
+																// that.selectedObjectRaci();
+																// that.getView().getModel("programDetails").updateBindings(true);
+																that.getView().getModel("PPRmodel").refresh();
 																that.getView().getModel("programDetails").refresh();
+																that.selectedObjectRaci(that.sObjectId);
 																that.addRaciPPR.close();
-																//	that.onInit();
 															}
 														}
 													});
+
 
 												}
 											});
@@ -644,6 +737,8 @@ sap.ui.define([
 							});
 						}
 					});
+
+
 
 				}
 				this.clearRaciPPR(selectedData);
@@ -826,7 +921,10 @@ sap.ui.define([
 			});
 
 		},
+		onDependencySelect: function (oEvent) {
 
+			this.responsibleidforcheck = oEvent.getParameter("selectedItem").getProperty("key");
+		},
 		onDependencySelectAccount: function (oEvent) {
 
 			this.accountidforcheck = oEvent.getParameter("selectedItem").getProperty("key");
@@ -924,138 +1022,131 @@ sap.ui.define([
 			this.AddRaci.open();
 
 		},
-
 		handleDeleteRaci: function (oEvent) {
 			var that = this;
-			var SelItemlen = this.getView().byId("raciTableId").getSelectedItems();
-			var tableItems = this.getView().byId("raciTableId").getItems();
-			if (SelItemlen.length > 0) {
-				var path = this.getView().byId("raciTableId").getSelectedContexts()[0].sPath.split("/")[6];
-				MessageBox.confirm("Are you sure you want to delete CSFR?", {
-					title: "Confirm Deletion",
-					icon: MessageBox.Icon.WARNING,
-					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-					emphasizedAction: MessageBox.Action.YES,
-					onClose: function (oAction) {
-
-						if (oAction === "YES") {
-							var mmCSFtaskDetails = that.getView().getModel("programDetails").getData();
-							for (var i = SelItemlen.length - 1; i >= 0; i--) {
-								var taskDataIndex = parseInt(SelItemlen[i].getBindingContext("CSFRmodel").getPath().split("/")[1]);
-
-								mmCSFtaskDetails[0].attributes.mracis.data.splice(taskDataIndex, 1);
-							}
-							that.getView().getModel("programDetails").updateBindings();
-							var updateProjectTeam = mmCSFtaskDetails[0].attributes.mracis.data;
-
-							var teamArray = [];
-
-							updateProjectTeam.map(function (item) {
-								teamArray.push(item.id);
-							});
-							if (teamArray.length === 0) {
-								teamArray = [];
-							}
-							that.updateTaskData = {
-								"mracis": teamArray
-
-							};
-							$.ajax({
-								url: "/OptimalCog/api/m-programs/" + that.sObjectId + "?populate=*",
-								type: "PUT",
-								headers: {
-									"Content-Type": 'application/json'
-								},
-								data: JSON.stringify({
-									"data": that.updateTaskData
-								}),
-								success: function (res) {
-									var getValues = JSON.parse(res);
-
-									if (getValues.error) {
-										MessageBox.error(getValues.error.message);
-									} else {
-										MessageToast.show("CSFR Deleted Successfully!");
-										//	that.projectsDetails();
-										that.selectedObjectRaci(getValues.data.id);
+				var table = this.getView().byId("raciTableId");
+				var selectedItems = table.getSelectedItems();
+	
+				if (selectedItems.length > 0) {
+					MessageBox.confirm("Are you sure you want to delete the selected CSFRs?", {
+						title: "Confirm Deletion",
+						icon: MessageBox.Icon.WARNING,
+						actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+						emphasizedAction: MessageBox.Action.YES,
+						onClose: function (oAction) {
+							if (oAction === "YES") {
+								var deletePromises = [];
+	
+								selectedItems.forEach(function (item) {
+									var path = item.getBindingContextPath();
+									var itemId = table.getModel("CSFRmodel").getProperty(path).id;
+	
+									deletePromises.push(
+										new Promise(function (resolve, reject) {
+											$.ajax({
+												url: "/OptimalCog/api/m-racis/" + itemId,
+												type: "DELETE",
+												success: function (res) {
+													resolve(res);
+												},
+												error: function (err) {
+													reject(err.responseText);
+												}
+											});
+										})
+									);
+								});
+	
+								Promise.all(deletePromises)
+									.then(function () {
+										// Handle success
+										MessageToast.show("CSFRs Deleted Successfully!");
+										
+										that.selectedObjectRaci(that.sObjectId);
+										that.getView().getModel("CSFRmodel").updateBindings(true);
+										that.getView().getModel("CSFRmodel").refresh();
+										that.getView().getModel("programDetails").refresh();
+	
 										that.getView().getModel("programDetails").updateBindings(true);
-										//that.getView().getModel().refresh();
-									}
-								}
-							});
+	
+										
+									})
+									.catch(function (error) {
+										// Handle error
+										MessageBox.error(error);
+									});
+							}
 						}
-					}
-				});
-			} else {
-				sap.m.MessageToast.show("Please select atleast one item.");
-			}
-		},
-
-		handleDeleteRaciPPR: function (oEvent) {
-
-			var that = this;
-			var SelItemlen = this.getView().byId("raciTablePPRId").getSelectedItems();
-			var tableItems = this.getView().byId("raciTablePPRId").getItems();
-			if (SelItemlen.length > 0) {
-				var path = this.getView().byId("raciTablePPRId").getSelectedContexts()[0].sPath.split("/")[6];
-				MessageBox.confirm("Are you sure you want to delete PPR?", {
-					title: "Confirm Deletion",
-					icon: MessageBox.Icon.WARNING,
-					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-					emphasizedAction: MessageBox.Action.YES,
-					onClose: function (oAction) {
-
-						if (oAction === "YES") {
-							var mmCSFtaskDetails = that.getView().getModel("programDetails").getData();
-							for (var i = SelItemlen.length - 1; i >= 0; i--) {
-								var taskDataIndex = parseInt(SelItemlen[i].getBindingContext("PPRmodel").getPath().split("/")[1]);
-								mmCSFtaskDetails[0].attributes.mracis.data.splice(taskDataIndex, 1);
-							}
-							that.getView().getModel("programDetails").updateBindings();
-							var updateProjectTeam = mmCSFtaskDetails[0].attributes.mracis.data;
-
-							var teamArray = [];
-
-							updateProjectTeam.map(function (item) {
-								teamArray.push(item.id);
-							});
-							if (teamArray.length === 0) {
-								teamArray = [];
-							}
-							that.updateTaskData = {
-								"mracis": teamArray
-
-							};
-							$.ajax({
-								url: "/OptimalCog/api/m-programs/" + that.sObjectId,
-								type: "PUT",
-								headers: {
-									"Content-Type": 'application/json'
-								},
-								data: JSON.stringify({
-									"data": that.updateTaskData
-								}),
-								success: function (res) {
-									var getValues = JSON.parse(res);
-
-									if (getValues.error) {
-										MessageBox.error(getValues.error.message);
-									} else {
-										MessageToast.show("PPR Deleted Successfully!");
-
-										that.selectedObjectRaci(getValues.data.id);
+					});
+				} else {
+					sap.m.MessageToast.show("Please select at least one item.");
+				}	
+			},
+	
+			handleDeleteRaciPPR: function (oEvent) {
+				var that = this;
+				var table = this.getView().byId("raciTablePPRId");
+				var selectedItems = table.getSelectedItems();
+	
+				if (selectedItems.length > 0) {
+					MessageBox.confirm("Are you sure you want to delete the selected PPRs?", {
+						title: "Confirm Deletion",
+						icon: MessageBox.Icon.WARNING,
+						actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+						emphasizedAction: MessageBox.Action.YES,
+						onClose: function (oAction) {
+							if (oAction === "YES") {
+								var deletePromises = [];
+	
+								selectedItems.forEach(function (item) {
+									var path = item.getBindingContextPath();
+									var itemId = table.getModel("PPRmodel").getProperty(path).id;
+	
+									deletePromises.push(
+										new Promise(function (resolve, reject) {
+											$.ajax({
+												url: "/OptimalCog/api/m-racis/" + itemId,
+												type: "DELETE",
+												success: function (res) {
+													resolve(res);
+												},
+												error: function (err) {
+													reject(err.responseText);
+												}
+											});
+										})
+									);
+								});
+	
+								Promise.all(deletePromises)
+									.then(function () {
+										// Handle success
+										MessageToast.show("PPRs Deleted Successfully!");
+										
+										that.selectedObjectRaci(that.sObjectId);
+										that.getView().getModel("PPRmodel").updateBindings(true);
+										that.getView().getModel("PPRmodel").refresh();
+										that.getView().getModel("programDetails").refresh();
+	
 										that.getView().getModel("programDetails").updateBindings(true);
-
-									}
-								}
-							});
+	
+										
+									})
+									.catch(function (error) {
+										// Handle error
+										MessageBox.error(error);
+									});
+							}
 						}
-					}
-				});
-			} else {
-				sap.m.MessageToast.show("Please select atleast one item.");
-			}
-		},
+					});
+				} else {
+					sap.m.MessageToast.show("Please select at least one item.");
+				}
+	
+	
+			},
+		
+		
 		onCloseDetailPress: function () {
 			// this.getView().getModel("appView").setProperty("/actionButtonsInfo/midColumn/FullScreen",false);
 			// this.getOwnerComponent().getRouter().navTo("master");
@@ -1124,7 +1215,7 @@ sap.ui.define([
 					property: "attributes/m_csf/data/attributes/name"
 				}, {
 					label: "Responsible",
-					property: "attributes/m_responsible/data/attributes/users_permissions_users/data/0/attributes/firstName"
+					property: "{attributes/m_responsible/data/attributes/users_permissions_users/data/0/attributes/firstName}{attributes/m_responsible/data/attributes/users_permissions_users/data/0/attributes/lastName}"
 				}, {
 					label: "Accountable",
 					property: "attributes/m_accountable/data/attributes/users_permissions_users/data/0/attributes/firstName"
@@ -1300,7 +1391,7 @@ sap.ui.define([
 							success: function (response) {
 
 								that.selectedObjectRaci;
-								that.getView().byId("submitButtonId").setVisible(false);
+								//that.getView().byId("submitButtonId").setVisible(false);
 								sap.m.MessageToast.show("RACI Submitted Succesfully")
 								that.valueHelpForConfirmation.close();
 							},

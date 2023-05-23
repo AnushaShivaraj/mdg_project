@@ -3,7 +3,7 @@
 	<Dialog title="{i18n>MeetingDetails}" contentWidth="50%" class="sapUiSizeCompact">
 		<!-- <Button text="Delete" press="handleAppointmentDelete" type="Emphasized"/> -->
 		<beginButton>
-			<Button id="fragAddParticipantsFilter" text="Add Participants" press="handleAddExternalParticipants" type="Emphasized"/>
+			<Button id="fragAddParticipantsFilter" text="Add Participants" press="handleAddExternalParticipantsFilter" type="Emphasized"/>
 		</beginButton>
 		<endButton>
 			<Button text="{i18n>Cancel}" press="handleAppointmentFilterCancel"/>

@@ -24,25 +24,25 @@
 				<Label text="Responsible" visible="true" required="false"></Label>
 				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelect">
 					<items>
-						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName} "/>
+						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName} {teamMemModel>lastName} "/>
 					</items>
 				</ComboBox>
 				<Label text="Accountable" visible="true" required="false"></Label>
 				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectAccount">
 					<items>
-						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>
+						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName} {teamMemModel>lastName}"/>
 					</items>
 				</ComboBox>
 				<Label text="Consulted" visible="true" required="false"></Label>
 				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectConsult">
 					<items>
-						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>
+						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName} {teamMemModel>lastName}"/>
 					</items>
 				</ComboBox>
 				<Label text="Informed" visible="true" required="false"></Label>
 				<ComboBox items="{path: 'teamMemModel>/'}" visible="true" enabled="true" selectionChange="onDependencySelectInform">
 					<items>
-						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName}"/>
+						<core:Item key="{teamMemModel>id}" text="{teamMemModel>firstName} {teamMemModel>lastName}"/>
 					</items>
 				</ComboBox>
 			</f:content>

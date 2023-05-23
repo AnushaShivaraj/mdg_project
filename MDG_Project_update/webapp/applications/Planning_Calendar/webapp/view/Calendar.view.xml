@@ -6,7 +6,7 @@
 			<toolbarContent>
 				<Title id="_IDGenTitle1" text="{i18nModel>PlanningCalendar}" titleStyle="H4"/>
 				<Button id="_IDGenButton1" icon="sap-icon://add" press="handleAppointmentCreate" tooltip="Add"/>
-				<Button id="_IDGenButton2" icon="sap-icon://clear-filter" press="handleAppointmentClear" tooltip="Clear"/>
+				<Button id="_IDGenButton2" icon="sap-icon://reset" press="handleAppointmentClear" tooltip="Clear"/>
 				<Button id="_IDGenButton3" tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
 			</toolbarContent>
 			<rows>
