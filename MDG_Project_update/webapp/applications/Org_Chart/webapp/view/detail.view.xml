@@ -74,8 +74,8 @@
 				visible="{= ${programDetails>/0/attributes/status} !== 'Completed'}"/>
 			<m:Button class="Export" id="downloadChart" icon="sap-icon://download" text="Download" tooltip="{i18n>downloadTextForCustomers}"
 				press="onExport" type="Emphasized" iconFirst="true" visible="true"/>
-			<m:Button type="Emphasized" text="{i18n>Approve}" id="approveButtonId" press="handleApproveButtonPress"/>
-			<m:Button type="Reject" text="{i18n>Reject}" id="rejectButtonId" press="handleRejectButtonPress"/>
+			<!-- <m:Button type="Emphasized" text="{i18n>Approve}" id="approveButtonId" press="handleApproveButtonPress"/> -->
+			<!-- <m:Button type="Reject" text="{i18n>Reject}" id="rejectButtonId" press="handleRejectButtonPress"/> -->
 			<!--<Button type="Transparent" text="{i18n>cancel}" id="cancelButtonId" visible="false" press="handleCancelUser"/>-->
 			<!--<Button type="Transparent" text="{i18n>edit}" id="editButtonId" press="handleEditUserPress" iconFirst="true" icon="sap-icon://edit"/>-->
 			<!--<Button type="Transparent" text="{i18n>delete}" id="deleteButtonId" press="handleDeleteUserPress" iconFirst="true" icon="sap-icon://delete"/>-->

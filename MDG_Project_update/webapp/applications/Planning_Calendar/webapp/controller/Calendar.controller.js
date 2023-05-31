@@ -454,9 +454,9 @@ function (Controller, JSONModel, MessageBox, Token, Filter, FilterOperator, form
 			if (!this._AddAppointment.getContent()[0].getContent()[11].getValue()) {
 				Err++
 			}
-			if (!this._AddAppointment.getContent()[0].getContent()[13].getValue()) {
-				Err++
-			}
+			// if (!this._AddAppointment.getContent()[0].getContent()[13].getValue()) {
+			// 	Err++
+			// }
 			return Err
 		},
 		_addNewAppointment: function (oAppointment) {

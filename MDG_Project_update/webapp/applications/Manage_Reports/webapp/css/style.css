@@ -109,8 +109,7 @@
 
 .chartCard .sapMTitle:hover {
     color: #007b1 !important;
-    cursor: pointer;
-    text-decoration: underline;
+    
 }
 
 .sapSuiteClMCInnerBar.sapSuiteClMCSemanticColorNeutral {

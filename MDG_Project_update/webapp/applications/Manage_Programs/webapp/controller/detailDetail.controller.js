@@ -1910,6 +1910,7 @@ sap.ui.define([
 				// this.CreateUpdateMobDialog.setModel(this.getView().getModel("i18n"), "i18n");
 				this.getView().addDependent(this.addMileStoneInfo);
 			}
+			//Id
 			//MileStone object
 			that.mileStone = evt.getSource().getBindingContext("mMileStoneModel").getObject();
 			//var mileStone = this.getView().getModel().getData().attributes.m_milestones.data[milestoneTablePath];

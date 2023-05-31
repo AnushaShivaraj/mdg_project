@@ -10,7 +10,7 @@
 					</layoutData>
 				</Button>
 				<!--<Image id="logo" src="images/OPTfirstLogo.png" height="85%" press="goToHomePage" class="glowOnHover"/>-->
-				<Image id="logo" src="images/OPTsecondLogo.png" height="85%" press="goToHomePage" class="glowOnHover"/>
+				<Image id="logo" src="Image/main.png" height="85%" press="goToHomePage" class="glowOnHover"/>
 				<!--<Image id="logo1" src="image/RhCard.png" height="85%" press="goToHomePage" class="glowOnHover"/>-->
 				<ToolbarSpacer/>
 				<Title text="{i18n>appTitle_MDG}" textAlign="Center" class="appTitleText"/>

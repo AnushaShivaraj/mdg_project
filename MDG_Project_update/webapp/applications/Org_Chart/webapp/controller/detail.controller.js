@@ -619,20 +619,20 @@ sap.ui.define([
 				}));
 			};
 
-			// that._mExplored.forEach(function (oItem) {
-			// 	fnAddBossCondition(oItem);
-			// 	fnAddLineCondition(oItem);
-			// });
+			that._mExplored.forEach(function (oItem) {
+				fnAddBossCondition(oItem);
+				fnAddLineCondition(oItem);
+			});
 
-			// that._graph.getBinding("nodes").filter(new sap.ui.model.Filter({
-			// 	filters: aNodesCond,
-			// 	and: false
-			// }));
+			that._graph.getBinding("nodes").filter(new sap.ui.model.Filter({
+				filters: aNodesCond,
+				and: false
+			}));
 
-			// that._graph.getBinding("lines").filter(new sap.ui.model.Filter({
-			// 	filters: aLinesCond,
-			// 	and: false
-			// }));
+			that._graph.getBinding("lines").filter(new sap.ui.model.Filter({
+				filters: aLinesCond,
+				and: false
+			}));
 		},
 
 		_loadMore: function (sName) {

@@ -16,12 +16,12 @@ function (Controller, MessageBox) {
 			var chartIds = ["chartContainer0", "chartContainer1", "chartContainer2"];
 			for (var i = 0; i < chartIds.length; i++) {
 				this.getView().byId(chartIds[i])._oChartTitle.attachBrowserEvent("click", function (evt) {
-					that.getView().setBusy(true);
+					//that.getView().setBusy(true);
 					var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
 					oRouter.navTo("drildown", {
 						selectedKPI: evt.target.textContent
 					});
-					that.getView().setBusy(false);
+					//that.getView().setBusy(false);
 				});
 			}
 			that.StaticProgramModel();
