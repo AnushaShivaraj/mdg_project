@@ -1,0 +1,7 @@
+.selectPerson {
+    max-width: 277px;
+    /* Set the desired max width */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

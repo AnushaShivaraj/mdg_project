@@ -1,0 +1,281 @@
+/* Enter your custom styles here */
+/* Enter your custom styles here */
+
+
+/* Enter your custom styles here */
+.main-container {
+    padding: 14px;
+    background: #808080;
+}
+
+.sub-container {
+    gap: 10px;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: white;
+}
+
+.b-go {
+    gap: 10px;
+    color: white;
+}
+
+.text-color {
+    color: white;
+}
+
+.moreAgenciesStyle {
+    height: 100%;
+}
+
+.processFlowTable {
+    margin-bottom: 2rem !important;
+}
+
+.openvsclose {
+    padding-top: 0.5rem !important;
+}
+
+.textstyle {
+    font-weight: bolder !important;
+    font-style: italic !important;
+    font-size: 14px !important;
+}
+
+.textstylekpi {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.topactofharm {
+    margin-top: 1rem;
+}
+
+.v-title.viz-title-label {
+    font-weight: bold !important;
+    font-style: italic !important;
+    font-size: 14px !important;
+}
+
+.sapSuiteClMCInnerBar.sapSuiteClMCSemanticColorGood {
+    background-color: #427cac !important;
+}
+
+.actofharmmorelink {
+    margin-left: 19rem;
+}
+
+.proctectedcalssmorelink {
+    margin-left: 18rem;
+}
+
+.complaintmorelink {
+    margin-left: 10rem;
+}
+
+.totalcomplaintlink {
+    margin-left: 11.5rem;
+}
+
+.top {
+    margin-top: 2.3rem;
+}
+
+
+/*.sapMLnk:hover:not(.sapMLnkDsbl) {*/
+
+
+/*    color: #e28100;*/
+
+
+/*}*/
+
+.link:hover {
+    color: #e28100 !important;
+}
+
+.link:active {
+    color: #e28100 !important;
+}
+
+.link {
+    color: #e28100;
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.chartCard .sapMTitle:hover {
+    color: #007b1 !important;
+    
+}
+
+.sapSuiteClMCInnerBar.sapSuiteClMCSemanticColorNeutral {
+    background-color: #427cac !important;
+}
+
+.sapMNCValueScr {
+    overflow: hidden;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #427cac !important;
+}
+
+.sapSuiteIBCBarLabelText {
+    white-space: pre-line !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    font-family: "72", "72full", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 0.875rem;
+    margin-right: 0.375rem;
+    margin-left: 0.375rem;
+}
+
+.filter {
+    padding: 1rem !important;
+}
+
+.sapUiSmallMargin {
+    margin: 0rem !important;
+}
+
+.sapSuiteClMCLabel {
+    overflow: inherit !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/*.sapSuiteIBC sapSuiteIBCFullWidth sapSuiteIBCSmallFont{
+  width: 318px;
+  height: 112px !important;
+  visibility: visible;
+}*/
+
+.sapMNCValueScr {
+    overflow: hidden;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.kpiTile {
+    border-bottom: 1.5px solid darkgrey;
+    /* padding-left: 1rem;
+  padding-right: 1rem;*/
+    min-height: 8rem;
+    min-width: 8rem;
+}
+
+.kpiTile .sapMTitle {
+    color: #e28100;
+    font-weight: bold;
+}
+
+.kpiTile .sapMNCValue {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.kpiTile .sapMTileCntFtrTxt {
+    font-weight: bold;
+}
+
+.chartCard .sapUiBlockCellContent {
+    padding: 0.5rem 0.5rem 1rem 0.5rem !important;
+}
+
+.chartCard .sapSuiteUiCommonsChartContainer {
+    background-color: #ffffffad !important;
+}
+
+.chartCard .sapSuiteUiCommonsChartContainerChartArea {
+    background-color: transparent !important;
+}
+
+.chartCard .sapMTBStandard {
+    border: 0px;
+}
+
+.chartCard .sapMTitle {
+    color: #e28100;
+    font-weight: bold;
+}
+
+.divider {
+    background-color: grey;
+}
+
+.filterBar {
+    background-color: grey;
+    height: 4rem;
+}
+
+.filterBar .sapMLabel {
+    color: white;
+}
+
+.filterBar .sapMBtnInner {
+    text-align: left;
+    color: lightgrey;
+    padding-left: 2px !important;
+}
+
+.filterBar .sapMInputBaseContentWrapper {
+    background: transparent;
+    border: 0px;
+}
+
+.filterBar .sapMInputBaseIcon {
+    color: white !important;
+    background-color: transparent !important;
+}
+
+.filterBar .sapMTokenizerIndicator {
+    color: lightgrey !important;
+}
+
+.filterBar .sapMInputBaseContentWrapper:hover {
+    background: #ffffff40 !important;
+    border: 0px;
+}
+
+.filterBar .sapMInputBaseInner {
+    color: lightgrey !important;
+}
+
+.filterBar .sapMInputBaseInner::placeholder {
+    color: lightgrey !important;
+}
+
+.sapSuiteUiCommonsChartContainerChartArea {
+    /*background-color: #ffffffad !important;*/
+}
+
+.tableclass {
+    max-height: 0px !important;
+}
+
+
+/*.sapUiTableVSb{
+overflow: hidden !important;
+}*/
+
+
+/*.sapUiTableVScr .sapUiTableVSb,
+.sapUiTableVScr .sapUiTableVSbBg {
+  display: 0px !important;
+}*/
+
+
+/*.sapUiTableVSb {
+  max-height: 0px !important;
+  top: 0px !important;
+}
+*/
+/* Enter your custom styles here */
