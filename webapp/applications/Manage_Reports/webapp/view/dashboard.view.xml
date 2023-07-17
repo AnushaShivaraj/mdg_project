@@ -16,13 +16,13 @@
 					<Title id="_IDGenTitle1" class="sapUiSmallMarginBegin" level="H3" titleStyle="H3" text="Report"/>
 					<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
 				</Toolbar>
-				<FlexBox id="_IDGenFlexBox1" class="main-container" alignItems="Center" justifyContent="SpaceBetween">
+				<FlexBox id="_IDGenFlexBox1" class="main-container" alignItems="Center" >
 					<HBox id="_IDGenHBox1" justifyContent="Center" alignItems="Center">
 						<FlexBox id="_IDGenFlexBox2" alignItems="Center" class="sub-container">
 							<Text id="_IDGenText1" class="filter-label" text="{i18n>Filters}:"></Text>
 							<VBox id="_IDGenVBox9">
 								<Text id="_IDGenText2" text="{i18n>Programs}" class="text-color"></Text>
-								<Select id="programId" forceSelection="true" width="200px" selectedKey="{/selProgram}" change="onChangeSelect" items="{mprogramsmmodel>/}">
+								<Select id="programId" forceSelection="true" width="200px" selectedKey="" change="onChangeSelect" items="{mprogramsmmodel>/}">
 									<core:Item id="_IDGenItem6" key="{mprogramsmmodel>id}" text="{mprogramsmmodel>attributes/name}"/>
 								</Select>
 							</VBox>

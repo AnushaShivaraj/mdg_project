@@ -25,9 +25,9 @@
 					<Label text="{i18n>Project Name}"/>
 					<Text text="{/0/m_projects}"/>
 					<Label text="Meeting Invite"/>
-					<Input value="{/0/meetingLink}" editable="false" />
+					<Link text="Click here to join the meeting" href="{/0/meetingLink}" target="_blank"/>
 					<!-- <Link text="{/0/meetingLink}" href="{/0/meetingLink}" target="_blank"/> -->
-					<Button id="appointmentEditbutt" icon="sap-icon://edit" type="Transparent" press="onEditLink"/>
+					<!-- <Button id="appointmentEditbutt" icon="sap-icon://edit" type="Transparent" press="onEditLink"/> -->
 				</f:content>
 			</f:SimpleForm>
 		</VBox>
