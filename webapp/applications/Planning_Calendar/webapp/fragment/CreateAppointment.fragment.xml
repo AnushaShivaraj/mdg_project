@@ -24,7 +24,7 @@
 			<DateTimePicker id="startDate" displayFormat="short" required="true" change="handleCreateChange"/>
 			<Label text="{i18n>Enddate}: " required="true"/>
 			<DateTimePicker id="endDate" displayFormat="short" required="true" change="handleCreateChange"/>
-			<Label text="{i18n>MeetingLink}:"/>
+			<Label text="{i18n>MeetingLink}:" />
 			<Input id="meetingLink"/>
 		</l:VerticalLayout>
 	</Dialog>

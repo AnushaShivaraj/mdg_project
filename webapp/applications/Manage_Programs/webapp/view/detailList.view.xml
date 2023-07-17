@@ -102,7 +102,7 @@
 									</m:OverflowToolbar>
 								</m:headerToolbar>
 								<m:items>
-									<m:ObjectListItem number="{= 'PRG10001_0000' + ${projectsInfo>id}}" type="Navigation" press="OnItemPress" title="{projectsInfo>attributes/name}">
+									<m:ObjectListItem number="{projectsInfo>attributes/name}" type="Navigation" press="OnItemPress" title="{= 'PRG10001_0000' + ${projectsInfo>id}}">
 										<m:firstStatus>
 											<m:ObjectStatus text="{projectsInfo>attributes/status}" state="{path:'projectsInfo>attributes/status',formatter:'.formatter.getStatus'}"/>
 										</m:firstStatus>

@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="Add Event link" contentWidth="50%" class="sapUiSizeCompact">
+		<beginButton>
+			<Button  text="Save" press="onSaveLink" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}" press="handleLinkCancel"/>
+		</endButton>
+			<customHeader>
+			<!-- <Bar>
+				<contentRight>
+					<Button text="{i18n>Delete}" type="Reject" press="handleAppointmentDelete"/>
+				</contentRight>
+			</Bar> -->
+		</customHeader>
+		<VBox>
+			<f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+				emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+				<f:content>
+					<core:Title text=""/>
+					
+					<Label text="Meeting Invite"/>
+					<Input value="{/0/meetingLink}" ></Input>
+					<!-- <Link text="{/0/meetingLink}" href="{/0/meetingLink}" target="_blank"/> -->
+					<!-- <Button id="appointm888entEditbutt" icon="sap-icon://edit" type="Transparent" press="onEditLink"/> -->
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		
+		
+	</Dialog>
+</core:FragmentDefinition>

@@ -70,6 +70,34 @@ function (Controller, JSONModel, MessageBox, Token, Filter, FilterOperator, form
 			//that.appointmentModel();
 
 		},
+		onSaveLink:function(){
+			var that = this;
+			
+			$.ajax({
+				url: "/deswork/api/p-projects/" + projectId,
+				type: "PUT",
+				headers: {
+				  "Content-Type": "application/json",
+				},
+				data: JSON.stringify({
+					data: that.updatedProject,
+				  }),
+				success: function (res) {
+				  var getValues = JSON.parse(res);
+				  console.log(getValues.error);
+				  if (getValues.error) {
+					MessageBox.error(getValues.error.message);
+				  } else {
+
+					MessageToast.show("Attachments Deleted Successfully!");
+					that.getView().getModel("mprojects").updateBindings(true);
+					that.getView().getModel("mprojects").refresh();
+					//    that.getVendorDetails();
+					//	that.handleClose();
+				  }
+				},
+			  });
+		},
 		programDetails: function () {
 			var that = this;
 			var people =
@@ -153,7 +181,71 @@ function (Controller, JSONModel, MessageBox, Token, Filter, FilterOperator, form
 					}
 				});
 		},
+		onEditLink: function (oEv) {
+			var that = this;
+			this._oAppointmentInfo.getContent()[0].getItems()[0].getContent()[6].setEditable(true);
+			that.AppointmentId = this._oAppointmentInfo.id ;
+			// that.editLinkAppointment :{}
+			that.updatedProject = {
+				name: this._oAppointmentInfo
+				  .getContent()[0]
+				  .getItems()[0]
+				  .getContent()[6]
+				  .getValue(),
+			
+				
+			  }
+			$.ajax({
+				url: "/deswork/api/m-appointments/" + that.AppointmentId,
+				type: "PUT",
+				headers: {
+				  "Content-Type": "application/json",
+				},
+				data: JSON.stringify({
+				  data: that.updatedProject,
+				}),
+				success: function (res) {  
+				  var getValues = JSON.parse(res);
+				  console.log(getValues.error);
+				  if (getValues.error) {
+					MessageBox.error(getValues.error.message);
+				  } else {
+					MessageToast.show("Event Link Updated Successfully!");
+					// that.getView().getModel("mprojects").updateBindings(true);
+					// that.getView().getModel("mprojects").refresh();
+					//that.getVendorDetails();
+					//that.handleClose();
+				  }
+				},
+			  });
+			// if (!this._oAppointmentLinkEdit) {
+			// 	this._oAppointmentLinkEdit = sap.ui.xmlfragment(this.getView().getId(), "MDG.Planning_Calendar.fragment._oAppointmentLinkEdit", this);
+			// 	this.getView().addDependent(this._oAppointmentLinkEdit);
+			// }
+			
+			// var oModel = this.getView().getModel().getData();
+			// var obj = {
+			// 		"programs": this.getView().getModel().getData().data,
+			// 		"projects": this.getView().getModel("projects").getData()
+			// 	}
+			// 	// var obj = {
 
+			// // }
+			// var mModel = new sap.ui.model.json.JSONModel(obj);
+			// this._oAppointmentLinkEdit.setModel(mModel);
+			// this._oAppointmentLinkEdit.open();
+			// // $.ajax({
+			// // 	url: "/OptimalCog/api/m-projects?*",
+			// // 	type: "GET",
+			// // 	success: function (res) {
+			// // 		var response = JSON.parse(res);
+
+			// // 		var oModel = new sap.ui.model.json.JSONModel(response.data);
+			// // 		that.getView().setModel(oModel, "projects");
+
+			// // 	}
+			// // });
+		},
 		projectDetails: function () {
 			var that = this;
 			$.ajax({

@@ -3,7 +3,7 @@
 	xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" height="100%" xmlns:suite="sap.suite.ui.commons">
 	<semantic:SemanticPage id="detailPage" showFooter="true" class="detailPageClass">
 		<semantic:titleHeading>
-			<m:Title text="{i18n>Organization Chart}"/>
+			<m:Title text="{i18n>Resource Network}"/>
 		</semantic:titleHeading>
 		<semantic:headerContent>
 			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">

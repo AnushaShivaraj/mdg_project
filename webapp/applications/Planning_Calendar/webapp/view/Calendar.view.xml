@@ -10,7 +10,7 @@
 				<Button id="_IDGenButton3" tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
 			</toolbarContent>
 			<rows>
-				<PlanningCalendarRow id="_IDGenPlanningCalendarRow1" title="{appointmentsdata>name}" text="{appointmentsdata>description}"
+				<PlanningCalendarRow id="_IDGenPlanningCalendarRow1" title="{appointmentsdata>name}" text=""
 					appointments="{model: 'appointmentsdata', path : 'm_appointments', templateShareable:false}">
 					<appointments>
 						<unified:CalendarAppointment id="_IDGenCalendarAppointment1"

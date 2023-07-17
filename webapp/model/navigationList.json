@@ -1,184 +1,184 @@
 [{
-		"id": "",
-		"title": "HomePage",
-		"icon": "sap-icon://home",
-		"expanded": false,
-		"key": "Home",
-		"componentName": "",
-		"permittedRoles": ["everyone"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
+	"id": "",
+	"title": "HomePage",
+	"icon": "sap-icon://home",
+	"expanded": false,
+	"key": "Home",
+	"componentName": "",
+	"permittedRoles": ["everyone"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
 	},
+	"items": []
+},
 
-	{
-		"id": "APP10005",
-		"title": "User Management",
-		"icon": "sap-icon://user-settings",
-		"expanded": false,
-		"key": "UsersManagement",
-		"componentName": "MDG.ApplicationManagement",
-		"permittedRoles": ["superadmin", "administrator"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10001",
-		"title": "Manage Process",
-		"icon": "sap-icon://add-activity-2",
-		"expanded": false,
-		"key": "Manage Programs",
-		"componentName": "MDG.Program",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10002",
-		"title": "Manage Customer",
-		"icon": "sap-icon://customer",
-		"expanded": false,
-		"key": "Manage Customers",
-		"componentName": "MDG.Customer",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10003",
-		"title": "Manage Vendor",
-		"icon": "sap-icon://supplier",
-		"expanded": false,
-		"key": "Manage Vendors",
-		"componentName": "MDG.Vendor",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10004",
-		"title": "Help",
-		"icon": "sap-icon://sys-help",
-		"expanded": false,
-		"key": "Help",
-		"componentName": "MDG.Help",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10006",
-		"title": "Report",
-		"icon": "sap-icon://area-chart",
-		"expanded": false,
-		"key": "Reports",
-		"componentName": "MDG.Report",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10007",
-		"title": "Glossary",
-		"icon": "sap-icon://form",
-		"expanded": false,
-		"key": "Glossary",
-		"componentName": "MDG.glossary",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10008",
-		"title": "Organization Chart",
-		"icon": "sap-icon://overview-chart",
-		"expanded": false,
-		"key": "org_chart",
-		"componentName": "mdg.Org_Chart",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10009",
-		"title": "RACI",
-		"icon": "sap-icon://employee",
-		"expanded": false,
-		"key": "RACI",
-		"componentName": "mdg_raci.RACI",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10010",
-		"title": "Forms",
-		"icon": "sap-icon://create-form",
-		"expanded": false,
-		"key": "Forms",
-		"componentName": "EHS.ManageAssessmentTemplates",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}, {
-		"id": "APP10011",
-		"title": "Planning Calendar",
-		"icon": "sap-icon://add-activity-2",
-		"expanded": false,
-		"key": "Calendar",
-		"componentName": "MDG.Planning_Calendar",
-		"permittedRoles": ["manager", "technici"],
-		"permissions": {
-			"create": false,
-			"read": true,
-			"update": false,
-			"delete": false
-		},
-		"items": []
-	}
+{
+	"id": "APP10005",
+	"title": "User Management",
+	"icon": "sap-icon://user-settings",
+	"expanded": false,
+	"key": "UsersManagement",
+	"componentName": "MDG.ApplicationManagement",
+	"permittedRoles": ["superadmin", "administrator"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+},  {
+	"id": "APP10002",
+	"title": "Manage Customer",
+	"icon": "sap-icon://customer",
+	"expanded": false,
+	"key": "Manage Customers",
+	"componentName": "MDG.Customer",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+}, {
+	"id": "APP10003",
+	"title": "Manage Vendor",
+	"icon": "sap-icon://supplier",
+	"expanded": false,
+	"key": "Manage Vendors",
+	"componentName": "MDG.Vendor",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+}, {
+	"id": "APP10008",
+	"title": "Manage Resource Network",
+	"icon": "sap-icon://overview-chart",
+	"expanded": false,
+	"key": "org_chart",
+	"componentName": "mdg.Org_Chart",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+},{
+	"id": "APP10001",
+	"title": "Manage Process",
+	"icon": "sap-icon://add-activity-2",
+	"expanded": false,
+	"key": "Manage Programs",
+	"componentName": "MDG.Program",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+}, {
+	"id": "APP10006",
+	"title": "Actionable Insight",
+	"icon": "sap-icon://area-chart",
+	"expanded": false,
+	"key": "Reports",
+	"componentName": "MDG.Report",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+}, {
+	"id": "APP10007",
+	"title": "Manage Glossary",
+	"icon": "sap-icon://form",
+	"expanded": false,
+	"key": "Glossary",
+	"componentName": "MDG.glossary",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+}, {
+	"id": "APP10009",
+	"title": "Manage RACI",
+	"icon": "sap-icon://employee",
+	"expanded": false,
+	"key": "RACI",
+	"componentName": "mdg_raci.RACI",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+},{
+	"id": "APP10011",
+	"title": "Manage Event",
+	"icon": "sap-icon://add-activity-2",
+	"expanded": false,
+	"key": "Calendar",
+	"componentName": "MDG.Planning_Calendar",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+}, {
+	"id": "APP10010",
+	"title": "Manage Template",
+	"icon": "sap-icon://create-form",
+	"expanded": false,
+	"key": "Forms",
+	"componentName": "EHS.ManageAssessmentTemplates",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+}, {
+	"id": "APP10004",
+	"title": "Help Guru",
+	"icon": "sap-icon://sys-help",
+	"expanded": false,
+	"key": "Help",
+	"componentName": "MDG.Help",
+	"permittedRoles": ["manager", "technici"],
+	"permissions": {
+		"create": false,
+		"read": true,
+		"update": false,
+		"delete": false
+	},
+	"items": []
+}
 ]

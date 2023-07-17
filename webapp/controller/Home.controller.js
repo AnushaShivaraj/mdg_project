@@ -60,7 +60,7 @@ sap.ui.define([
 						"delete": false
 					}
 				}, {
-					title: "Organizatin Chart",
+					title: "Manage Resource Network",
 					id: "APP10008",
 					key: "org_chart",
 					componentName: "mdg.Org_Chart",
@@ -72,7 +72,7 @@ sap.ui.define([
 						"delete": false
 					}
 				}, {
-					title: "RACI",
+					title: "Manage RACI",
 					id: "APP10009",
 					key: "RACI",
 					componentName: "mdg_raci.RACI",
@@ -89,7 +89,7 @@ sap.ui.define([
 				break;
 			case tileId.includes("MCog"):
 				AppList.push({
-					title: "Forms",
+					title: "Manage Template",
 					id: "APP10010",
 					key: "Forms",
 					componentName: "EHS.ManageAssessmentTemplates",
@@ -101,7 +101,7 @@ sap.ui.define([
 						"delete": false
 					}
 				}, {
-					title: "Planning Calendar",
+					title: "Manage Event",
 					id: "APP10011",
 					key: "Calendar",
 					componentName: "MDG.Planning_Calendar",
@@ -131,7 +131,7 @@ sap.ui.define([
 				break;
 			case tileId.includes("ICog"):
 				AppList.push({
-					title: "Glossary",
+					title: "Manage Glossary",
 					id: "APP10007",
 					key: "Glossary",
 					componentName: "MDG.glossary",
@@ -146,7 +146,7 @@ sap.ui.define([
 				break;
 			case tileId.includes("ACog"):
 				AppList.push({
-					title: "Manage Customers",
+					title: "Manage Customer",
 					id: "APP10002",
 					key: "Manage Customers",
 					componentName: "MDG.Customer",
@@ -158,7 +158,7 @@ sap.ui.define([
 						"delete": false
 					}
 				}, {
-					title: "Manage Vendors",
+					title: "Manage Vendor",
 					id: "APP10003",
 					key: "Manage Vendors",
 					componentName: "MDG.Vendor",
