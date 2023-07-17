@@ -16,7 +16,7 @@
 					<Title id="_IDGenTitle1" class="sapUiSmallMarginBegin" level="H3" titleStyle="H3" text="Report"/>
 					<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
 				</Toolbar>
-				<FlexBox id="_IDGenFlexBox1" class="main-container" alignItems="Center" >
+				<FlexBox id="_IDGenFlexBox1" class="main-container" alignItems="Center" justifyContent="SpaceBetween" >
 					<HBox id="_IDGenHBox1" justifyContent="Center" alignItems="Center">
 						<FlexBox id="_IDGenFlexBox2" alignItems="Center" class="sub-container">
 							<Text id="_IDGenText1" class="filter-label" text="{i18n>Filters}:"></Text>
@@ -28,10 +28,6 @@
 							</VBox>
 							<VBox id="_IDGenVBox10">
 								<Text id="_IDGenText3" text="{i18n>Status}" class="text-color"></Text>
-								<Button id="_IDGenButtonreset" press="onAllStatus" text="{i18n>All}"></Button>
-							</VBox>
-							<VBox id="_IDGenHBox3">
-								<Text id="_IDGenText30" text=""></Text>
 								<Select id="prgStatusId" forceSelection="false" selectedKey="{mprogramsmmodel>/status}">
 									<core:Item id="_IDGenItem1" key="New" text="New"/>
 									<core:Item id="_IDGenItem2" key="In-progress" text="In-Progress"/>
@@ -39,6 +35,11 @@
 									<core:Item id="_IDGenItem4" key="Archived" text="Archived"/>
 									<core:Item id="_IDGenItem5" key="Cancelled" text="Cancelled"/>
 								</Select>
+								
+							</VBox>
+							<VBox id="_IDGenHBox3">
+								<Text id="_IDGenText30" text=""></Text>
+								<Button id="_IDGenButtonreset" press="onAllStatus" text="{i18n>All}"></Button>
 							</VBox>
 						</FlexBox>
 					</HBox>
